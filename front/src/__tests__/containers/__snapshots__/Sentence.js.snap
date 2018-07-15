@@ -1,0 +1,1335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/Sentence/showPOSAndPronunciation 初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Sentence
+    dispatch={[Function]}
+    store={
+        Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          }
+    }
+    storeSubscription={
+        Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": undefined,
+            "store": Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            },
+            "unsubscribe": [Function],
+          }
+    }
+    words={
+        Array [
+            Object {
+              "pos": "名詞",
+              "pronunciation": "やきゅう",
+              "word": "野球",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": "の",
+              "word": "の",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": "ＤＨ",
+              "word": "ＤＨ",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": "の",
+              "word": "の",
+            },
+            Object {
+              "pos": "形状詞",
+              "pronunciation": "せいしき",
+              "word": "正式",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": "よびな",
+              "word": "呼び名",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": "と",
+              "word": "と",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": "よみ",
+              "word": "読み",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": "を",
+              "word": "を",
+            },
+            Object {
+              "pos": "動詞",
+              "pronunciation": "おしえ",
+              "word": "教え",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": "て",
+              "word": "て",
+            },
+            Object {
+              "pos": "動詞",
+              "pronunciation": "くださ",
+              "word": "くださ",
+            },
+            Object {
+              "pos": "語尾",
+              "pronunciation": "い",
+              "word": "い",
+            },
+            Object {
+              "pos": "補助記号",
+              "pronunciation": "。",
+              "word": "。",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "block": false,
+      "bsClass": "btn-group",
+      "children": Array [
+        <Connect(Word)
+          pos="名詞"
+          pronunciation="やきゅう"
+          word="野球"
+/>,
+        <Connect(Word)
+          pos="助詞"
+          pronunciation="の"
+          word="の"
+/>,
+        <Connect(Word)
+          pos="名詞"
+          pronunciation="ＤＨ"
+          word="ＤＨ"
+/>,
+        <Connect(Word)
+          pos="助詞"
+          pronunciation="の"
+          word="の"
+/>,
+        <Connect(Word)
+          pos="形状詞"
+          pronunciation="せいしき"
+          word="正式"
+/>,
+        <Connect(Word)
+          pos="名詞"
+          pronunciation="よびな"
+          word="呼び名"
+/>,
+        <Connect(Word)
+          pos="助詞"
+          pronunciation="と"
+          word="と"
+/>,
+        <Connect(Word)
+          pos="名詞"
+          pronunciation="よみ"
+          word="読み"
+/>,
+        <Connect(Word)
+          pos="助詞"
+          pronunciation="を"
+          word="を"
+/>,
+        <Connect(Word)
+          pos="動詞"
+          pronunciation="おしえ"
+          word="教え"
+/>,
+        <Connect(Word)
+          pos="助詞"
+          pronunciation="て"
+          word="て"
+/>,
+        <Connect(Word)
+          pos="動詞"
+          pronunciation="くださ"
+          word="くださ"
+/>,
+        <Connect(Word)
+          pos="語尾"
+          pronunciation="い"
+          word="い"
+/>,
+        <Connect(Word)
+          pos="補助記号"
+          pronunciation="。"
+          word="。"
+/>,
+      ],
+      "justified": false,
+      "vertical": false,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": "やきゅう",
+          "word": "野球",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": "の",
+          "word": "の",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": "ＤＨ",
+          "word": "ＤＨ",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": "の",
+          "word": "の",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "4",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "形状詞",
+          "pronunciation": "せいしき",
+          "word": "正式",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "5",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": "よびな",
+          "word": "呼び名",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "6",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": "と",
+          "word": "と",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "7",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": "よみ",
+          "word": "読み",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "8",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": "を",
+          "word": "を",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "9",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "動詞",
+          "pronunciation": "おしえ",
+          "word": "教え",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "10",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": "て",
+          "word": "て",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "11",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "動詞",
+          "pronunciation": "くださ",
+          "word": "くださ",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "12",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "語尾",
+          "pronunciation": "い",
+          "word": "い",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "13",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "補助記号",
+          "pronunciation": "。",
+          "word": "。",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "block": false,
+        "bsClass": "btn-group",
+        "children": Array [
+          <Connect(Word)
+            pos="名詞"
+            pronunciation="やきゅう"
+            word="野球"
+/>,
+          <Connect(Word)
+            pos="助詞"
+            pronunciation="の"
+            word="の"
+/>,
+          <Connect(Word)
+            pos="名詞"
+            pronunciation="ＤＨ"
+            word="ＤＨ"
+/>,
+          <Connect(Word)
+            pos="助詞"
+            pronunciation="の"
+            word="の"
+/>,
+          <Connect(Word)
+            pos="形状詞"
+            pronunciation="せいしき"
+            word="正式"
+/>,
+          <Connect(Word)
+            pos="名詞"
+            pronunciation="よびな"
+            word="呼び名"
+/>,
+          <Connect(Word)
+            pos="助詞"
+            pronunciation="と"
+            word="と"
+/>,
+          <Connect(Word)
+            pos="名詞"
+            pronunciation="よみ"
+            word="読み"
+/>,
+          <Connect(Word)
+            pos="助詞"
+            pronunciation="を"
+            word="を"
+/>,
+          <Connect(Word)
+            pos="動詞"
+            pronunciation="おしえ"
+            word="教え"
+/>,
+          <Connect(Word)
+            pos="助詞"
+            pronunciation="て"
+            word="て"
+/>,
+          <Connect(Word)
+            pos="動詞"
+            pronunciation="くださ"
+            word="くださ"
+/>,
+          <Connect(Word)
+            pos="語尾"
+            pronunciation="い"
+            word="い"
+/>,
+          <Connect(Word)
+            pos="補助記号"
+            pronunciation="。"
+            word="。"
+/>,
+        ],
+        "justified": false,
+        "vertical": false,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": "やきゅう",
+            "word": "野球",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": "の",
+            "word": "の",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": "ＤＨ",
+            "word": "ＤＨ",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": "の",
+            "word": "の",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "4",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "形状詞",
+            "pronunciation": "せいしき",
+            "word": "正式",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "5",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": "よびな",
+            "word": "呼び名",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "6",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": "と",
+            "word": "と",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "7",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": "よみ",
+            "word": "読み",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "8",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": "を",
+            "word": "を",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "9",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "動詞",
+            "pronunciation": "おしえ",
+            "word": "教え",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "10",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": "て",
+            "word": "て",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "11",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "動詞",
+            "pronunciation": "くださ",
+            "word": "くださ",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "12",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "語尾",
+            "pronunciation": "い",
+            "word": "い",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "13",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "補助記号",
+            "pronunciation": "。",
+            "word": "。",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`containers/Sentence/showSentence 初期状態からshowSentenceへStateが遷移した際に、Componentが正しく配置されている 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Sentence
+    dispatch={[Function]}
+    store={
+        Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          }
+    }
+    storeSubscription={
+        Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": undefined,
+            "store": Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            },
+            "unsubscribe": [Function],
+          }
+    }
+    words={
+        Array [
+            Object {
+              "pos": "名詞",
+              "pronunciation": "やきゅう",
+              "word": "野球",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": "の",
+              "word": "の",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": "ＤＨ",
+              "word": "ＤＨ",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": "の",
+              "word": "の",
+            },
+            Object {
+              "pos": "形状詞",
+              "pronunciation": "せいしき",
+              "word": "正式",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": "よびな",
+              "word": "呼び名",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": "と",
+              "word": "と",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": "よみ",
+              "word": "読み",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": "を",
+              "word": "を",
+            },
+            Object {
+              "pos": "動詞",
+              "pronunciation": "おしえ",
+              "word": "教え",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": "て",
+              "word": "て",
+            },
+            Object {
+              "pos": "動詞",
+              "pronunciation": "くださ",
+              "word": "くださ",
+            },
+            Object {
+              "pos": "語尾",
+              "pronunciation": "い",
+              "word": "い",
+            },
+            Object {
+              "pos": "補助記号",
+              "pronunciation": "。",
+              "word": "。",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "block": false,
+      "bsClass": "btn-group",
+      "children": Array [
+        <Connect(Word)
+          pos="名詞"
+          pronunciation="やきゅう"
+          word="野球"
+/>,
+        <Connect(Word)
+          pos="助詞"
+          pronunciation="の"
+          word="の"
+/>,
+        <Connect(Word)
+          pos="名詞"
+          pronunciation="ＤＨ"
+          word="ＤＨ"
+/>,
+        <Connect(Word)
+          pos="助詞"
+          pronunciation="の"
+          word="の"
+/>,
+        <Connect(Word)
+          pos="形状詞"
+          pronunciation="せいしき"
+          word="正式"
+/>,
+        <Connect(Word)
+          pos="名詞"
+          pronunciation="よびな"
+          word="呼び名"
+/>,
+        <Connect(Word)
+          pos="助詞"
+          pronunciation="と"
+          word="と"
+/>,
+        <Connect(Word)
+          pos="名詞"
+          pronunciation="よみ"
+          word="読み"
+/>,
+        <Connect(Word)
+          pos="助詞"
+          pronunciation="を"
+          word="を"
+/>,
+        <Connect(Word)
+          pos="動詞"
+          pronunciation="おしえ"
+          word="教え"
+/>,
+        <Connect(Word)
+          pos="助詞"
+          pronunciation="て"
+          word="て"
+/>,
+        <Connect(Word)
+          pos="動詞"
+          pronunciation="くださ"
+          word="くださ"
+/>,
+        <Connect(Word)
+          pos="語尾"
+          pronunciation="い"
+          word="い"
+/>,
+        <Connect(Word)
+          pos="補助記号"
+          pronunciation="。"
+          word="。"
+/>,
+      ],
+      "justified": false,
+      "vertical": false,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": "やきゅう",
+          "word": "野球",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": "の",
+          "word": "の",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": "ＤＨ",
+          "word": "ＤＨ",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": "の",
+          "word": "の",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "4",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "形状詞",
+          "pronunciation": "せいしき",
+          "word": "正式",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "5",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": "よびな",
+          "word": "呼び名",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "6",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": "と",
+          "word": "と",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "7",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": "よみ",
+          "word": "読み",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "8",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": "を",
+          "word": "を",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "9",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "動詞",
+          "pronunciation": "おしえ",
+          "word": "教え",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "10",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": "て",
+          "word": "て",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "11",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "動詞",
+          "pronunciation": "くださ",
+          "word": "くださ",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "12",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "語尾",
+          "pronunciation": "い",
+          "word": "い",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "13",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "補助記号",
+          "pronunciation": "。",
+          "word": "。",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "block": false,
+        "bsClass": "btn-group",
+        "children": Array [
+          <Connect(Word)
+            pos="名詞"
+            pronunciation="やきゅう"
+            word="野球"
+/>,
+          <Connect(Word)
+            pos="助詞"
+            pronunciation="の"
+            word="の"
+/>,
+          <Connect(Word)
+            pos="名詞"
+            pronunciation="ＤＨ"
+            word="ＤＨ"
+/>,
+          <Connect(Word)
+            pos="助詞"
+            pronunciation="の"
+            word="の"
+/>,
+          <Connect(Word)
+            pos="形状詞"
+            pronunciation="せいしき"
+            word="正式"
+/>,
+          <Connect(Word)
+            pos="名詞"
+            pronunciation="よびな"
+            word="呼び名"
+/>,
+          <Connect(Word)
+            pos="助詞"
+            pronunciation="と"
+            word="と"
+/>,
+          <Connect(Word)
+            pos="名詞"
+            pronunciation="よみ"
+            word="読み"
+/>,
+          <Connect(Word)
+            pos="助詞"
+            pronunciation="を"
+            word="を"
+/>,
+          <Connect(Word)
+            pos="動詞"
+            pronunciation="おしえ"
+            word="教え"
+/>,
+          <Connect(Word)
+            pos="助詞"
+            pronunciation="て"
+            word="て"
+/>,
+          <Connect(Word)
+            pos="動詞"
+            pronunciation="くださ"
+            word="くださ"
+/>,
+          <Connect(Word)
+            pos="語尾"
+            pronunciation="い"
+            word="い"
+/>,
+          <Connect(Word)
+            pos="補助記号"
+            pronunciation="。"
+            word="。"
+/>,
+        ],
+        "justified": false,
+        "vertical": false,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": "やきゅう",
+            "word": "野球",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": "の",
+            "word": "の",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": "ＤＨ",
+            "word": "ＤＨ",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": "の",
+            "word": "の",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "4",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "形状詞",
+            "pronunciation": "せいしき",
+            "word": "正式",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "5",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": "よびな",
+            "word": "呼び名",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "6",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": "と",
+            "word": "と",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "7",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": "よみ",
+            "word": "読み",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "8",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": "を",
+            "word": "を",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "9",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "動詞",
+            "pronunciation": "おしえ",
+            "word": "教え",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "10",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": "て",
+            "word": "て",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "11",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "動詞",
+            "pronunciation": "くださ",
+            "word": "くださ",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "12",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "語尾",
+            "pronunciation": "い",
+            "word": "い",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "13",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "補助記号",
+            "pronunciation": "。",
+            "word": "。",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
