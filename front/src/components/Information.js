@@ -60,7 +60,7 @@ class Information extends React.Component {
                                     key={i}
                                     className="text-center"
                                     style={{
-                                        "vertical-align": "middle"
+                                        "verticalAlign": "middle"
                                     }}
                                 >
                                     {name}
