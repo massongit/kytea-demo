@@ -29,6 +29,35 @@ conf = config.Config(pathlib.Path.cwd().parent / 'configs')
 app = flask.Flask(__name__, conf.get('general', 'front', 'url'), conf.get('general', 'front', 'dir path'))
 
 
+def output_http_data(headers, body):
+    """
+    HTTPデータ (リクエストやレスポンス) の内容を出力する
+    :param headers: HTTPデータ (リクエストやレスポンス) のheader
+    :param body: HTTPデータ (リクエストやレスポンス) のbody
+    """
+    app.logger.debug('[Header]')
+
+    for header in headers:
+        app.logger.debug('{}: {}'.format(*header))
+
+    app.logger.debug(os.linesep.join(['[Data]',
+                                      json.dumps(body, indent=4, ensure_ascii=False, sort_keys=True)]))
+
+
+def convert_tag(tag):
+    """
+    タグをレスポンス用の形式に変換する
+    :param tag: KyTeaが出力したタグ
+    :return: レスポンス用のタグ
+    """
+    if tag == '0':  # 0タグが付与されたとき
+        return ''
+    elif tag == 'UNK':  # タグがUnknownなとき
+        return '(Unknown)'
+    else:  # タグが付与されたとき
+        return tag
+
+
 @app.route('/')
 def index():
     """
@@ -53,84 +82,35 @@ class KyTeaView(flask_classy.FlaskView):
     def post(self):
         try:
             app.logger.debug('/kytea/ called!')
-            app.logger.debug('<Request>')
-            app.logger.debug('[Header]')
-
-            for header in flask.request.headers:
-                app.logger.debug('{}: {}'.format(header[0], header[1]))
 
             # リクエスト
             request = flask.request.get_data(as_text=True)
 
-            try:
-                request = json.loads(request)
-            except json.JSONDecodeError:
-                pass
+            app.logger.debug('<Request>')
+            output_http_data(flask.request.headers, request)
 
-            app.logger.debug(os.linesep.join(['[Data]', json.dumps(request, indent=4,
-                                                                   ensure_ascii=False, sort_keys=True)]))
+            # レスポンス
+            responce = list()
 
-            if isinstance(request, str):
-                # レスポンス
-                responce = list()
+            # KyTeaによる解析を行い、その結果を処理
+            for word_data in self.kytea.getAllTags(request.strip()):
+                word_data.surface = word_data.surface.strip()
+                if word_data.surface:
+                    responce.append({'word': word_data.surface,
+                                     'pos': convert_tag(word_data.tag[0][0][0]),
+                                     'pronunciation': [{'margin': margin, 'pronunciation': convert_tag(tag)}
+                                                       for tag, margin in word_data.tag[1]]})
 
-                # KyTeaによる解析を行い、その結果を処理
-                for word_data in self.kytea.getAllTags(request.strip()):
-                    word_data.surface = word_data.surface.strip()
-                    if word_data.surface:
-                        # 単語のレスポンス
-                        responce_word = {'word': word_data.surface}
+            response = flask.jsonify(responce)
+            response.status_code = flask_api.status.HTTP_200_OK
+            response.headers['Access-Control-Allow-Origin'] = '*'
 
-                        zero_tag = '0'
-                        unknown_tag = 'UNK'
-                        unknown_word = '(Unknown)'
+            app.logger.debug('<Response>')
+            app.logger.debug('[Status]')
+            app.logger.debug(response.status)
+            output_http_data(response.headers, response.json)
 
-                        key = 'pos'
-                        tag = word_data.tag[0][0][0]
-
-                        if tag == zero_tag:  # 0タグが付与されたとき
-                            responce_word[key] = ''
-                        elif tag == unknown_tag:  # タグがUnknownなとき
-                            responce_word[key] = unknown_word
-                        else:  # タグが付与されたとき
-                            responce_word[key] = tag
-
-                        key = 'pronunciation'
-                        responce_word[key] = list()
-
-                        for tag, margin in word_data.tag[1]:
-                            responce_pronunciation = {'margin': margin}
-
-                            # タグが付与されているとき、語義をレスポンスに追加
-                            if tag == zero_tag:  # 0タグが付与されたとき
-                                responce_pronunciation['pronunciation'] = ''
-                            elif tag == unknown_tag:  # タグがUnknownなとき
-                                responce_pronunciation['pronunciation'] = unknown_word
-                            else:  # タグが付与されたとき
-                                responce_pronunciation['pronunciation'] = tag
-
-                            responce_word[key].append(responce_pronunciation)
-
-                        responce.append(responce_word)
-
-                response = flask.jsonify(responce)
-                response.status_code = flask_api.status.HTTP_200_OK
-                response.headers['Access-Control-Allow-Origin'] = '*'
-
-                app.logger.debug('<Response>')
-                app.logger.debug('[Status]')
-                app.logger.debug(response.status)
-                app.logger.debug('[Header]')
-
-                for header in response.headers:
-                    app.logger.debug('{}: {}'.format(header[0], header[1]))
-
-                app.logger.debug(os.linesep.join(['[Data]', json.dumps(response.json, indent=4,
-                                                                       ensure_ascii=False, sort_keys=True)]))
-
-                return response
-            else:
-                raise TypeError('The request type must be a {}, but it was a {}.'.format(str, type(request)))
+            return response
         except Exception as e:
             app.logger.exception(e)
             flask.abort(flask_api.status.HTTP_500_INTERNAL_SERVER_ERROR)
