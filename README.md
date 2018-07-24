@@ -65,7 +65,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
                 * App.js: ルート要素のContainerのテスト
                 * Information.js: 解析結果表示部のContainerのテスト
                 * Input.js: 入力部のContainerのテスト
-                * OutputPanel: 解析結果表示部のパネルのContainerのテスト
+                * OutputPanel.js: 解析結果表示部のパネルのContainerのテスト
                 * Sentence.js: 入力文をボタンのグループとして表示するComponentのContainerのテスト
                 * Word.js: Sentenceの各ボタンのContainerのテスト
             * reducers/: [Redux](https://redux.js.org/)のReducerのテストが格納されている
@@ -82,7 +82,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * Information.js: 解析結果表示部
             * Input.js: 入力部
             * InputPanel.js: 入力部のパネル
-            * OutputPanel: 解析結果表示部のパネル
+            * OutputPanel.js: 解析結果表示部のパネル
             * Sentence.js: 入力文をボタンのグループとして表示するComponent
             * Word.js: Sentenceの各ボタン
         * containers/: [react-redux](https://redux.js.org/basics/usage-with-react)のContainerが格納されている
