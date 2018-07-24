@@ -27,16 +27,26 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
 [browserl.ist: A page to display compatible browsers from a browserslist string.](http://browserl.ist/?q=>+0.5%25%2C+>+0.5%25+in+JP%2C+last+2+versions%2C+Firefox+ESR%2C+not+dead)参照
 
 ## 必要なソフトウェア
+### 共通
 * [KyTea](http://www.phontron.com/kytea/index-ja.html)
 * [Python](https://www.python.org/) 3.x
 * [pipenv](https://docs.pipenv.org/) (インストールコマンド: `pip install pipenv`)
 
+### `front/build`ディレクトリがない場合のみ
+* [Node.js](https://nodejs.org/ja/) 8.x
+* [Yarn](https://yarnpkg.com/ja/)
+
 ## 環境構築方法
+### `front/build`ディレクトリがない場合のみ
 1. 端末を起動します。
 1. `cd {このディレクトリ}/front`コマンドを実行します。
 1. `yarn install`コマンドを実行します。
 1. `yarn build`コマンドを実行します。
-1. `cd ../server/src`コマンドを実行します。
+1. `cd ..`コマンドを実行します。
+
+### 共通
+1. 端末を起動します。
+1. `cd {このディレクトリ}/server/src`コマンドを実行します。
 1. `pipenv install`コマンドを実行します。
 
 ## 実行方法
@@ -103,6 +113,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
         * intl.js: メッセージリソース関連のスクリプト
         * setupTests.js: テストの際のセットアップ用スクリプト
     * package.json: [Node.js](https://nodejs.org/ja/)の設定
+    * yarn.lock: [Node.js](https://nodejs.org/ja/)のパッケージ情報 ([Yarn](https://yarnpkg.com/ja/)が使用)
 * server/: サーバーサイドのプログラムが格納されている
     * configs/: 設定が格納されている
         * general.ini: 一般設定
@@ -110,6 +121,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
     * src/: ソースが格納されている
         * config.py: 設定ファイルを扱うためのオブジェクト
         * Pipfile: Pythonのパッケージ情報 ([pipenv](https://docs.pipenv.org/)が使用)
+        * Pipfile.lock: Pythonのパッケージ情報 ([pipenv](https://docs.pipenv.org/)が使用)
         * server.py: サーバー
         * test_server.py: テスト用スクリプト
 * README.md: README (MarkDown形式)
