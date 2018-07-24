@@ -6,8 +6,8 @@ import {shallow} from "enzyme"
 import {eventMock} from "./Input"
 import {showPOSAndPronunciation} from "../../actions"
 import {
-    initialShowSentenceState,
     initialShowPOSAndPronunciationState,
+    initialShowSentenceState,
     pos,
     pronunciation_,
     showPOSAndPronunciationState_,

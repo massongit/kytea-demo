@@ -9,8 +9,8 @@ import {shallow} from "enzyme"
 import {loadTranslation, mountWithIntl} from "enzyme-react-intl"
 import {showSentence} from "../../actions"
 import {
-    initialShowSentenceState,
     initialShowPOSAndPronunciationState,
+    initialShowSentenceState,
     rootStateAfterShowSentence,
     sentence,
     sentence2,

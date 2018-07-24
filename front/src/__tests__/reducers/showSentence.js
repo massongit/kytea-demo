@@ -15,13 +15,13 @@ import {
     showPOSAndPronunciationStateWordOnly,
     showPOSAndPronunciationStateWSOnly,
     showSentenceParameter,
-    showSentenceState2,
     showSentenceParameter3,
     showSentenceParameterIncludeNoWordWords,
     showSentenceParameterIncludeUndefinedWords,
     showSentenceParameterSentenceOnly,
     showSentenceParameterWordsOnly,
     showSentenceState,
+    showSentenceState2,
     words2,
     words3
 } from "./index"
