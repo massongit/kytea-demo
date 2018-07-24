@@ -4,10 +4,13 @@
 サーバーのテスト
 """
 
+import inspect
+import json
 import pathlib
 
 import pytest
 
+import config
 import server
 
 # 作者
@@ -26,148 +29,62 @@ def client():
     return server.app.test_client()
 
 
-def test_render_index(client):
+@pytest.fixture
+def conf():
+    """
+    設定を返す
+    :return: 設定
+    """
+    return config.Config(pathlib.Path.cwd().parent / 'configs')
+
+
+def test_render_index(client, conf):
     """
     トップページが正常に返される
     :param client: テスト用のクライアント
     """
     res = client.get('/')
-    assert res.status_code == 200
-    with (pathlib.Path(server.conf.get('general', 'front', 'dir path')) / 'index.html').open() as index_file:
+    do_test_http_ok(res)
+    with (pathlib.Path(conf.get('general', 'front', 'dir path')) / 'index.html').open() as index_file:
         assert res.data.decode() == index_file.read()
 
 
-def test_analysis_kytea(client):
+def test_analysis_kytea(client, conf):
     """
     KyTeaによる解析が正常に行われる
     :param client: テスト用のクライアント
+    :param conf: 設定
     """
-    res = client.post('/kytea', data='本日は晴天なり。')
-    assert res.status_code == 200
-    assert res.json == [
-        {
-            'pos': '名詞',
-            'pronunciation': [
-                {
-                    'margin': 100.0,
-                    'pronunciation': 'ほんじつ'
-                }
-            ],
-            'word': '本日'
-        },
-        {
-            'pos': '助詞',
-            'pronunciation': [
-                {
-                    'margin': 100.0,
-                    'pronunciation': 'は'
-                }
-            ],
-            'word': 'は'
-        },
-        {
-            'pos': '名詞',
-            'pronunciation': [
-                {
-                    'margin': 100.0,
-                    'pronunciation': 'せいてん'
-                }
-            ],
-            'word': '晴天'
-        },
-        {
-            'pos': '助動詞',
-            'pronunciation': [
-                {
-                    'margin': 0.9999511421247065,
-                    'pronunciation': 'な'
-                },
-                {
-                    'margin': 0.0,
-                    'pronunciation': 'らな'
-                }
-            ],
-            'word': 'な'
-        },
-        {
-            'pos': '語尾',
-            'pronunciation': [
-                {
-                    'margin': 100.0,
-                    'pronunciation': 'り'
-                }
-            ],
-            'word': 'り'
-        },
-        {
-            'pos': '補助記号',
-            'pronunciation': [
-                {
-                    'margin': 100.0,
-                    'pronunciation': '。'
-                }
-            ],
-            'word': '。'
-        }
-    ]
+    do_kywsd_test(client, conf, '本日は晴天なり。', inspect.currentframe())
 
 
-def test_analysis_kytea_with_unknown_word(client):
+def test_analysis_kytea_with_unknown_word(client, conf):
     """
     読みが予測不能な単語と空白を含む文を与えたとき、読みが予測不能な単語のpronunciationが空のリストになっており、空白が出力されていない
     :param client: テスト用のクライアント
+    :param conf: 設定
     """
-    res = client.post('/kytea', data='I have a pen.')
+    do_kywsd_test(client, conf, 'I have a pen.', inspect.currentframe())
+
+
+def do_kywsd_test(client, conf, sentence, frame):
+    """
+    KyWSDによる解析のテストを行う
+    :param client: テスト用のクライアント
+    :param conf: 設定
+    :param sentence: POSTする文字列
+    :param frame: fname (inspect.currentframe()を指定)
+    """
+    res = client.post('/kytea', data=sentence)
+    do_test_http_ok(res)
+    with (pathlib.Path(conf.get('general', 'test', 'json dir path'))
+          / (inspect.getframeinfo(frame)[2] + '.json')).open() as json_file:
+        assert res.json == json.load(json_file)
+
+
+def do_test_http_ok(res):
+    """
+    レスポンスが200 OKを返すかどうかのテストを行う
+    :param res: レスポンス
+    """
     assert res.status_code == 200
-    assert res.json == [
-        {
-            'pos': '補助記号',
-            'pronunciation': [
-                {
-                    'margin': 0.0,
-                    'pronunciation': '(Unknown)'
-                }
-            ],
-            'word': 'I'
-        },
-        {
-            'pos': '名詞',
-            'pronunciation': [
-                {
-                    'margin': 100.0,
-                    'pronunciation': 'はぶ'
-                }
-            ],
-            'word': 'have'
-        },
-        {
-            'pos': '記号',
-            'pronunciation': [
-                {
-                    'margin': 100.0,
-                    'pronunciation': 'Ａ'
-                }
-            ],
-            'word': 'a'
-        },
-        {
-            'pos': '補助記号',
-            'pronunciation': [
-                {
-                    'margin': 0.0,
-                    'pronunciation': '(Unknown)'
-                }
-            ],
-            'word': 'pen'
-        },
-        {
-            'pos': '補助記号',
-            'pronunciation': [
-                {
-                    'margin': 100.0,
-                    'pronunciation': '。'
-                }
-            ],
-            'word': '.'
-        }
-    ]
