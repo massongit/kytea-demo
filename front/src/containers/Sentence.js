@@ -1,5 +1,5 @@
-import {connect} from "react-redux"
 import Sentence from "../components/Sentence"
+import {connect} from "react-redux"
 
 const mapStateToProps = state => ({
     words: state.showSentence.words

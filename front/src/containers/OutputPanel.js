@@ -1,5 +1,5 @@
-import {connect} from "react-redux"
 import OutputPanel from "../components/OutputPanel"
+import {connect} from "react-redux"
 
 const mapStateToProps = state => ({
     word: state.showPOSAndPronunciation.word

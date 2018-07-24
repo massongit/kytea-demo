@@ -1,6 +1,6 @@
-import {combineReducers} from "redux"
 import showSentence from "./showSentence"
 import showPOSAndPronunciation from "./showPOSAndPronunciation"
+import {combineReducers} from "redux"
 
 /**
  * ルートReducer

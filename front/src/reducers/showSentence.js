@@ -1,5 +1,5 @@
-import {handleActions} from "redux-actions"
 import * as types from "../actions/types"
+import {handleActions} from "redux-actions"
 
 /**
  * KyTeaによる解析結果の表示ActionのReducer

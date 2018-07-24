@@ -1,10 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {Grid} from "react-bootstrap"
 import Header from "./Header"
 import InputPanel from "./InputPanel"
 import DescriptionPanel from "./DescriptionPanel"
 import OutputPanel from "../containers/OutputPanel"
+import {Grid} from "react-bootstrap"
 
 /**
  * ルート要素

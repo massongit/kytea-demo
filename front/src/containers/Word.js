@@ -1,5 +1,5 @@
-import {connect} from "react-redux"
 import Word from "../components/Word"
+import {connect} from "react-redux"
 
 /**
  * Sentenceの各ボタンのContainer

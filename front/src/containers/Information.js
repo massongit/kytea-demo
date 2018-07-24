@@ -1,5 +1,5 @@
-import {connect} from "react-redux"
 import Information from "../components/Information"
+import {connect} from "react-redux"
 
 const mapStateToProps = state => ({
     word: state.showPOSAndPronunciation.word,

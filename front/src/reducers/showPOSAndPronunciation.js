@@ -1,5 +1,5 @@
-import {handleActions} from "redux-actions"
 import * as types from "../actions/types"
+import {handleActions} from "redux-actions"
 
 /**
  * 初期状態
