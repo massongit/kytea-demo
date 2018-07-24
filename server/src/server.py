@@ -12,6 +12,7 @@ import pathlib
 
 import Mykytea
 import flask
+import flask_api.status
 import flask_classy
 
 import config
@@ -113,7 +114,7 @@ class KyTeaView(flask_classy.FlaskView):
                         responce.append(responce_word)
 
                 response = flask.jsonify(responce)
-                response.status_code = 200
+                response.status_code = flask_api.status.HTTP_200_OK
                 response.headers['Access-Control-Allow-Origin'] = '*'
 
                 app.logger.debug('<Response>')
@@ -132,7 +133,7 @@ class KyTeaView(flask_classy.FlaskView):
                 raise TypeError('The request type must be a {}, but it was a {}.'.format(str, type(request)))
         except Exception as e:
             app.logger.exception(e)
-            flask.abort(400)
+            flask.abort(flask_api.status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 KyTeaView.register(app)
