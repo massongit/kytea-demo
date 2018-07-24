@@ -79,6 +79,26 @@ class KyTeaView(flask_classy.FlaskView):
         # KyTea
         self.kytea = Mykytea.Mykytea('')
 
+    def _make_responce(self, request):
+        """
+        レスポンスを生成する
+        :param request: リクエスト
+        :return: レスポンス
+        """
+        # レスポンス
+        responce = list()
+
+        # KyTeaによる解析を行い、その結果を処理
+        for word_data in self.kytea.getAllTags(request.strip()):
+            word_data.surface = word_data.surface.strip()
+            if word_data.surface:
+                responce.append({'word': word_data.surface,
+                                 'pos': convert_tag(word_data.tag[0][0][0]),
+                                 'pronunciation': [{'margin': margin, 'pronunciation': convert_tag(tag)}
+                                                   for tag, margin in word_data.tag[1]]})
+
+        return responce
+
     def post(self):
         try:
             app.logger.debug('/kytea/ called!')
@@ -89,19 +109,7 @@ class KyTeaView(flask_classy.FlaskView):
             app.logger.debug('<Request>')
             output_http_data(flask.request.headers, request)
 
-            # レスポンス
-            responce = list()
-
-            # KyTeaによる解析を行い、その結果を処理
-            for word_data in self.kytea.getAllTags(request.strip()):
-                word_data.surface = word_data.surface.strip()
-                if word_data.surface:
-                    responce.append({'word': word_data.surface,
-                                     'pos': convert_tag(word_data.tag[0][0][0]),
-                                     'pronunciation': [{'margin': margin, 'pronunciation': convert_tag(tag)}
-                                                       for tag, margin in word_data.tag[1]]})
-
-            response = flask.jsonify(responce)
+            response = flask.jsonify(self._make_responce(request))
             response.status_code = flask_api.status.HTTP_200_OK
             response.headers['Access-Control-Allow-Origin'] = '*'
 
