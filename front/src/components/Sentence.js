@@ -5,30 +5,38 @@ import {ButtonGroup} from "react-bootstrap"
 
 /**
  * 入力文をボタンのグループとして表示するComponent
- * @param words {array} 文
- * @returns {element} 入力文をボタンのグループとして表示するComponent
  */
-const Sentence = ({words}) => (
-    <ButtonGroup>
-        {
-            (() => {
-                if (words !== undefined) {
-                    return words.map((word, i) => (
-                        <Word
-                            key={i}
-                            word={word.word}
-                            pos={word.pos}
-                            pronunciation={word.pronunciation}
-                        />
-                    ))
-                }
-            })()
-        }
-    </ButtonGroup>
-)
+class Sentence extends React.Component {
+    static propTypes = {
+        words: PropTypes.arrayOf(PropTypes.shape({
+            pos: PropTypes.string.isRequired,
+            word: PropTypes.string.isRequired,
+            pronunciation: PropTypes.arrayOf(PropTypes.shape({
+                id: PropTypes.number,
+                margin: PropTypes.number.isRequired,
+                pronunciation: PropTypes.string.isRequired
+            })).isRequired
+        }).isRequired)
+    }
 
-Sentence.propTypes = {
-    words: PropTypes.array
+    render() {
+        if (this.props.words) {
+            return (
+                <ButtonGroup>
+                    {
+                        this.props.words.map((word, i) => (
+                            <Word
+                                key={i}
+                                word={word.word}
+                                pos={word.pos}
+                                pronunciation={word.pronunciation}
+                            />
+                        ))
+                    }
+                </ButtonGroup>
+            )
+        }
+    }
 }
 
 export default Sentence

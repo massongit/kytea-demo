@@ -16,15 +16,19 @@
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
+    "react-intl": "^2.4.0",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-actions": "^2.4.0"
   },
   "devDependencies": {
+    "deepcopy": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-react-intl": "^2.0.0",
     "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-react-intl": "^1.1.2",
     "eslint-plugin-react-redux": "^2.3.0",
     "jest-fetch-mock": "^1.6.5",
     "redux-mock-store": "^1.5.3",
@@ -82,6 +86,7 @@
     "plugins": [
       "react",
       "react-redux",
+      "react-intl",
       "jest"
     ],
     "rules": {

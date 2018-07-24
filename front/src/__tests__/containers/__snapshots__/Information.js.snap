@@ -6,8 +6,15 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Information
     dispatch={[Function]}
+    number={1}
     pos="名詞"
-    pronunciation="やきゅう"
+    pronunciation={
+        Object {
+            "id": 1,
+            "margin": 100,
+            "pronunciation": "やきゅう",
+          }
+    }
     store={
         Object {
             "dispatch": [Function],
@@ -58,23 +65,80 @@ ShallowWrapper {
           <tr>
                     <th
                               className="text-center"
+                              style={
+                                        Object {
+                                                  "vertical-align": "middle",
+                                                }
+                              }
                     >
-                              単語
+                              <FormattedMessage
+                                        id="header.candidate"
+                                        values={Object {}}
+                              />
                     </th>
                     <th
                               className="text-center"
+                              style={
+                                        Object {
+                                                  "vertical-align": "middle",
+                                                }
+                              }
                     >
-                              品詞
+                              <FormattedMessage
+                                        id="header.word"
+                                        values={Object {}}
+                              />
                     </th>
                     <th
                               className="text-center"
+                              style={
+                                        Object {
+                                                  "vertical-align": "middle",
+                                                }
+                              }
                     >
-                              読み
+                              <FormattedMessage
+                                        id="header.pos"
+                                        values={Object {}}
+                              />
+                    </th>
+                    <th
+                              className="text-center"
+                              style={
+                                        Object {
+                                                  "vertical-align": "middle",
+                                                }
+                              }
+                    >
+                              <FormattedMessage
+                                        id="header.pronunciation"
+                                        values={Object {}}
+                              />
+                    </th>
+                    <th
+                              className="text-center"
+                              style={
+                                        Object {
+                                                  "vertical-align": "middle",
+                                                }
+                              }
+                    >
+                              <FormattedMessage
+                                        id="header.margin"
+                                        values={Object {}}
+                              />
                     </th>
           </tr>
 </thead>,
         <tbody>
           <tr>
+                    <td
+                              className="text-center"
+                    >
+                              <FormattedNumber
+                                        value={1}
+                              />
+                    </td>
                     <td
                               className="text-center"
                     >
@@ -89,6 +153,13 @@ ShallowWrapper {
                               className="text-center"
                     >
                               やきゅう
+                    </td>
+                    <td
+                              className="text-right"
+                    >
+                              <FormattedNumber
+                                        value={100}
+                              />
                     </td>
           </tr>
 </tbody>,
@@ -108,18 +179,68 @@ ShallowWrapper {
           "children": <tr>
             <th
                         className="text-center"
+                        style={
+                                    Object {
+                                                "vertical-align": "middle",
+                                              }
+                        }
             >
-                        単語
+                        <FormattedMessage
+                                    id="header.candidate"
+                                    values={Object {}}
+                        />
             </th>
             <th
                         className="text-center"
+                        style={
+                                    Object {
+                                                "vertical-align": "middle",
+                                              }
+                        }
             >
-                        品詞
+                        <FormattedMessage
+                                    id="header.word"
+                                    values={Object {}}
+                        />
             </th>
             <th
                         className="text-center"
+                        style={
+                                    Object {
+                                                "vertical-align": "middle",
+                                              }
+                        }
             >
-                        読み
+                        <FormattedMessage
+                                    id="header.pos"
+                                    values={Object {}}
+                        />
+            </th>
+            <th
+                        className="text-center"
+                        style={
+                                    Object {
+                                                "vertical-align": "middle",
+                                              }
+                        }
+            >
+                        <FormattedMessage
+                                    id="header.pronunciation"
+                                    values={Object {}}
+                        />
+            </th>
+            <th
+                        className="text-center"
+                        style={
+                                    Object {
+                                                "vertical-align": "middle",
+                                              }
+                        }
+            >
+                        <FormattedMessage
+                                    id="header.margin"
+                                    values={Object {}}
+                        />
             </th>
 </tr>,
         },
@@ -132,18 +253,68 @@ ShallowWrapper {
             "children": Array [
               <th
                 className="text-center"
+                style={
+                                Object {
+                                                "vertical-align": "middle",
+                                              }
+                }
 >
-                単語
+                <FormattedMessage
+                                id="header.candidate"
+                                values={Object {}}
+                />
 </th>,
               <th
                 className="text-center"
+                style={
+                                Object {
+                                                "vertical-align": "middle",
+                                              }
+                }
 >
-                品詞
+                <FormattedMessage
+                                id="header.word"
+                                values={Object {}}
+                />
 </th>,
               <th
                 className="text-center"
+                style={
+                                Object {
+                                                "vertical-align": "middle",
+                                              }
+                }
 >
-                読み
+                <FormattedMessage
+                                id="header.pos"
+                                values={Object {}}
+                />
+</th>,
+              <th
+                className="text-center"
+                style={
+                                Object {
+                                                "vertical-align": "middle",
+                                              }
+                }
+>
+                <FormattedMessage
+                                id="header.pronunciation"
+                                values={Object {}}
+                />
+</th>,
+              <th
+                className="text-center"
+                style={
+                                Object {
+                                                "vertical-align": "middle",
+                                              }
+                }
+>
+                <FormattedMessage
+                                id="header.margin"
+                                values={Object {}}
+                />
 </th>,
             ],
           },
@@ -151,38 +322,147 @@ ShallowWrapper {
           "rendered": Array [
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "0",
               "nodeType": "host",
               "props": Object {
-                "children": "単語",
+                "children": <FormattedMessage
+                  id="header.candidate"
+                  values={Object {}}
+/>,
                 "className": "text-center",
+                "style": Object {
+                  "vertical-align": "middle",
+                },
               },
               "ref": null,
-              "rendered": "単語",
+              "rendered": Object {
+                "instance": null,
+                "key": "header.candidate",
+                "nodeType": "class",
+                "props": Object {
+                  "id": "header.candidate",
+                  "values": Object {},
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
               "type": "th",
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "1",
               "nodeType": "host",
               "props": Object {
-                "children": "品詞",
+                "children": <FormattedMessage
+                  id="header.word"
+                  values={Object {}}
+/>,
                 "className": "text-center",
+                "style": Object {
+                  "vertical-align": "middle",
+                },
               },
               "ref": null,
-              "rendered": "品詞",
+              "rendered": Object {
+                "instance": null,
+                "key": "header.word",
+                "nodeType": "class",
+                "props": Object {
+                  "id": "header.word",
+                  "values": Object {},
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
               "type": "th",
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "2",
               "nodeType": "host",
               "props": Object {
-                "children": "読み",
+                "children": <FormattedMessage
+                  id="header.pos"
+                  values={Object {}}
+/>,
                 "className": "text-center",
+                "style": Object {
+                  "vertical-align": "middle",
+                },
               },
               "ref": null,
-              "rendered": "読み",
+              "rendered": Object {
+                "instance": null,
+                "key": "header.pos",
+                "nodeType": "class",
+                "props": Object {
+                  "id": "header.pos",
+                  "values": Object {},
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "th",
+            },
+            Object {
+              "instance": null,
+              "key": "3",
+              "nodeType": "host",
+              "props": Object {
+                "children": <FormattedMessage
+                  id="header.pronunciation"
+                  values={Object {}}
+/>,
+                "className": "text-center",
+                "style": Object {
+                  "vertical-align": "middle",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": "header.pronunciation",
+                "nodeType": "class",
+                "props": Object {
+                  "id": "header.pronunciation",
+                  "values": Object {},
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "th",
+            },
+            Object {
+              "instance": null,
+              "key": "4",
+              "nodeType": "host",
+              "props": Object {
+                "children": <FormattedMessage
+                  id="header.margin"
+                  values={Object {}}
+/>,
+                "className": "text-center",
+                "style": Object {
+                  "vertical-align": "middle",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": "header.margin",
+                "nodeType": "class",
+                "props": Object {
+                  "id": "header.margin",
+                  "values": Object {},
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
               "type": "th",
             },
           ],
@@ -199,6 +479,13 @@ ShallowWrapper {
             <td
                         className="text-center"
             >
+                        <FormattedNumber
+                                    value={1}
+                        />
+            </td>
+            <td
+                        className="text-center"
+            >
                         野球
             </td>
             <td
@@ -211,6 +498,13 @@ ShallowWrapper {
             >
                         やきゅう
             </td>
+            <td
+                        className="text-right"
+            >
+                        <FormattedNumber
+                                    value={100}
+                        />
+            </td>
 </tr>,
         },
         "ref": null,
@@ -220,6 +514,13 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
+              <td
+                className="text-center"
+>
+                <FormattedNumber
+                                value={1}
+                />
+</td>,
               <td
                 className="text-center"
 >
@@ -235,10 +536,41 @@ ShallowWrapper {
 >
                 やきゅう
 </td>,
+              <td
+                className="text-right"
+>
+                <FormattedNumber
+                                value={100}
+                />
+</td>,
             ],
           },
           "ref": null,
           "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <FormattedNumber
+                  value={1}
+/>,
+                "className": "text-center",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "value": 1,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "td",
+            },
             Object {
               "instance": null,
               "key": undefined,
@@ -275,6 +607,30 @@ ShallowWrapper {
               "rendered": "やきゅう",
               "type": "td",
             },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <FormattedNumber
+                  value={100}
+/>,
+                "className": "text-right",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "value": 100,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "td",
+            },
           ],
           "type": "tr",
         },
@@ -296,23 +652,80 @@ ShallowWrapper {
             <tr>
                         <th
                                     className="text-center"
+                                    style={
+                                                Object {
+                                                            "vertical-align": "middle",
+                                                          }
+                                    }
                         >
-                                    単語
+                                    <FormattedMessage
+                                                id="header.candidate"
+                                                values={Object {}}
+                                    />
                         </th>
                         <th
                                     className="text-center"
+                                    style={
+                                                Object {
+                                                            "vertical-align": "middle",
+                                                          }
+                                    }
                         >
-                                    品詞
+                                    <FormattedMessage
+                                                id="header.word"
+                                                values={Object {}}
+                                    />
                         </th>
                         <th
                                     className="text-center"
+                                    style={
+                                                Object {
+                                                            "vertical-align": "middle",
+                                                          }
+                                    }
                         >
-                                    読み
+                                    <FormattedMessage
+                                                id="header.pos"
+                                                values={Object {}}
+                                    />
+                        </th>
+                        <th
+                                    className="text-center"
+                                    style={
+                                                Object {
+                                                            "vertical-align": "middle",
+                                                          }
+                                    }
+                        >
+                                    <FormattedMessage
+                                                id="header.pronunciation"
+                                                values={Object {}}
+                                    />
+                        </th>
+                        <th
+                                    className="text-center"
+                                    style={
+                                                Object {
+                                                            "vertical-align": "middle",
+                                                          }
+                                    }
+                        >
+                                    <FormattedMessage
+                                                id="header.margin"
+                                                values={Object {}}
+                                    />
                         </th>
             </tr>
 </thead>,
           <tbody>
             <tr>
+                        <td
+                                    className="text-center"
+                        >
+                                    <FormattedNumber
+                                                value={1}
+                                    />
+                        </td>
                         <td
                                     className="text-center"
                         >
@@ -327,6 +740,13 @@ ShallowWrapper {
                                     className="text-center"
                         >
                                     やきゅう
+                        </td>
+                        <td
+                                    className="text-right"
+                        >
+                                    <FormattedNumber
+                                                value={100}
+                                    />
                         </td>
             </tr>
 </tbody>,
@@ -346,18 +766,68 @@ ShallowWrapper {
             "children": <tr>
               <th
                             className="text-center"
+                            style={
+                                          Object {
+                                                        "vertical-align": "middle",
+                                                      }
+                            }
               >
-                            単語
+                            <FormattedMessage
+                                          id="header.candidate"
+                                          values={Object {}}
+                            />
               </th>
               <th
                             className="text-center"
+                            style={
+                                          Object {
+                                                        "vertical-align": "middle",
+                                                      }
+                            }
               >
-                            品詞
+                            <FormattedMessage
+                                          id="header.word"
+                                          values={Object {}}
+                            />
               </th>
               <th
                             className="text-center"
+                            style={
+                                          Object {
+                                                        "vertical-align": "middle",
+                                                      }
+                            }
               >
-                            読み
+                            <FormattedMessage
+                                          id="header.pos"
+                                          values={Object {}}
+                            />
+              </th>
+              <th
+                            className="text-center"
+                            style={
+                                          Object {
+                                                        "vertical-align": "middle",
+                                                      }
+                            }
+              >
+                            <FormattedMessage
+                                          id="header.pronunciation"
+                                          values={Object {}}
+                            />
+              </th>
+              <th
+                            className="text-center"
+                            style={
+                                          Object {
+                                                        "vertical-align": "middle",
+                                                      }
+                            }
+              >
+                            <FormattedMessage
+                                          id="header.margin"
+                                          values={Object {}}
+                            />
               </th>
 </tr>,
           },
@@ -370,18 +840,68 @@ ShallowWrapper {
               "children": Array [
                 <th
                   className="text-center"
+                  style={
+                                    Object {
+                                                      "vertical-align": "middle",
+                                                    }
+                  }
 >
-                  単語
+                  <FormattedMessage
+                                    id="header.candidate"
+                                    values={Object {}}
+                  />
 </th>,
                 <th
                   className="text-center"
+                  style={
+                                    Object {
+                                                      "vertical-align": "middle",
+                                                    }
+                  }
 >
-                  品詞
+                  <FormattedMessage
+                                    id="header.word"
+                                    values={Object {}}
+                  />
 </th>,
                 <th
                   className="text-center"
+                  style={
+                                    Object {
+                                                      "vertical-align": "middle",
+                                                    }
+                  }
 >
-                  読み
+                  <FormattedMessage
+                                    id="header.pos"
+                                    values={Object {}}
+                  />
+</th>,
+                <th
+                  className="text-center"
+                  style={
+                                    Object {
+                                                      "vertical-align": "middle",
+                                                    }
+                  }
+>
+                  <FormattedMessage
+                                    id="header.pronunciation"
+                                    values={Object {}}
+                  />
+</th>,
+                <th
+                  className="text-center"
+                  style={
+                                    Object {
+                                                      "vertical-align": "middle",
+                                                    }
+                  }
+>
+                  <FormattedMessage
+                                    id="header.margin"
+                                    values={Object {}}
+                  />
 </th>,
               ],
             },
@@ -389,38 +909,147 @@ ShallowWrapper {
             "rendered": Array [
               Object {
                 "instance": null,
-                "key": undefined,
+                "key": "0",
                 "nodeType": "host",
                 "props": Object {
-                  "children": "単語",
+                  "children": <FormattedMessage
+                    id="header.candidate"
+                    values={Object {}}
+/>,
                   "className": "text-center",
+                  "style": Object {
+                    "vertical-align": "middle",
+                  },
                 },
                 "ref": null,
-                "rendered": "単語",
+                "rendered": Object {
+                  "instance": null,
+                  "key": "header.candidate",
+                  "nodeType": "class",
+                  "props": Object {
+                    "id": "header.candidate",
+                    "values": Object {},
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
                 "type": "th",
               },
               Object {
                 "instance": null,
-                "key": undefined,
+                "key": "1",
                 "nodeType": "host",
                 "props": Object {
-                  "children": "品詞",
+                  "children": <FormattedMessage
+                    id="header.word"
+                    values={Object {}}
+/>,
                   "className": "text-center",
+                  "style": Object {
+                    "vertical-align": "middle",
+                  },
                 },
                 "ref": null,
-                "rendered": "品詞",
+                "rendered": Object {
+                  "instance": null,
+                  "key": "header.word",
+                  "nodeType": "class",
+                  "props": Object {
+                    "id": "header.word",
+                    "values": Object {},
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
                 "type": "th",
               },
               Object {
                 "instance": null,
-                "key": undefined,
+                "key": "2",
                 "nodeType": "host",
                 "props": Object {
-                  "children": "読み",
+                  "children": <FormattedMessage
+                    id="header.pos"
+                    values={Object {}}
+/>,
                   "className": "text-center",
+                  "style": Object {
+                    "vertical-align": "middle",
+                  },
                 },
                 "ref": null,
-                "rendered": "読み",
+                "rendered": Object {
+                  "instance": null,
+                  "key": "header.pos",
+                  "nodeType": "class",
+                  "props": Object {
+                    "id": "header.pos",
+                    "values": Object {},
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "th",
+              },
+              Object {
+                "instance": null,
+                "key": "3",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <FormattedMessage
+                    id="header.pronunciation"
+                    values={Object {}}
+/>,
+                  "className": "text-center",
+                  "style": Object {
+                    "vertical-align": "middle",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": "header.pronunciation",
+                  "nodeType": "class",
+                  "props": Object {
+                    "id": "header.pronunciation",
+                    "values": Object {},
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "th",
+              },
+              Object {
+                "instance": null,
+                "key": "4",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <FormattedMessage
+                    id="header.margin"
+                    values={Object {}}
+/>,
+                  "className": "text-center",
+                  "style": Object {
+                    "vertical-align": "middle",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": "header.margin",
+                  "nodeType": "class",
+                  "props": Object {
+                    "id": "header.margin",
+                    "values": Object {},
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
                 "type": "th",
               },
             ],
@@ -437,6 +1066,13 @@ ShallowWrapper {
               <td
                             className="text-center"
               >
+                            <FormattedNumber
+                                          value={1}
+                            />
+              </td>
+              <td
+                            className="text-center"
+              >
                             野球
               </td>
               <td
@@ -449,6 +1085,13 @@ ShallowWrapper {
               >
                             やきゅう
               </td>
+              <td
+                            className="text-right"
+              >
+                            <FormattedNumber
+                                          value={100}
+                            />
+              </td>
 </tr>,
           },
           "ref": null,
@@ -458,6 +1101,13 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
+                <td
+                  className="text-center"
+>
+                  <FormattedNumber
+                                    value={1}
+                  />
+</td>,
                 <td
                   className="text-center"
 >
@@ -473,10 +1123,41 @@ ShallowWrapper {
 >
                   やきゅう
 </td>,
+                <td
+                  className="text-right"
+>
+                  <FormattedNumber
+                                    value={100}
+                  />
+</td>,
               ],
             },
             "ref": null,
             "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <FormattedNumber
+                    value={1}
+/>,
+                  "className": "text-center",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "value": 1,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "td",
+              },
               Object {
                 "instance": null,
                 "key": undefined,
@@ -511,6 +1192,30 @@ ShallowWrapper {
                 },
                 "ref": null,
                 "rendered": "やきゅう",
+                "type": "td",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <FormattedNumber
+                    value={100}
+/>,
+                  "className": "text-right",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "value": 100,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
                 "type": "td",
               },
             ],

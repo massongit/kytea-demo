@@ -1,20 +1,33 @@
 import React from "react"
-import {render} from "react-dom"
-import {Provider} from "react-redux"
-import {createStore} from "redux"
-import rootReducer from "./reducers"
 import App from "./containers/App"
+import rootReducer from "./reducers"
+import {Provider} from "react-redux"
+import {IntlProvider} from "react-intl"
+import {intl, locale, messages} from "./intl"
+import {render} from "react-dom"
+import {createStore} from "redux"
 import "bootstrap/dist/css/bootstrap.css"
 
+// 例外をalertとして表示
 process.on("uncaughtException", er => {
-    alert("エラーが発生しました！\n" + er.message)
+    alert(intl.formatMessage({
+        id: "errorMessage.default"
+    },
+    {
+        message: er.message
+    }))
 })
 
-// ルート要素を表示する
+// ルート要素を表示
 render((
-    <Provider
-        store={createStore(rootReducer)}
+    <IntlProvider
+        locale={locale}
+        messages={messages}
     >
-        <App/>
-    </Provider>
+        <Provider
+            store={createStore(rootReducer)}
+        >
+            <App/>
+        </Provider>
+    </IntlProvider>
 ), document.getElementById("root"))

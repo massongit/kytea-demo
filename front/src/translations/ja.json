@@ -1,0 +1,19 @@
+{
+  "unknown": "(予測不能)",
+  "errorMessage.default": "エラーが発生しました: {message}",
+  "errorMessage.predict": "予測中にエラーが発生しました: {message}",
+  "abstract.kyTea": "京都テキスト解析ツールキット",
+  "title.description": "概要",
+  "title.input": "入力",
+  "title.result": "結果",
+  "description.kyTea": "日本語の文章中に存在する各単語の品詞や読みを予測するシステムです。",
+  "description.input": "日本語の文章を入力し、予測ボタンをクリックしてください。",
+  "description.result": "単語を選択すると、その単語の品詞や読みが表示されます。",
+  "candidate": "候補{no}",
+  "header.candidate": "候補",
+  "header.word": "単語",
+  "header.pos": "品詞",
+  "header.pronunciation": "読み",
+  "header.margin": "SVM平面からのマージン (読み)",
+  "predict": "予測"
+}

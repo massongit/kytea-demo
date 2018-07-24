@@ -1,6 +1,7 @@
 import React from "react"
-import {Panel, Row} from "react-bootstrap"
 import Input from "../containers/Input"
+import {Panel, Row} from "react-bootstrap"
+import {FormattedMessage} from "react-intl"
 
 /**
  * 入力部のパネル
@@ -10,11 +11,11 @@ const InputPanel = () => (
     <Row>
         <Panel>
             <Panel.Heading>
-                入力
+                <FormattedMessage id="title.input"/>
             </Panel.Heading>
             <Panel.Body>
                 <p>
-                    日本語の文章を入力し、予測ボタンをクリックしてください。
+                    <FormattedMessage id="description.input"/>
                 </p>
                 <Input/>
             </Panel.Body>

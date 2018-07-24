@@ -1,5 +1,6 @@
 import React from "react"
 import {Panel, Row} from "react-bootstrap"
+import {FormattedMessage} from "react-intl"
 
 /**
  * 概要パネル
@@ -9,10 +10,10 @@ const DescriptionPanel = () => (
     <Row>
         <Panel>
             <Panel.Heading>
-                概要
+                <FormattedMessage id="title.description"/>
             </Panel.Heading>
             <Panel.Body>
-                日本語の文章中に存在する各単語の品詞や読みを予測するシステムです。
+                <FormattedMessage id="description.kyTea"/>
             </Panel.Body>
         </Panel>
     </Row>

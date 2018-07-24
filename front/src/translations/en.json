@@ -1,0 +1,19 @@
+{
+  "unknown": "(Unknown)",
+  "errorMessage.default": "The following error occurred: {message}",
+  "errorMessage.predict": "The following error occurred during prediction: {message}",
+  "abstract.kyTea": "Kyoto Text Analysis Toolkit",
+  "title.description": "Description",
+  "title.input": "Input",
+  "title.result": "Result",
+  "description.kyTea": "It is a system that predicts the part-of-speech and pronunciation of a word existing in a Japanese sentence.",
+  "description.input": "Please input a Japanese sentence and click the prediction button.",
+  "description.result": "The part-of-speech and pronunciation of a word is displayed when you select that word.",
+  "candidate": "Candidate {no}",
+  "header.candidate": "Candidate",
+  "header.word": "Word",
+  "header.pos": "Part-of-Speech",
+  "header.pronunciation": "Pronunciation",
+  "header.margin": "The Distance from the SVM Plane (Pronunciation)",
+  "predict": "Predict"
+}

@@ -1,49 +1,100 @@
 import React from "react"
 import PropTypes from "prop-types"
 import {Table} from "react-bootstrap"
+import {FormattedMessage, FormattedNumber} from "react-intl"
 
 /**
  * 解析結果表示部
- * @param word {string} 単語
- * @param pos {string} 品詞
- * @param pronunciation {string} 読み
- * @returns {element} 解析結果表示部
  */
-const Information = ({word, pos, pronunciation}) => (
-    <Table striped bordered hover condensed>
-        <thead>
-            <tr>
-                <th className="text-center">
-                単語
-                </th>
-                <th className="text-center">
-                品詞
-                </th>
-                <th className="text-center">
-                読み
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td className="text-center">
-                    {word}
-                </td>
-                <td className="text-center">
-                    {pos}
-                </td>
-                <td className="text-center">
-                    {pronunciation}
-                </td>
-            </tr>
-        </tbody>
-    </Table>
-)
+class Information extends React.Component {
+    static propTypes = {
+        number: PropTypes.number.isRequired,
+        word: PropTypes.string,
+        pos: PropTypes.string.isRequired,
+        pronunciation: PropTypes.shape({
+            id: PropTypes.number,
+            margin: PropTypes.number.isRequired,
+            pronunciation: PropTypes.string.isRequired
+        })
+    }
 
-Information.propTypes = {
-    word: PropTypes.string,
-    pos: PropTypes.string,
-    pronunciation: PropTypes.string
+    render() {
+        return (
+            <Table striped bordered hover condensed>
+                <thead>
+                    <tr>
+                        {
+                            [
+                                (
+                                    <FormattedMessage
+                                        key="header.candidate"
+                                        id="header.candidate"
+                                    />
+                                ),
+                                (
+                                    <FormattedMessage
+                                        key="header.word"
+                                        id="header.word"
+                                    />
+                                ),
+                                (
+                                    <FormattedMessage
+                                        key="header.pos"
+                                        id="header.pos"
+                                    />
+                                ),
+                                (
+                                    <FormattedMessage
+                                        key="header.pronunciation"
+                                        id="header.pronunciation"
+                                    />
+                                ),
+                                (
+                                    <FormattedMessage
+                                        key="header.margin"
+                                        id="header.margin"
+                                    />
+                                )
+                            ].map((name, i) => ( // 見出しを上下左右中央揃えで表示
+                                <th
+                                    key={i}
+                                    className="text-center"
+                                    style={{
+                                        "vertical-align": "middle"
+                                    }}
+                                >
+                                    {name}
+                                </th>
+                            ))
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td className="text-center">
+                            <FormattedNumber
+                                value={this.props.number}
+                            />
+                        </td>
+                        <td className="text-center">
+                            {this.props.word}
+                        </td>
+                        <td className="text-center">
+                            {this.props.pos}
+                        </td>
+                        <td className="text-center">
+                            {this.props.pronunciation.pronunciation}
+                        </td>
+                        <td className="text-right">
+                            <FormattedNumber
+                                value={this.props.pronunciation.margin}
+                            />
+                        </td>
+                    </tr>
+                </tbody>
+            </Table>
+        )
+    }
 }
 
 export default Information

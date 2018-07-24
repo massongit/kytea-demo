@@ -96,7 +96,11 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * index.js: ルートReducer
             * showSentence.js: [KyTea](http://www.phontron.com/kytea/index-ja.html)による解析結果の表示ActionのReducer
             * showPOSAndPronunciation.js: 品詞や読みの表示ActionのReducer
+        * translations/: メッセージリソースが格納されている
+            * en.json: 英語のメッセージリソース
+            * ja.json: 日本語のメッセージリソース
         * index.js: ルートとなるスクリプト
+        * intl.js: メッセージリソース関連のスクリプト
         * setupTests.js: テストの際のセットアップ用スクリプト
     * package.json: [Node.js](https://nodejs.org/ja/)の設定
 * server/: サーバーサイドのプログラムが格納されている

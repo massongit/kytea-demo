@@ -74,19 +74,43 @@ class KyTeaView(flask_classy.FlaskView):
                 responce = list()
 
                 # KyTeaによる解析を行い、その結果を処理
-                for word_data in self.kytea.getTags(request.strip()):
-                    # 単語のレスポンス
-                    responce_word = {'word': word_data.surface}
+                for word_data in self.kytea.getAllTags(request.strip()):
+                    word_data.surface = word_data.surface.strip()
+                    if word_data.surface:
+                        # 単語のレスポンス
+                        responce_word = {'word': word_data.surface}
 
-                    # 品詞と読みを単語のレスポンスに追加
-                    for key, tag in zip(['pos', 'pronunciation'], word_data.tag):
-                        tag = tag[0][0]
-                        if tag not in ['0', 'UNK']:  # タグが付与されているとき
-                            responce_word[key] = tag
-                        else:  # タグが付与されていないとき
+                        zero_tag = '0'
+                        unknown_tag = 'UNK'
+                        unknown_word = '(Unknown)'
+
+                        key = 'pos'
+                        tag = word_data.tag[0][0][0]
+
+                        if tag == zero_tag:  # 0タグが付与されたとき
                             responce_word[key] = ''
+                        elif tag == unknown_tag:  # タグがUnknownなとき
+                            responce_word[key] = unknown_word
+                        else:  # タグが付与されたとき
+                            responce_word[key] = tag
 
-                    responce.append(responce_word)
+                        key = 'pronunciation'
+                        responce_word[key] = list()
+
+                        for tag, margin in word_data.tag[1]:
+                            responce_pronunciation = {'margin': margin}
+
+                            # タグが付与されているとき、語義をレスポンスに追加
+                            if tag == zero_tag:  # 0タグが付与されたとき
+                                responce_pronunciation['pronunciation'] = ''
+                            elif tag == unknown_tag:  # タグがUnknownなとき
+                                responce_pronunciation['pronunciation'] = unknown_word
+                            else:  # タグが付与されたとき
+                                responce_pronunciation['pronunciation'] = tag
+
+                            responce_word[key].append(responce_pronunciation)
+
+                        responce.append(responce_word)
 
                 response = flask.jsonify(responce)
                 response.status_code = 200

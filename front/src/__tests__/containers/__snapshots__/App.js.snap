@@ -191,72 +191,166 @@ ShallowWrapper {
         Array [
             Object {
               "pos": "名詞",
-              "pronunciation": "やきゅう",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "やきゅう",
+                },
+              ],
               "word": "野球",
             },
             Object {
               "pos": "助詞",
-              "pronunciation": "の",
+              "pronunciation": Array [
+                Object {
+                  "margin": 2.12891303174829,
+                  "pronunciation": "の",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "きの",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "ゅの",
+                },
+              ],
               "word": "の",
             },
             Object {
               "pos": "名詞",
-              "pronunciation": "ＤＨ",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "ＤＨ",
+                },
+              ],
               "word": "ＤＨ",
             },
             Object {
               "pos": "助詞",
-              "pronunciation": "の",
+              "pronunciation": Array [
+                Object {
+                  "margin": 2.1760714835829633,
+                  "pronunciation": "の",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "きの",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "ゅの",
+                },
+              ],
               "word": "の",
             },
             Object {
               "pos": "形状詞",
-              "pronunciation": "せいしき",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "せいしき",
+                },
+              ],
               "word": "正式",
             },
             Object {
               "pos": "名詞",
-              "pronunciation": "よびな",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "よびな",
+                },
+              ],
               "word": "呼び名",
             },
             Object {
               "pos": "助詞",
-              "pronunciation": "と",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "と",
+                },
+              ],
               "word": "と",
             },
             Object {
               "pos": "名詞",
-              "pronunciation": "よみ",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "よみ",
+                },
+              ],
               "word": "読み",
             },
             Object {
               "pos": "助詞",
-              "pronunciation": "を",
+              "pronunciation": Array [
+                Object {
+                  "margin": 1.9998295447276375,
+                  "pronunciation": "を",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "みを",
+                },
+                Object {
+                  "margin": -0.00005912806885244315,
+                  "pronunciation": "くを",
+                },
+              ],
               "word": "を",
             },
             Object {
               "pos": "動詞",
-              "pronunciation": "おしえ",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "おしえ",
+                },
+              ],
               "word": "教え",
             },
             Object {
               "pos": "助詞",
-              "pronunciation": "て",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "て",
+                },
+              ],
               "word": "て",
             },
             Object {
               "pos": "動詞",
-              "pronunciation": "くださ",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "くださ",
+                },
+              ],
               "word": "くださ",
             },
             Object {
               "pos": "語尾",
-              "pronunciation": "い",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "い",
+                },
+              ],
               "word": "い",
             },
             Object {
               "pos": "補助記号",
-              "pronunciation": "。",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "。",
+                },
+              ],
               "word": "。",
             },
           ]
@@ -432,72 +526,166 @@ ShallowWrapper {
         Array [
             Object {
               "pos": "名詞",
-              "pronunciation": "やきゅう",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "やきゅう",
+                },
+              ],
               "word": "野球",
             },
             Object {
               "pos": "助詞",
-              "pronunciation": "の",
+              "pronunciation": Array [
+                Object {
+                  "margin": 2.12891303174829,
+                  "pronunciation": "の",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "きの",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "ゅの",
+                },
+              ],
               "word": "の",
             },
             Object {
               "pos": "名詞",
-              "pronunciation": "ＤＨ",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "ＤＨ",
+                },
+              ],
               "word": "ＤＨ",
             },
             Object {
               "pos": "助詞",
-              "pronunciation": "の",
+              "pronunciation": Array [
+                Object {
+                  "margin": 2.1760714835829633,
+                  "pronunciation": "の",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "きの",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "ゅの",
+                },
+              ],
               "word": "の",
             },
             Object {
               "pos": "形状詞",
-              "pronunciation": "せいしき",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "せいしき",
+                },
+              ],
               "word": "正式",
             },
             Object {
               "pos": "名詞",
-              "pronunciation": "よびな",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "よびな",
+                },
+              ],
               "word": "呼び名",
             },
             Object {
               "pos": "助詞",
-              "pronunciation": "と",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "と",
+                },
+              ],
               "word": "と",
             },
             Object {
               "pos": "名詞",
-              "pronunciation": "よみ",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "よみ",
+                },
+              ],
               "word": "読み",
             },
             Object {
               "pos": "助詞",
-              "pronunciation": "を",
+              "pronunciation": Array [
+                Object {
+                  "margin": 1.9998295447276375,
+                  "pronunciation": "を",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "みを",
+                },
+                Object {
+                  "margin": -0.00005912806885244315,
+                  "pronunciation": "くを",
+                },
+              ],
               "word": "を",
             },
             Object {
               "pos": "動詞",
-              "pronunciation": "おしえ",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "おしえ",
+                },
+              ],
               "word": "教え",
             },
             Object {
               "pos": "助詞",
-              "pronunciation": "て",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "て",
+                },
+              ],
               "word": "て",
             },
             Object {
               "pos": "動詞",
-              "pronunciation": "くださ",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "くださ",
+                },
+              ],
               "word": "くださ",
             },
             Object {
               "pos": "語尾",
-              "pronunciation": "い",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "い",
+                },
+              ],
               "word": "い",
             },
             Object {
               "pos": "補助記号",
-              "pronunciation": "。",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "。",
+                },
+              ],
               "word": "。",
             },
           ]

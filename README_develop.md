@@ -42,13 +42,15 @@
         * `state.showSentence.words`: KyTeaによる解析結果 (KyTeaによる解析用APIのレスポンス)
 * showPOSAndPronunciation: 品詞や読みの表示Action
     * Action
+        * `action.payload.number`: 候補No (整数)
         * `action.payload.word`: 単語 (文字列)
         * `action.payload.pos`: 品詞 (文字列)
-        * `action.payload.pronunciation`:  読み (文字列)
+        * `action.payload.pronunciation`:  読み (配列)
     * State
+        * `state.showPOSAndPronunciation.number`: 単語 (整数)
         * `state.showPOSAndPronunciation.word`: 単語 (文字列)
         * `state.showPOSAndPronunciation.pos`: 品詞 (文字列)
-        * `state.showPOSAndPronunciation.pronunciation`:  読み (文字列)
+        * `state.showPOSAndPronunciation.pronunciation`:  読み (配列)
 
 ## KyTeaによる解析用API
 ### リクエスト
@@ -64,72 +66,166 @@
 [
     {
         "pos": "名詞",
-        "pronunciation": "やきゅう",
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "やきゅう"
+            }
+        ],
         "word": "野球"
     },
     {
         "pos": "助詞",
-        "pronunciation": "の",
+        "pronunciation": [
+            {
+                "margin": 2.12891303174829,
+                "pronunciation": "の"
+            },
+            {
+                "margin": 0.0,
+                "pronunciation": "きの"
+            },
+            {
+                "margin": 0.0,
+                "pronunciation": "ゅの"
+            }
+        ],
         "word": "の"
     },
     {
         "pos": "名詞",
-        "pronunciation": "ＤＨ",
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "ＤＨ"
+            }
+        ],
         "word": "ＤＨ"
     },
     {
         "pos": "助詞",
-        "pronunciation": "の",
+        "pronunciation": [
+            {
+                "margin": 2.1760714835829633,
+                "pronunciation": "の"
+            },
+            {
+                "margin": 0.0,
+                "pronunciation": "きの"
+            },
+            {
+                "margin": 0.0,
+                "pronunciation": "ゅの"
+            }
+        ],
         "word": "の"
     },
     {
         "pos": "形状詞",
-        "pronunciation": "せいしき",
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "せいしき"
+            }
+        ],
         "word": "正式"
     },
     {
         "pos": "名詞",
-        "pronunciation": "よびな",
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "よびな"
+            }
+        ],
         "word": "呼び名"
     },
     {
         "pos": "助詞",
-        "pronunciation": "と",
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "と"
+            }
+        ],
         "word": "と"
     },
     {
         "pos": "名詞",
-        "pronunciation": "いみ",
-        "word": "意味"
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "よみ"
+            }
+        ],
+        "word": "読み"
     },
     {
         "pos": "助詞",
-        "pronunciation": "を",
+        "pronunciation": [
+            {
+                "margin": 1.9998295447276375,
+                "pronunciation": "を"
+            },
+            {
+                "margin": 0.0,
+                "pronunciation": "みを"
+            },
+            {
+                "margin": -5.912806885244315e-05,
+                "pronunciation": "くを"
+            }
+        ],
         "word": "を"
     },
     {
         "pos": "動詞",
-        "pronunciation": "おしえ",
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "おしえ"
+            }
+        ],
         "word": "教え"
     },
     {
         "pos": "助詞",
-        "pronunciation": "て",
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "て"
+            }
+        ],
         "word": "て"
     },
     {
         "pos": "動詞",
-        "pronunciation": "くださ",
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "くださ"
+            }
+        ],
         "word": "くださ"
     },
     {
         "pos": "語尾",
-        "pronunciation": "い",
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "い"
+            }
+        ],
         "word": "い"
     },
     {
         "pos": "補助記号",
-        "pronunciation": "。",
+        "pronunciation": [
+            {
+                "margin": 100.0,
+                "pronunciation": "。"
+            }
+        ],
         "word": "。"
     }
 ]

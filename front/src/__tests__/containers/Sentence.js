@@ -1,18 +1,19 @@
 import React from "react"
 import Sentence from "../../containers/Sentence"
 import Word from "../../containers/Word"
+import deepcopy from "deepcopy"
 import rootReducer from "../../reducers"
 import {shallow} from "enzyme"
 import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
-import {showPOSAndPronunciationState, showSentenceState, words} from "../reducers"
+import {showPOSAndPronunciationState, showSentenceParameter, words} from "../reducers"
 
 let sentenceComponent
 
 describe("containers/Sentence/showSentence", () => {
     beforeEach(() => {
         const store = createStore(rootReducer)
-        store.dispatch(showSentence(showSentenceState))
+        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
         sentenceComponent = shallow(
             <Sentence
                 store={store}
@@ -26,7 +27,7 @@ describe("containers/Sentence/showSentence", () => {
 
     it("初期状態からshowSentenceへStateが遷移した際に、子要素にWordが含まれる", () => {
         for (const w of words) {
-            expect(sentenceComponent.children().contains(
+            expect(sentenceComponent.contains(
                 <Word
                     word={w.word}
                     pos={w.pos}
@@ -40,7 +41,7 @@ describe("containers/Sentence/showSentence", () => {
 describe("containers/Sentence/showPOSAndPronunciation", () => {
     beforeEach(() => {
         const store = createStore(rootReducer)
-        store.dispatch(showSentence(showSentenceState))
+        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
         store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
         sentenceComponent = shallow(
             <Sentence
@@ -55,7 +56,7 @@ describe("containers/Sentence/showPOSAndPronunciation", () => {
 
     it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、子要素にWordが含まれる", () => {
         for (const w of words) {
-            expect(sentenceComponent.children().contains(
+            expect(sentenceComponent.contains(
                 <Word
                     word={w.word}
                     pos={w.pos}

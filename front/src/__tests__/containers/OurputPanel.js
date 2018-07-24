@@ -1,18 +1,19 @@
 import React from "react"
 import OutputPanel from "../../containers/OutputPanel"
 import Information from "../../containers/Information"
+import deepcopy from "deepcopy"
 import rootReducer from "../../reducers"
 import {shallow} from "enzyme"
 import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
-import {showPOSAndPronunciationState, showSentenceState} from "../reducers"
+import {showPOSAndPronunciationState, showSentenceParameter} from "../reducers"
 
 let outputPanelComponent
 
 describe("containers/OutputPanel/showSentenceState", () => {
     beforeEach(() => {
         const store = createStore(rootReducer)
-        store.dispatch(showSentence(showSentenceState))
+        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
         outputPanelComponent = shallow(
             <OutputPanel
                 store={store}
@@ -32,7 +33,7 @@ describe("containers/OutputPanel/showSentenceState", () => {
 describe("containers/OutputPanel/showPOSAndPronunciationState", () => {
     beforeEach(() => {
         const store = createStore(rootReducer)
-        store.dispatch(showSentence(showSentenceState))
+        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
         store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
         outputPanelComponent = shallow(
             <OutputPanel

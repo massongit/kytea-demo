@@ -1,6 +1,7 @@
+import deepcopy from "deepcopy"
 import * as types from "../../actions/types"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
-import {showPOSAndPronunciationState, showSentenceState} from "../reducers"
+import {showPOSAndPronunciationState, showSentenceParameter, showSentenceState} from "../reducers"
 
 /**
  * KyTeaによる解析結果の表示Action
@@ -18,12 +19,12 @@ const showPOSAndPronunciationAction = {
 
 describe("actions/index/showSentence", () => {
     it("valueからActionを生成する", () => {
-        expect(showSentence(showSentenceState)).toEqual(showSentenceAction)
+        expect(showSentence(deepcopy(showSentenceParameter))).toEqual(showSentenceAction)
     })
 
     it("valueから異常値を除外してActionを生成する", () => {
         expect(showSentence({
-            ...showSentenceState,
+            ...showSentenceParameter,
             wrong_test: "wrong!"
         })).toEqual(showSentenceAction)
     })

@@ -1,5 +1,6 @@
 import React from "react"
 import {Jumbotron, Row} from "react-bootstrap"
+import {FormattedMessage} from "react-intl"
 
 /**
  * ヘッダー
@@ -9,7 +10,9 @@ const Header = () => (
     <Row>
         <Jumbotron>
             <h1>KyTea</h1>
-            <p>京都テキスト解析ツールキット</p>
+            <p>
+                <FormattedMessage id="abstract.kyTea"/>
+            </p>
         </Jumbotron>
     </Row>
 )

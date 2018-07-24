@@ -47,32 +47,127 @@ def test_analysis_kytea(client):
     assert res.json == [
         {
             'pos': '名詞',
-            'word': '本日',
-            'pronunciation': 'ほんじつ'
+            'pronunciation': [
+                {
+                    'margin': 100.0,
+                    'pronunciation': 'ほんじつ'
+                }
+            ],
+            'word': '本日'
         },
         {
             'pos': '助詞',
-            'word': 'は',
-            'pronunciation': 'は'
+            'pronunciation': [
+                {
+                    'margin': 100.0,
+                    'pronunciation': 'は'
+                }
+            ],
+            'word': 'は'
         },
         {
             'pos': '名詞',
-            'word': '晴天',
-            'pronunciation': 'せいてん'
+            'pronunciation': [
+                {
+                    'margin': 100.0,
+                    'pronunciation': 'せいてん'
+                }
+            ],
+            'word': '晴天'
         },
         {
             'pos': '助動詞',
-            'word': 'な',
-            'pronunciation': 'な'
+            'pronunciation': [
+                {
+                    'margin': 0.9999511421247065,
+                    'pronunciation': 'な'
+                },
+                {
+                    'margin': 0.0,
+                    'pronunciation': 'らな'
+                }
+            ],
+            'word': 'な'
         },
         {
             'pos': '語尾',
-            'word': 'り',
-            'pronunciation': 'り'
+            'pronunciation': [
+                {
+                    'margin': 100.0,
+                    'pronunciation': 'り'
+                }
+            ],
+            'word': 'り'
         },
         {
             'pos': '補助記号',
-            'word': '。',
-            'pronunciation': '。'
+            'pronunciation': [
+                {
+                    'margin': 100.0,
+                    'pronunciation': '。'
+                }
+            ],
+            'word': '。'
+        }
+    ]
+
+
+def test_analysis_kytea_with_unknown_word(client):
+    """
+    読みが予測不能な単語と空白を含む文を与えたとき、読みが予測不能な単語のpronunciationが空のリストになっており、空白が出力されていない
+    :param client: テスト用のクライアント
+    """
+    res = client.post('/kytea', data='I have a pen.')
+    assert res.status_code == 200
+    assert res.json == [
+        {
+            'pos': '補助記号',
+            'pronunciation': [
+                {
+                    'margin': 0.0,
+                    'pronunciation': '(Unknown)'
+                }
+            ],
+            'word': 'I'
+        },
+        {
+            'pos': '名詞',
+            'pronunciation': [
+                {
+                    'margin': 100.0,
+                    'pronunciation': 'はぶ'
+                }
+            ],
+            'word': 'have'
+        },
+        {
+            'pos': '記号',
+            'pronunciation': [
+                {
+                    'margin': 100.0,
+                    'pronunciation': 'Ａ'
+                }
+            ],
+            'word': 'a'
+        },
+        {
+            'pos': '補助記号',
+            'pronunciation': [
+                {
+                    'margin': 0.0,
+                    'pronunciation': '(Unknown)'
+                }
+            ],
+            'word': 'pen'
+        },
+        {
+            'pos': '補助記号',
+            'pronunciation': [
+                {
+                    'margin': 100.0,
+                    'pronunciation': '。'
+                }
+            ],
+            'word': '.'
         }
     ]

@@ -8,27 +8,37 @@ import {Grid} from "react-bootstrap"
 
 /**
  * ルート要素
- * @param words {array} KyTeaによる解析結果
- * @returns {element} ルート要素
  */
-const App = ({words}) => (
-    <Grid>
-        <Header/>
-        <DescriptionPanel/>
-        <InputPanel/>
-        {
-            (() => {
-                // KyTeaによる解析が行われていない場合には表示しない
-                if (words !== undefined && 0 < words.length) {
-                    return (<OutputPanel/>)
-                }
-            })()
-        }
-    </Grid>
-)
+class App extends React.Component {
+    static propTypes = {
+        words: PropTypes.arrayOf(PropTypes.shape({
+            pos: PropTypes.string.isRequired,
+            word: PropTypes.string.isRequired,
+            pronunciation: PropTypes.arrayOf(PropTypes.shape({
+                id: PropTypes.number,
+                margin: PropTypes.number.isRequired,
+                pronunciation: PropTypes.string.isRequired
+            })).isRequired
+        }).isRequired)
+    }
 
-App.propTypes = {
-    words: PropTypes.array
+    render() {
+        return (
+            <Grid>
+                <Header/>
+                <DescriptionPanel/>
+                <InputPanel/>
+                {
+                    (() => {
+                        // KyTeaによる解析が行われていない場合には表示しない
+                        if (this.props.words && 0 < this.props.words.length) {
+                            return (<OutputPanel/>)
+                        }
+                    })()
+                }
+            </Grid>
+        )
+    }
 }
 
 export default App
