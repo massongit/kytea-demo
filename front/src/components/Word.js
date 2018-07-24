@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import {Button, DropdownButton, MenuItem} from "react-bootstrap"
-import {FormattedMessage, FormattedNumber} from "react-intl"
+import {intlShape} from "react-intl"
 import {showPOSAndPronunciation} from "../actions"
 
 /**
@@ -16,7 +16,8 @@ class Word extends React.Component {
             id: PropTypes.number,
             margin: PropTypes.number.isRequired,
             pronunciation: PropTypes.string.isRequired
-        })).isRequired
+        })).isRequired,
+        intl: intlShape.isRequired
     }
 
     /**
@@ -89,18 +90,12 @@ class Word extends React.Component {
                                         }}
                                     >
                                         {
-                                            this.getButtonText((
-                                                <FormattedMessage
-                                                    id="candidate"
-                                                    values={{
-                                                        no: (
-                                                            <FormattedNumber
-                                                                value={i + 1}
-                                                            />
-                                                        )
-                                                    }}
-                                                />
-                                            ), i)
+                                            this.getButtonText(this.props.intl.formatMessage({
+                                                id: "candidate"
+                                            },
+                                            {
+                                                no: this.props.intl.formatNumber(i + 1)
+                                            }), i)
                                         }
                                     </MenuItem>
                                 )

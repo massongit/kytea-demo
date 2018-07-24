@@ -5,8 +5,7 @@ import thunk from "redux-thunk"
 import fetch from "node-fetch"
 import configureMockStore from "redux-mock-store"
 import {Form, FormControl} from "react-bootstrap"
-import {shallow} from "enzyme"
-import {loadTranslation, mountWithIntl} from "enzyme-react-intl"
+import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
 import {showSentence} from "../../actions"
 import {
     initialShowPOSAndPronunciationState,
@@ -36,7 +35,7 @@ describe("containers/Input", () => {
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
-        const inputComponent = shallow(
+        const inputComponent = shallowWithIntl(
             <Input
                 store={store}
             />
@@ -49,12 +48,12 @@ describe("containers/Input", () => {
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
-        const inputComponent = shallow(
+        const inputComponent = mountWithIntl(
             <Input
                 store={store}
             />
-        ).dive()
-        expect(inputComponent.props().bsClass).toEqual((<Form/>).props.bsClass)
+        )
+        expect(inputComponent.contains(Form)).toBeTruthy()
     })
 
     it("onSubmitイベントが呼び出されたとき、サーバーへのSubmitが行われない", async () => {

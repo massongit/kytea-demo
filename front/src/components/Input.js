@@ -2,9 +2,8 @@ import React from "react"
 import fetch from "node-fetch"
 import PropTypes from "prop-types"
 import {Button, Form, FormControl, InputGroup} from "react-bootstrap"
-import {FormattedMessage} from "react-intl"
+import {FormattedMessage, intlShape} from "react-intl"
 import {showSentence} from "../actions"
-import {intl} from "../intl"
 
 /**
  * 入力部
@@ -12,7 +11,8 @@ import {intl} from "../intl"
 class Input extends React.Component {
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
-        sentence: PropTypes.string.isRequired
+        sentence: PropTypes.string.isRequired,
+        intl: intlShape.isRequired
     }
 
     render() {
@@ -44,7 +44,7 @@ class Input extends React.Component {
                                 })).json()
                             }))
                         } catch (er) {
-                            alert(intl.formatMessage({
+                            alert(this.props.intl.formatMessage({
                                 id: "errorMessage.predict"
                             },
                             {

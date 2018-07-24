@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import {Table} from "react-bootstrap"
-import {FormattedMessage, FormattedNumber} from "react-intl"
+import {FormattedNumber, intlShape} from "react-intl"
 
 /**
  * 解析結果表示部
@@ -15,7 +15,8 @@ class Information extends React.Component {
             id: PropTypes.number,
             margin: PropTypes.number.isRequired,
             pronunciation: PropTypes.string.isRequired
-        })
+        }),
+        intl: intlShape.isRequired
     }
 
     render() {
@@ -25,37 +26,22 @@ class Information extends React.Component {
                     <tr>
                         {
                             [
-                                (
-                                    <FormattedMessage
-                                        key="header.candidate"
-                                        id="header.candidate"
-                                    />
-                                ),
-                                (
-                                    <FormattedMessage
-                                        key="header.word"
-                                        id="header.word"
-                                    />
-                                ),
-                                (
-                                    <FormattedMessage
-                                        key="header.pos"
-                                        id="header.pos"
-                                    />
-                                ),
-                                (
-                                    <FormattedMessage
-                                        key="header.pronunciation"
-                                        id="header.pronunciation"
-                                    />
-                                ),
-                                (
-                                    <FormattedMessage
-                                        key="header.margin"
-                                        id="header.margin"
-                                    />
-                                )
-                            ].map((name, i) => ( // 見出しを上下左右中央揃えで表示
+                                this.props.intl.formatMessage({
+                                    id: "header.candidate"
+                                }),
+                                this.props.intl.formatMessage({
+                                    id: "header.word"
+                                }),
+                                this.props.intl.formatMessage({
+                                    id: "header.pos"
+                                }),
+                                this.props.intl.formatMessage({
+                                    id: "header.pronunciation"
+                                }),
+                                this.props.intl.formatMessage({
+                                    id: "header.margin"
+                                })
+                            ].map((header, i) => ( // 見出しを上下左右中央揃えで表示
                                 <th
                                     key={i}
                                     className="text-center"
@@ -63,7 +49,7 @@ class Information extends React.Component {
                                         "verticalAlign": "middle"
                                     }}
                                 >
-                                    {name}
+                                    {header}
                                 </th>
                             ))
                         }
@@ -71,20 +57,21 @@ class Information extends React.Component {
                 </thead>
                 <tbody>
                     <tr>
-                        <td className="text-center">
-                            <FormattedNumber
-                                value={this.props.number}
-                            />
-                        </td>
-                        <td className="text-center">
-                            {this.props.word}
-                        </td>
-                        <td className="text-center">
-                            {this.props.pos}
-                        </td>
-                        <td className="text-center">
-                            {this.props.pronunciation.pronunciation}
-                        </td>
+                        {
+                            [
+                                this.props.intl.formatNumber(this.props.number),
+                                this.props.word,
+                                this.props.pos,
+                                this.props.pronunciation.pronunciation
+                            ].map((data, i) => (
+                                <td
+                                    className="text-center"
+                                    key={i}
+                                >
+                                    {data}
+                                </td>
+                            ))
+                        }
                         <td className="text-right">
                             <FormattedNumber
                                 value={this.props.pronunciation.margin}

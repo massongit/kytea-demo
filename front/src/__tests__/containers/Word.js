@@ -2,7 +2,7 @@ import React from "react"
 import Word from "../../containers/Word"
 import thunk from "redux-thunk"
 import configureMockStore from "redux-mock-store"
-import {shallow} from "enzyme"
+import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
 import {eventMock} from "./Input"
 import {showPOSAndPronunciation} from "../../actions"
 import {
@@ -14,7 +14,9 @@ import {
     word
 } from "../reducers"
 
-let wordComponent, store
+let store
+
+loadTranslation("./src/translations/ja.json")
 
 describe("containers/Word", () => {
     beforeEach(() => {
@@ -22,7 +24,10 @@ describe("containers/Word", () => {
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
-        wordComponent = shallow(
+    })
+
+    it("Componentが正しく配置されている", () => {
+        const wordComponent = shallowWithIntl(
             <Word
                 store={store}
                 word={word}
@@ -30,17 +35,30 @@ describe("containers/Word", () => {
                 pronunciation={[pronunciation_]}
             />
         ).dive()
-    })
-
-    it("Componentが正しく配置されている", () => {
         expect(wordComponent).toMatchSnapshot()
     })
 
     it("wordが記述されている", () => {
-        expect(wordComponent.children().contains(word)).toBeTruthy()
+        const wordComponent = mountWithIntl(
+            <Word
+                store={store}
+                word={word}
+                pos={pos}
+                pronunciation={[pronunciation_]}
+            />
+        )
+        expect(wordComponent.contains(word)).toBeTruthy()
     })
 
     it("onClickイベントが呼び出されたとき、正常にdispatchが行われる", () => {
+        const wordComponent = mountWithIntl(
+            <Word
+                store={store}
+                word={word}
+                pos={pos}
+                pronunciation={[pronunciation_]}
+            />
+        )
         wordComponent.simulate("click", eventMock)
         expect(store.getActions()).toEqual([
             showPOSAndPronunciation(showPOSAndPronunciationState_)
