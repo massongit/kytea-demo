@@ -42,14 +42,14 @@ const showSentenceState3 = {
     words: words3
 }
 
-let store
-
 const dispatchDoubleShowSentenceConcat = (store, d) => {
     dispatchDoubleShowSentence(store, {
         sentence: sentence2,
         words: words2.concat(d)
     })
 }
+
+let store
 
 describe("reducers/showSentence", () => {
     beforeEach(() => {
