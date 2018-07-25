@@ -151,26 +151,22 @@ describe("reducers/showPOSAndPronunciation", () => {
     })
 
     it("初期状態以外の状態において、showPOSAndPronunciationのActionからshowPOSAndPronunciationのStateを生成する", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState2))
+        dispatchDoubleShowPOSAndPronunciation(store, showPOSAndPronunciationState2)
         expect(store.getState()).toEqual(showPOSAndPronunciationState2)
     })
 
     it("初期状態以外のStateにおいて、wordのみを持ったshowPOSAndPronunciationのActionからshowPOSAndPronunciationのStateを生成する", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState2WordOnly))
+        dispatchDoubleShowPOSAndPronunciation(store, showPOSAndPronunciationState2WordOnly)
         expect(store.getState()).toEqual(showPOSAndPronunciationState2WordOnly)
     })
 
     it("初期状態以外のStateにおいて、wordとpronunciationのみを持ったshowPOSAndPronunciationのActionからshowPOSAndPronunciationのStateを生成する", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState2WordAndWSOnly))
+        dispatchDoubleShowPOSAndPronunciation(store, showPOSAndPronunciationState2WordAndWSOnly)
         expect(store.getState()).toEqual(showPOSAndPronunciationState2WordAndWSOnly)
     })
 
     it("初期状態以外のStateにおいて、posとwordのみを持ったshowPOSAndPronunciationのActionからshowPOSAndPronunciationのStateを生成する", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState2POSAndWordOnly))
+        dispatchDoubleShowPOSAndPronunciation(store, showPOSAndPronunciationState2POSAndWordOnly)
         expect(store.getState()).toEqual(showPOSAndPronunciationState2POSAndWordOnly)
     })
 
