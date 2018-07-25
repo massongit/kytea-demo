@@ -1,10 +1,10 @@
 import React from "react"
 import OutputPanel from "../../containers/OutputPanel"
 import Information from "../../containers/Information"
-import {shallow} from "enzyme"
-import {doSnapshot, functions} from "./Sentence"
 import rootReducer from "../../reducers"
+import {shallow} from "enzyme"
 import {createStore} from "redux"
+import {doSnapshot, functions} from "./Sentence"
 
 let store
 

@@ -36,6 +36,7 @@ describe("containers/PanelBody", () => {
             if (f) {
                 f(store)
             }
+
             expect(beforeProcess().children().contains(<InputPanel/>)).toBeTruthy()
         }
     })
