@@ -8,6 +8,17 @@ import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
 import {showPOSAndPronunciationState, showSentenceParameter, words} from "../reducers"
 
+/**
+ * Storeを作成する
+ * @returns {store} Store
+ */
+export const makeStore = () => {
+    const store = createStore(rootReducer)
+    store.dispatch(showSentence(deepcopy(showSentenceParameter)))
+    store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
+    return store
+}
+
 let sentenceComponent
 
 describe("containers/Sentence/showSentence", () => {
@@ -40,12 +51,9 @@ describe("containers/Sentence/showSentence", () => {
 
 describe("containers/Sentence/showPOSAndPronunciation", () => {
     beforeEach(() => {
-        const store = createStore(rootReducer)
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
         sentenceComponent = shallow(
             <Sentence
-                store={store}
+                store={makeStore()}
             />
         ).dive()
     })

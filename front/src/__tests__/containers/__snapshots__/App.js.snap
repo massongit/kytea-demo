@@ -821,3 +821,2389 @@ ShallowWrapper {
   },
 }
 `;
+
+exports[`containers/Sentence/showPOSAndPronunciation 初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Sentence
+    dispatch={[Function]}
+    store={
+        Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          }
+    }
+    storeSubscription={
+        Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": undefined,
+            "store": Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            },
+            "unsubscribe": [Function],
+          }
+    }
+    words={
+        Array [
+            Object {
+              "pos": "名詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "やきゅう",
+                },
+              ],
+              "word": "野球",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 2.12891303174829,
+                  "pronunciation": "の",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "きの",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "ゅの",
+                },
+              ],
+              "word": "の",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "ＤＨ",
+                },
+              ],
+              "word": "ＤＨ",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 2.1760714835829633,
+                  "pronunciation": "の",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "きの",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "ゅの",
+                },
+              ],
+              "word": "の",
+            },
+            Object {
+              "pos": "形状詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "せいしき",
+                },
+              ],
+              "word": "正式",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "よびな",
+                },
+              ],
+              "word": "呼び名",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "と",
+                },
+              ],
+              "word": "と",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "よみ",
+                },
+              ],
+              "word": "読み",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 1.9998295447276375,
+                  "pronunciation": "を",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "みを",
+                },
+                Object {
+                  "margin": -0.00005912806885244315,
+                  "pronunciation": "くを",
+                },
+              ],
+              "word": "を",
+            },
+            Object {
+              "pos": "動詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "おしえ",
+                },
+              ],
+              "word": "教え",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "て",
+                },
+              ],
+              "word": "て",
+            },
+            Object {
+              "pos": "動詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "くださ",
+                },
+              ],
+              "word": "くださ",
+            },
+            Object {
+              "pos": "語尾",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "い",
+                },
+              ],
+              "word": "い",
+            },
+            Object {
+              "pos": "補助記号",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "。",
+                },
+              ],
+              "word": "。",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "block": false,
+      "bsClass": "btn-group",
+      "children": Array [
+        <InjectIntl(Connect(Word))
+          pos="名詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "やきゅう",
+                              },
+                            ]
+          }
+          word="野球"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="助詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 2.12891303174829,
+                                "pronunciation": "の",
+                              },
+                              Object {
+                                "margin": 0,
+                                "pronunciation": "きの",
+                              },
+                              Object {
+                                "margin": 0,
+                                "pronunciation": "ゅの",
+                              },
+                            ]
+          }
+          word="の"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="名詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "ＤＨ",
+                              },
+                            ]
+          }
+          word="ＤＨ"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="助詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 2.1760714835829633,
+                                "pronunciation": "の",
+                              },
+                              Object {
+                                "margin": 0,
+                                "pronunciation": "きの",
+                              },
+                              Object {
+                                "margin": 0,
+                                "pronunciation": "ゅの",
+                              },
+                            ]
+          }
+          word="の"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="形状詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "せいしき",
+                              },
+                            ]
+          }
+          word="正式"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="名詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "よびな",
+                              },
+                            ]
+          }
+          word="呼び名"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="助詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "と",
+                              },
+                            ]
+          }
+          word="と"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="名詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "よみ",
+                              },
+                            ]
+          }
+          word="読み"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="助詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 1.9998295447276375,
+                                "pronunciation": "を",
+                              },
+                              Object {
+                                "margin": 0,
+                                "pronunciation": "みを",
+                              },
+                              Object {
+                                "margin": -0.00005912806885244315,
+                                "pronunciation": "くを",
+                              },
+                            ]
+          }
+          word="を"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="動詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "おしえ",
+                              },
+                            ]
+          }
+          word="教え"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="助詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "て",
+                              },
+                            ]
+          }
+          word="て"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="動詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "くださ",
+                              },
+                            ]
+          }
+          word="くださ"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="語尾"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "い",
+                              },
+                            ]
+          }
+          word="い"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="補助記号"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "。",
+                              },
+                            ]
+          }
+          word="。"
+/>,
+      ],
+      "justified": false,
+      "vertical": false,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "やきゅう",
+            },
+          ],
+          "word": "野球",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 2.12891303174829,
+              "pronunciation": "の",
+            },
+            Object {
+              "margin": 0,
+              "pronunciation": "きの",
+            },
+            Object {
+              "margin": 0,
+              "pronunciation": "ゅの",
+            },
+          ],
+          "word": "の",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "ＤＨ",
+            },
+          ],
+          "word": "ＤＨ",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 2.1760714835829633,
+              "pronunciation": "の",
+            },
+            Object {
+              "margin": 0,
+              "pronunciation": "きの",
+            },
+            Object {
+              "margin": 0,
+              "pronunciation": "ゅの",
+            },
+          ],
+          "word": "の",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "4",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "形状詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "せいしき",
+            },
+          ],
+          "word": "正式",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "5",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "よびな",
+            },
+          ],
+          "word": "呼び名",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "6",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "と",
+            },
+          ],
+          "word": "と",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "7",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "よみ",
+            },
+          ],
+          "word": "読み",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "8",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 1.9998295447276375,
+              "pronunciation": "を",
+            },
+            Object {
+              "margin": 0,
+              "pronunciation": "みを",
+            },
+            Object {
+              "margin": -0.00005912806885244315,
+              "pronunciation": "くを",
+            },
+          ],
+          "word": "を",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "9",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "動詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "おしえ",
+            },
+          ],
+          "word": "教え",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "10",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "て",
+            },
+          ],
+          "word": "て",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "11",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "動詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "くださ",
+            },
+          ],
+          "word": "くださ",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "12",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "語尾",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "い",
+            },
+          ],
+          "word": "い",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "13",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "補助記号",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "。",
+            },
+          ],
+          "word": "。",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "block": false,
+        "bsClass": "btn-group",
+        "children": Array [
+          <InjectIntl(Connect(Word))
+            pos="名詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "やきゅう",
+                                    },
+                                  ]
+            }
+            word="野球"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="助詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 2.12891303174829,
+                                      "pronunciation": "の",
+                                    },
+                                    Object {
+                                      "margin": 0,
+                                      "pronunciation": "きの",
+                                    },
+                                    Object {
+                                      "margin": 0,
+                                      "pronunciation": "ゅの",
+                                    },
+                                  ]
+            }
+            word="の"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="名詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "ＤＨ",
+                                    },
+                                  ]
+            }
+            word="ＤＨ"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="助詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 2.1760714835829633,
+                                      "pronunciation": "の",
+                                    },
+                                    Object {
+                                      "margin": 0,
+                                      "pronunciation": "きの",
+                                    },
+                                    Object {
+                                      "margin": 0,
+                                      "pronunciation": "ゅの",
+                                    },
+                                  ]
+            }
+            word="の"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="形状詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "せいしき",
+                                    },
+                                  ]
+            }
+            word="正式"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="名詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "よびな",
+                                    },
+                                  ]
+            }
+            word="呼び名"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="助詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "と",
+                                    },
+                                  ]
+            }
+            word="と"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="名詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "よみ",
+                                    },
+                                  ]
+            }
+            word="読み"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="助詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 1.9998295447276375,
+                                      "pronunciation": "を",
+                                    },
+                                    Object {
+                                      "margin": 0,
+                                      "pronunciation": "みを",
+                                    },
+                                    Object {
+                                      "margin": -0.00005912806885244315,
+                                      "pronunciation": "くを",
+                                    },
+                                  ]
+            }
+            word="を"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="動詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "おしえ",
+                                    },
+                                  ]
+            }
+            word="教え"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="助詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "て",
+                                    },
+                                  ]
+            }
+            word="て"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="動詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "くださ",
+                                    },
+                                  ]
+            }
+            word="くださ"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="語尾"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "い",
+                                    },
+                                  ]
+            }
+            word="い"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="補助記号"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "。",
+                                    },
+                                  ]
+            }
+            word="。"
+/>,
+        ],
+        "justified": false,
+        "vertical": false,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "やきゅう",
+              },
+            ],
+            "word": "野球",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 2.12891303174829,
+                "pronunciation": "の",
+              },
+              Object {
+                "margin": 0,
+                "pronunciation": "きの",
+              },
+              Object {
+                "margin": 0,
+                "pronunciation": "ゅの",
+              },
+            ],
+            "word": "の",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "ＤＨ",
+              },
+            ],
+            "word": "ＤＨ",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 2.1760714835829633,
+                "pronunciation": "の",
+              },
+              Object {
+                "margin": 0,
+                "pronunciation": "きの",
+              },
+              Object {
+                "margin": 0,
+                "pronunciation": "ゅの",
+              },
+            ],
+            "word": "の",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "4",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "形状詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "せいしき",
+              },
+            ],
+            "word": "正式",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "5",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "よびな",
+              },
+            ],
+            "word": "呼び名",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "6",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "と",
+              },
+            ],
+            "word": "と",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "7",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "よみ",
+              },
+            ],
+            "word": "読み",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "8",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 1.9998295447276375,
+                "pronunciation": "を",
+              },
+              Object {
+                "margin": 0,
+                "pronunciation": "みを",
+              },
+              Object {
+                "margin": -0.00005912806885244315,
+                "pronunciation": "くを",
+              },
+            ],
+            "word": "を",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "9",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "動詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "おしえ",
+              },
+            ],
+            "word": "教え",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "10",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "て",
+              },
+            ],
+            "word": "て",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "11",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "動詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "くださ",
+              },
+            ],
+            "word": "くださ",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "12",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "語尾",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "い",
+              },
+            ],
+            "word": "い",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "13",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "補助記号",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "。",
+              },
+            ],
+            "word": "。",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`containers/Sentence/showSentence 初期状態からshowSentenceへStateが遷移した際に、Componentが正しく配置されている 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Sentence
+    dispatch={[Function]}
+    store={
+        Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          }
+    }
+    storeSubscription={
+        Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": undefined,
+            "store": Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            },
+            "unsubscribe": [Function],
+          }
+    }
+    words={
+        Array [
+            Object {
+              "pos": "名詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "やきゅう",
+                },
+              ],
+              "word": "野球",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 2.12891303174829,
+                  "pronunciation": "の",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "きの",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "ゅの",
+                },
+              ],
+              "word": "の",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "ＤＨ",
+                },
+              ],
+              "word": "ＤＨ",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 2.1760714835829633,
+                  "pronunciation": "の",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "きの",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "ゅの",
+                },
+              ],
+              "word": "の",
+            },
+            Object {
+              "pos": "形状詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "せいしき",
+                },
+              ],
+              "word": "正式",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "よびな",
+                },
+              ],
+              "word": "呼び名",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "と",
+                },
+              ],
+              "word": "と",
+            },
+            Object {
+              "pos": "名詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "よみ",
+                },
+              ],
+              "word": "読み",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 1.9998295447276375,
+                  "pronunciation": "を",
+                },
+                Object {
+                  "margin": 0,
+                  "pronunciation": "みを",
+                },
+                Object {
+                  "margin": -0.00005912806885244315,
+                  "pronunciation": "くを",
+                },
+              ],
+              "word": "を",
+            },
+            Object {
+              "pos": "動詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "おしえ",
+                },
+              ],
+              "word": "教え",
+            },
+            Object {
+              "pos": "助詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "て",
+                },
+              ],
+              "word": "て",
+            },
+            Object {
+              "pos": "動詞",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "くださ",
+                },
+              ],
+              "word": "くださ",
+            },
+            Object {
+              "pos": "語尾",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "い",
+                },
+              ],
+              "word": "い",
+            },
+            Object {
+              "pos": "補助記号",
+              "pronunciation": Array [
+                Object {
+                  "margin": 100,
+                  "pronunciation": "。",
+                },
+              ],
+              "word": "。",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "block": false,
+      "bsClass": "btn-group",
+      "children": Array [
+        <InjectIntl(Connect(Word))
+          pos="名詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "やきゅう",
+                              },
+                            ]
+          }
+          word="野球"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="助詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 2.12891303174829,
+                                "pronunciation": "の",
+                              },
+                              Object {
+                                "margin": 0,
+                                "pronunciation": "きの",
+                              },
+                              Object {
+                                "margin": 0,
+                                "pronunciation": "ゅの",
+                              },
+                            ]
+          }
+          word="の"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="名詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "ＤＨ",
+                              },
+                            ]
+          }
+          word="ＤＨ"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="助詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 2.1760714835829633,
+                                "pronunciation": "の",
+                              },
+                              Object {
+                                "margin": 0,
+                                "pronunciation": "きの",
+                              },
+                              Object {
+                                "margin": 0,
+                                "pronunciation": "ゅの",
+                              },
+                            ]
+          }
+          word="の"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="形状詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "せいしき",
+                              },
+                            ]
+          }
+          word="正式"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="名詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "よびな",
+                              },
+                            ]
+          }
+          word="呼び名"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="助詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "と",
+                              },
+                            ]
+          }
+          word="と"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="名詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "よみ",
+                              },
+                            ]
+          }
+          word="読み"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="助詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 1.9998295447276375,
+                                "pronunciation": "を",
+                              },
+                              Object {
+                                "margin": 0,
+                                "pronunciation": "みを",
+                              },
+                              Object {
+                                "margin": -0.00005912806885244315,
+                                "pronunciation": "くを",
+                              },
+                            ]
+          }
+          word="を"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="動詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "おしえ",
+                              },
+                            ]
+          }
+          word="教え"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="助詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "て",
+                              },
+                            ]
+          }
+          word="て"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="動詞"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "くださ",
+                              },
+                            ]
+          }
+          word="くださ"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="語尾"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "い",
+                              },
+                            ]
+          }
+          word="い"
+/>,
+        <InjectIntl(Connect(Word))
+          pos="補助記号"
+          pronunciation={
+                    Array [
+                              Object {
+                                "margin": 100,
+                                "pronunciation": "。",
+                              },
+                            ]
+          }
+          word="。"
+/>,
+      ],
+      "justified": false,
+      "vertical": false,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "やきゅう",
+            },
+          ],
+          "word": "野球",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 2.12891303174829,
+              "pronunciation": "の",
+            },
+            Object {
+              "margin": 0,
+              "pronunciation": "きの",
+            },
+            Object {
+              "margin": 0,
+              "pronunciation": "ゅの",
+            },
+          ],
+          "word": "の",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "ＤＨ",
+            },
+          ],
+          "word": "ＤＨ",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 2.1760714835829633,
+              "pronunciation": "の",
+            },
+            Object {
+              "margin": 0,
+              "pronunciation": "きの",
+            },
+            Object {
+              "margin": 0,
+              "pronunciation": "ゅの",
+            },
+          ],
+          "word": "の",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "4",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "形状詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "せいしき",
+            },
+          ],
+          "word": "正式",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "5",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "よびな",
+            },
+          ],
+          "word": "呼び名",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "6",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "と",
+            },
+          ],
+          "word": "と",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "7",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "名詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "よみ",
+            },
+          ],
+          "word": "読み",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "8",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 1.9998295447276375,
+              "pronunciation": "を",
+            },
+            Object {
+              "margin": 0,
+              "pronunciation": "みを",
+            },
+            Object {
+              "margin": -0.00005912806885244315,
+              "pronunciation": "くを",
+            },
+          ],
+          "word": "を",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "9",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "動詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "おしえ",
+            },
+          ],
+          "word": "教え",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "10",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "助詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "て",
+            },
+          ],
+          "word": "て",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "11",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "動詞",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "くださ",
+            },
+          ],
+          "word": "くださ",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "12",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "語尾",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "い",
+            },
+          ],
+          "word": "い",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "13",
+        "nodeType": "class",
+        "props": Object {
+          "pos": "補助記号",
+          "pronunciation": Array [
+            Object {
+              "margin": 100,
+              "pronunciation": "。",
+            },
+          ],
+          "word": "。",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "block": false,
+        "bsClass": "btn-group",
+        "children": Array [
+          <InjectIntl(Connect(Word))
+            pos="名詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "やきゅう",
+                                    },
+                                  ]
+            }
+            word="野球"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="助詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 2.12891303174829,
+                                      "pronunciation": "の",
+                                    },
+                                    Object {
+                                      "margin": 0,
+                                      "pronunciation": "きの",
+                                    },
+                                    Object {
+                                      "margin": 0,
+                                      "pronunciation": "ゅの",
+                                    },
+                                  ]
+            }
+            word="の"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="名詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "ＤＨ",
+                                    },
+                                  ]
+            }
+            word="ＤＨ"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="助詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 2.1760714835829633,
+                                      "pronunciation": "の",
+                                    },
+                                    Object {
+                                      "margin": 0,
+                                      "pronunciation": "きの",
+                                    },
+                                    Object {
+                                      "margin": 0,
+                                      "pronunciation": "ゅの",
+                                    },
+                                  ]
+            }
+            word="の"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="形状詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "せいしき",
+                                    },
+                                  ]
+            }
+            word="正式"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="名詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "よびな",
+                                    },
+                                  ]
+            }
+            word="呼び名"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="助詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "と",
+                                    },
+                                  ]
+            }
+            word="と"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="名詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "よみ",
+                                    },
+                                  ]
+            }
+            word="読み"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="助詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 1.9998295447276375,
+                                      "pronunciation": "を",
+                                    },
+                                    Object {
+                                      "margin": 0,
+                                      "pronunciation": "みを",
+                                    },
+                                    Object {
+                                      "margin": -0.00005912806885244315,
+                                      "pronunciation": "くを",
+                                    },
+                                  ]
+            }
+            word="を"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="動詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "おしえ",
+                                    },
+                                  ]
+            }
+            word="教え"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="助詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "て",
+                                    },
+                                  ]
+            }
+            word="て"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="動詞"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "くださ",
+                                    },
+                                  ]
+            }
+            word="くださ"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="語尾"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "い",
+                                    },
+                                  ]
+            }
+            word="い"
+/>,
+          <InjectIntl(Connect(Word))
+            pos="補助記号"
+            pronunciation={
+                        Array [
+                                    Object {
+                                      "margin": 100,
+                                      "pronunciation": "。",
+                                    },
+                                  ]
+            }
+            word="。"
+/>,
+        ],
+        "justified": false,
+        "vertical": false,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "やきゅう",
+              },
+            ],
+            "word": "野球",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 2.12891303174829,
+                "pronunciation": "の",
+              },
+              Object {
+                "margin": 0,
+                "pronunciation": "きの",
+              },
+              Object {
+                "margin": 0,
+                "pronunciation": "ゅの",
+              },
+            ],
+            "word": "の",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "ＤＨ",
+              },
+            ],
+            "word": "ＤＨ",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 2.1760714835829633,
+                "pronunciation": "の",
+              },
+              Object {
+                "margin": 0,
+                "pronunciation": "きの",
+              },
+              Object {
+                "margin": 0,
+                "pronunciation": "ゅの",
+              },
+            ],
+            "word": "の",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "4",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "形状詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "せいしき",
+              },
+            ],
+            "word": "正式",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "5",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "よびな",
+              },
+            ],
+            "word": "呼び名",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "6",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "と",
+              },
+            ],
+            "word": "と",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "7",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "名詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "よみ",
+              },
+            ],
+            "word": "読み",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "8",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 1.9998295447276375,
+                "pronunciation": "を",
+              },
+              Object {
+                "margin": 0,
+                "pronunciation": "みを",
+              },
+              Object {
+                "margin": -0.00005912806885244315,
+                "pronunciation": "くを",
+              },
+            ],
+            "word": "を",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "9",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "動詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "おしえ",
+              },
+            ],
+            "word": "教え",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "10",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "助詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "て",
+              },
+            ],
+            "word": "て",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "11",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "動詞",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "くださ",
+              },
+            ],
+            "word": "くださ",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "12",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "語尾",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "い",
+              },
+            ],
+            "word": "い",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "13",
+          "nodeType": "class",
+          "props": Object {
+            "pos": "補助記号",
+            "pronunciation": Array [
+              Object {
+                "margin": 100,
+                "pronunciation": "。",
+              },
+            ],
+            "word": "。",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
