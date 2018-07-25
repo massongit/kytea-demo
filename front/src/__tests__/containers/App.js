@@ -11,7 +11,7 @@ import {showPOSAndPronunciationState, showSentenceParameter} from "../reducers"
 
 let appComponent
 
-describe("containers/App/initialState", () => {
+describe("containers/PanelBody/initialState", () => {
     beforeEach(() => {
         appComponent = shallow(
             <App
@@ -33,7 +33,7 @@ describe("containers/App/initialState", () => {
     })
 })
 
-describe("containers/App/showSentenceState", () => {
+describe("containers/PanelBody/showSentenceState", () => {
     beforeEach(() => {
         const store = createStore(rootReducer)
         store.dispatch(showSentence(deepcopy(showSentenceParameter)))
@@ -57,7 +57,7 @@ describe("containers/App/showSentenceState", () => {
     })
 })
 
-describe("containers/App/showPOSAndPronunciationState", () => {
+describe("containers/PanelBody/showPOSAndPronunciationState", () => {
     beforeEach(() => {
         const store = createStore(rootReducer)
         store.dispatch(showSentence(deepcopy(showSentenceParameter)))

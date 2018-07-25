@@ -1,4 +1,5 @@
 import React from "react"
+import PanelBody from "./PanelBody"
 import Input from "../containers/Input"
 import {Panel, Row} from "react-bootstrap"
 import {FormattedMessage} from "react-intl"
@@ -13,12 +14,9 @@ const InputPanel = () => (
             <Panel.Heading>
                 <FormattedMessage id="title.input"/>
             </Panel.Heading>
-            <Panel.Body>
-                <p>
-                    <FormattedMessage id="description.input"/>
-                </p>
+            <PanelBody messageId="description.input">
                 <Input/>
-            </Panel.Body>
+            </PanelBody>
         </Panel>
     </Row>
 )

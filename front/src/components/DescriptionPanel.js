@@ -1,4 +1,5 @@
 import React from "react"
+import PanelBody from "./PanelBody"
 import {Panel, Row} from "react-bootstrap"
 import {FormattedMessage} from "react-intl"
 
@@ -12,9 +13,7 @@ const DescriptionPanel = () => (
             <Panel.Heading>
                 <FormattedMessage id="title.description"/>
             </Panel.Heading>
-            <Panel.Body>
-                <FormattedMessage id="description.kyTea"/>
-            </Panel.Body>
+            <PanelBody messageId="description.kyTea"/>
         </Panel>
     </Row>
 )

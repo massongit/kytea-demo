@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import PanelBody from "./PanelBody"
 import Information from "../containers/Information"
 import Sentence from "../containers/Sentence"
 import {Panel, Row} from "react-bootstrap"
@@ -20,12 +21,9 @@ class OutputPanel extends React.Component {
                     <Panel.Heading>
                         <FormattedMessage id="title.result"/>
                     </Panel.Heading>
-                    <Panel.Body>
-                        <p>
-                            <FormattedMessage id="description.result"/>
-                        </p>
+                    <PanelBody messageId="description.result">
                         <Sentence/>
-                    </Panel.Body>
+                    </PanelBody>
                     {
                         (() => {
                             // 表示する単語が選択されていない場合には表示しない
