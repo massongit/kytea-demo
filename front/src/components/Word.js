@@ -87,29 +87,38 @@ class Word extends React.Component {
                             }
 
                             // MenuItemをリストに追加
-                            menuItems.push(
-                                <MenuItem
-                                    key={i}
-                                    onClick={() => {
-                                        this.onClick(i)
-                                    }}
-                                >
-                                    {
-                                        this.getButtonText(this.props.intl.formatMessage({
-                                            id: "candidate"
-                                        },
-                                        {
-                                            no: this.props.intl.formatNumber(i + 1)
-                                        }), i)
-                                    }
-                                </MenuItem>
-                            )
+                            menuItems.push(this.renderMenuItem(i))
                         }
 
                         return menuItems
                     })()
                 }
             </DropdownButton>
+        )
+    }
+
+    /**
+     * MenuItemを描画する
+     * @param n 候補No
+     * @returns {node} MenuItem
+     */
+    renderMenuItem(n) {
+        return (
+            <MenuItem
+                key={n}
+                onClick={() => {
+                    this.onClick(n)
+                }}
+            >
+                {
+                    this.getButtonText(this.props.intl.formatMessage({
+                        id: "candidate"
+                    },
+                    {
+                        no: this.props.intl.formatNumber(n + 1)
+                    }), n)
+                }
+            </MenuItem>
         )
     }
 
