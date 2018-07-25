@@ -33,9 +33,9 @@ const showPOSAndPronunciationState2WordAndWSOnly = {
     pronunciation: pronunciation2
 }
 
-const dispatchDoubleShowPOSAndPronunciation = (store, v) => {
+const dispatchDoubleShowPOSAndPronunciation = (store, d) => {
     store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-    store.dispatch(showPOSAndPronunciation(v))
+    store.dispatch(showPOSAndPronunciation(d))
 }
 
 let store
