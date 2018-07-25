@@ -44,10 +44,10 @@ const showSentenceState3 = {
 
 let store
 
-const dispatchDoubleShowSentence2 = (store, v) => {
+const dispatchDoubleShowSentenceConcat = (store, d) => {
     dispatchDoubleShowSentence(store, {
         sentence: sentence2,
-        words: words2.concat(v)
+        words: words2.concat(d)
     })
 }
 
@@ -120,12 +120,12 @@ describe("reducers/showSentence", () => {
     })
 
     it("初期状態以外のStateにおいて、undefinedな要素を含むwordsを持ったshowSentenceのActionが渡されたとき、Stateを変更しない", () => {
-        dispatchDoubleShowSentence2(store, undefined)
+        dispatchDoubleShowSentenceConcat(store, undefined)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、undefinedな要素を含むwordを含むwordsを持ったshowSentenceのActionが渡されたとき、Stateを変更しない", () => {
-        dispatchDoubleShowSentence2(store, showPOSAndPronunciationState2POSAndWordOnly)
+        dispatchDoubleShowSentenceConcat(store, showPOSAndPronunciationState2POSAndWordOnly)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
