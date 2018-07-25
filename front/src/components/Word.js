@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import {Button, DropdownButton, MenuItem} from "react-bootstrap"
 import {intlShape} from "react-intl"
+import {propTypesPart} from "./App"
 import {showPOSAndPronunciation} from "../actions"
 
 /**
@@ -11,12 +12,7 @@ class Word extends React.Component {
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
         word: PropTypes.string,
-        pos: PropTypes.string.isRequired,
-        pronunciation: PropTypes.arrayOf(PropTypes.shape({
-            id: PropTypes.number,
-            margin: PropTypes.number.isRequired,
-            pronunciation: PropTypes.string.isRequired
-        })).isRequired,
+        ...propTypesPart,
         intl: intlShape.isRequired
     }
 
