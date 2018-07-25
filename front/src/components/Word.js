@@ -50,58 +50,74 @@ class Word extends React.Component {
         }
     }
 
-    render() {
-        if (this.props.pronunciation.length < 2) { // 読みの候補が複数存在しないとき、Buttonを出力
-            return (
-                <Button
-                    onClick={() => {
-                        this.onClick(0)
-                    }}
-                >
-                    {this.getButtonText(this.props.word, 0)}
-                </Button>
-            )
-        } else { // 読みの候補が複数存在するとき、DropdownButtonを出力
-            return (
-                <DropdownButton
-                    title={this.props.word}
-                >
-                    {
-                        (() => {
-                            // MenuItemのリスト
-                            const menuItems = []
+    /**
+     * Buttonを描画する
+     * @returns {node} Button
+     */
+    renderButton() {
+        return (
+            <Button
+                onClick={() => {
+                    this.onClick(0)
+                }}
+            >
+                {this.getButtonText(this.props.word, 0)}
+            </Button>
+        )
+    }
 
-                            for (let i = 0; i < this.props.pronunciation.length; i++) {
-                                // 今見ている読みが0番目の読みでないとき、区切り線をリストに追加
-                                if (0 < i) {
-                                    menuItems.push(<MenuItem divider/>)
-                                }
+    /**
+     * DropdownButtonを描画する
+     * @returns {node} DropdownButton
+     */
+    renderDropdownButton() {
+        return (
+            <DropdownButton
+                title={this.props.word}
+            >
+                {
+                    (() => {
+                        // MenuItemのリスト
+                        const menuItems = []
 
-                                // MenuItemをリストに追加
-                                menuItems.push(
-                                    <MenuItem
-                                        key={i}
-                                        onClick={() => {
-                                            this.onClick(i)
-                                        }}
-                                    >
-                                        {
-                                            this.getButtonText(this.props.intl.formatMessage({
-                                                id: "candidate"
-                                            },
-                                            {
-                                                no: this.props.intl.formatNumber(i + 1)
-                                            }), i)
-                                        }
-                                    </MenuItem>
-                                )
+                        for (let i = 0; i < this.props.pronunciation.length; i++) {
+                            // 今見ている読みが0番目の読みでないとき、区切り線をリストに追加
+                            if (0 < i) {
+                                menuItems.push(<MenuItem divider/>)
                             }
 
-                            return menuItems
-                        })()
-                    }
-                </DropdownButton>
-            )
+                            // MenuItemをリストに追加
+                            menuItems.push(
+                                <MenuItem
+                                    key={i}
+                                    onClick={() => {
+                                        this.onClick(i)
+                                    }}
+                                >
+                                    {
+                                        this.getButtonText(this.props.intl.formatMessage({
+                                            id: "candidate"
+                                        },
+                                        {
+                                            no: this.props.intl.formatNumber(i + 1)
+                                        }), i)
+                                    }
+                                </MenuItem>
+                            )
+                        }
+
+                        return menuItems
+                    })()
+                }
+            </DropdownButton>
+        )
+    }
+
+    render() {
+        if (this.props.pronunciation.length < 2) { // 読みの候補が複数存在しないとき、Buttonを出力
+            return this.renderButton()
+        } else { // 読みの候補が複数存在するとき、DropdownButtonを出力
+            return this.renderDropdownButton()
         }
     }
 }
