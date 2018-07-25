@@ -2,13 +2,10 @@ import React from "react"
 import App from "../../containers/App"
 import OutputPanel from "../../containers/OutputPanel"
 import InputPanel from "../../components/InputPanel"
-import deepcopy from "deepcopy"
 import rootReducer from "../../reducers"
 import {shallow} from "enzyme"
 import {createStore} from "redux"
-import {showSentence} from "../../actions"
-import {showSentenceParameter} from "../reducers"
-import {makeStore} from "./Sentence"
+import {makeStoreShowPOSAndPronunciation, makeStoreShowSentence} from "./Sentence"
 
 let appComponent
 
@@ -36,11 +33,9 @@ describe("containers/PanelBody/initialState", () => {
 
 describe("containers/PanelBody/showSentenceState", () => {
     beforeEach(() => {
-        const store = createStore(rootReducer)
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
         appComponent = shallow(
             <App
-                store={store}
+                store={makeStoreShowSentence()}
             />
         ).dive()
     })
@@ -62,7 +57,7 @@ describe("containers/PanelBody/showPOSAndPronunciationState", () => {
     beforeEach(() => {
         appComponent = shallow(
             <App
-                store={makeStore()}
+                store={makeStoreShowPOSAndPronunciation()}
             />
         ).dive()
     })
