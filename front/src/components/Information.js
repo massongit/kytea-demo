@@ -23,22 +23,12 @@ class Information extends React.Component {
                     <tr>
                         {
                             [
-                                this.props.intl.formatMessage({
-                                    id: "header.candidate"
-                                }),
-                                this.props.intl.formatMessage({
-                                    id: "header.word"
-                                }),
-                                this.props.intl.formatMessage({
-                                    id: "header.pos"
-                                }),
-                                this.props.intl.formatMessage({
-                                    id: "header.pronunciation"
-                                }),
-                                this.props.intl.formatMessage({
-                                    id: "header.margin"
-                                })
-                            ].map((header, i) => ( // 見出しを上下左右中央揃えで表示
+                                "header.candidate",
+                                "header.word",
+                                "header.pos",
+                                "header.pronunciation",
+                                "header.margin"
+                            ].map((id, i) => ( // 見出しを上下左右中央揃えで表示
                                 <th
                                     key={i}
                                     className="text-center"
@@ -46,7 +36,9 @@ class Information extends React.Component {
                                         "verticalAlign": "middle"
                                     }}
                                 >
-                                    {header}
+                                    {this.props.intl.formatMessage({
+                                        id
+                                    })}
                                 </th>
                             ))
                         }
