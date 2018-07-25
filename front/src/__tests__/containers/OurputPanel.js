@@ -23,7 +23,7 @@ describe("containers/OutputPanel", () => {
         }
     })
 
-    it("初期状態からStateが遷移した際に、子要素にInformationが含まれない", () => {
+    it("初期状態からStateが遷移した際に、子要素にInformationが正しく配置されている", () => {
         for (const v of [[makeStoreShowSentence, false], [makeStoreShowPOSAndPronunciation, true]]) {
             expect(beforeProcess(v[0]).children().contains(<Information/>)).toEqual(v[1])
         }
