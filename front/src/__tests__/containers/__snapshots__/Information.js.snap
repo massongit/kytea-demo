@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`containers/Information 初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている 1`] = `
+exports[`containers/Information/snapshot 初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],

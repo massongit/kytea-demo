@@ -24,7 +24,7 @@ loadTranslation("./src/translations/ja.json")
 
 describe("containers/Information/snapshot", () => {
     it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている", () => {
-        const informationComponent = shallowWithIntl(
+        informationComponent = shallowWithIntl(
             <Information
                 store={makeStore()}
             />
