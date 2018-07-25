@@ -38,6 +38,11 @@ const dispatchDoubleShowPOSAndPronunciation = (store, d) => {
     store.dispatch(showPOSAndPronunciation(d))
 }
 
+const dispatchShowPOSAndPronunciationAndShowSentence = (store, d) => {
+    store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
+    store.dispatch(showSentence(deepcopy(d)))
+}
+
 let store
 
 describe("reducers/showPOSAndPronunciation", () => {
@@ -80,38 +85,32 @@ describe("reducers/showPOSAndPronunciation", () => {
     })
 
     it("初期状態以外のStateにおいて、showSentenceのActionが渡されたとき、初期状態を返す", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
+        dispatchShowPOSAndPronunciationAndShowSentence(store, showSentenceParameter)
         expect(store.getState()).toEqual(initialShowPOSAndPronunciationState)
     })
 
     it("初期状態以外のStateにおいて、読みが予測不能な単や空白を含むsentenceを持ったshowSentenceのActionが渡されたとき、初期状態を返す", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showSentence(deepcopy(showSentenceParameter3)))
+        dispatchShowPOSAndPronunciationAndShowSentence(store, showSentenceParameter3)
         expect(store.getState()).toEqual(initialShowPOSAndPronunciationState)
     })
 
     it("初期状態以外のStateにおいて、sentenceのみを持ったshowSentenceのActionが渡されたとき、初期状態を返す", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showSentence(deepcopy(showSentenceParameterSentenceOnly)))
+        dispatchShowPOSAndPronunciationAndShowSentence(store, showSentenceParameterSentenceOnly)
         expect(store.getState()).toEqual(initialShowPOSAndPronunciationState)
     })
 
     it("初期状態以外のStateにおいて、wordsのみを持ったshowSentenceのActionが渡されたとき、初期状態を返す", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showSentence(deepcopy(showSentenceParameterWordsOnly)))
+        dispatchShowPOSAndPronunciationAndShowSentence(store, showSentenceParameterWordsOnly)
         expect(store.getState()).toEqual(initialShowPOSAndPronunciationState)
     })
 
     it("初期状態以外のStateにおいて、undefinedな要素を含むwordsを持ったshowSentenceのActionが渡されたとき、初期状態を返す", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showSentence(deepcopy(showSentenceParameterIncludeUndefinedWords)))
+        dispatchShowPOSAndPronunciationAndShowSentence(store, showSentenceParameterIncludeUndefinedWords)
         expect(store.getState()).toEqual(initialShowPOSAndPronunciationState)
     })
 
     it("初期状態以外のStateにおいて、undefinedな要素を含むwordを含むwordsを持ったshowSentenceのActionが渡されたとき、初期状態を返す", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showSentence(deepcopy(showSentenceParameterIncludeNoWordWords)))
+        dispatchShowPOSAndPronunciationAndShowSentence(store, showSentenceParameterIncludeNoWordWords)
         expect(store.getState()).toEqual(initialShowPOSAndPronunciationState)
     })
 
