@@ -12,8 +12,8 @@ class Word extends React.Component {
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
         word: PropTypes.string,
-        ...propTypesPart,
-        intl: intlShape.isRequired
+        intl: intlShape.isRequired,
+        ...propTypesPart
     }
 
     /**
