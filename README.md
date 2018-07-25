@@ -69,7 +69,9 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * actions/: [Redux](https://redux.js.org/)のActionCreatorのテストが格納されている
                 * index.js: ActionCreatorのテスト
             * components/: [React](https://reactjs.org/)のComponentのテストが格納されている
+                * \_\_snapshots\_\_/: スナップショットテストで用いるデータが格納されている
                 * Header.js: ヘッダーのテスト
+                * PanelBody.js: PanelのBodyのテスト
             * containers/: [react-redux](https://redux.js.org/basics/usage-with-react)のContainerのテストが格納されている
                 * \_\_snapshots\_\_/: スナップショットテストで用いるデータが格納されている
                 * App.js: ルート要素のContainerのテスト
@@ -93,6 +95,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * Input.js: 入力部
             * InputPanel.js: 入力部のパネル
             * OutputPanel.js: 解析結果表示部のパネル
+            * PanelBody.js: PanelのBody
             * Sentence.js: 入力文をボタンのグループとして表示するComponent
             * Word.js: Sentenceの各ボタン
         * containers/: [react-redux](https://redux.js.org/basics/usage-with-react)のContainerが格納されている
