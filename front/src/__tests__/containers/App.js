@@ -5,9 +5,9 @@ import InputPanel from "../../components/InputPanel"
 import rootReducer from "../../reducers"
 import {shallow} from "enzyme"
 import {createStore} from "redux"
-import {fs} from "./Sentence"
+import {doSnapshot, functions} from "./Sentence"
 
-const fs_ = [undefined, ...fs]
+const functions2 = [undefined, ...functions]
 
 let store
 
@@ -28,18 +28,12 @@ describe("containers/PanelBody", () => {
     })
 
     it("Componentが正しく配置されている", () => {
-        for (const f of fs_) {
-            if(f) {
-                f(store)
-            }
-
-            expect(beforeProcess()).toMatchSnapshot()
-        }
+        doSnapshot(functions2, store, beforeProcess)
     })
 
     it("子要素にInputPanelが含まれる", () => {
-        for (const f of fs_) {
-            if(f) {
+        for (const f of functions2) {
+            if (f) {
                 f(store)
             }
             expect(beforeProcess().children().contains(<InputPanel/>)).toBeTruthy()
@@ -47,8 +41,8 @@ describe("containers/PanelBody", () => {
     })
 
     it("子要素にOutputPanelが正しく配置される", () => {
-        for (const v of [[fs_[0], false], [fs_[1], true], [fs_[2], true]]) {
-            if(v[0]) {
+        for (const v of [[functions2[0], false], [functions2[1], true], [functions2[2], true]]) {
+            if (v[0]) {
                 v[0](store)
             }
 

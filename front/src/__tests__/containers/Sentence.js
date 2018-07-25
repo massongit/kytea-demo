@@ -8,7 +8,7 @@ import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
 import {showPOSAndPronunciationState, showSentenceParameter, words} from "../reducers"
 
-export const fs = [
+export const functions = [
     store => {
         store.dispatch(showSentence(deepcopy(showSentenceParameter)))
     },
@@ -16,6 +16,16 @@ export const fs = [
         store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
     }
 ]
+
+export const doSnapshot = (fs, store, g) => {
+    for (const f of fs) {
+        if (f) {
+            f(store)
+        }
+
+        expect(g()).toMatchSnapshot()
+    }
+}
 
 let store
 
@@ -36,14 +46,11 @@ describe("containers/Sentence", () => {
     })
 
     it("初期状態からStateが遷移した際に、Componentが正しく配置されている", () => {
-        for (const f of fs) {
-            f(store)
-            expect(beforeProcess()).toMatchSnapshot()
-        }
+        doSnapshot(functions, store, beforeProcess)
     })
 
     it("初期状態からStateが遷移した際に、子要素にWordが含まれる", () => {
-        for (const f of fs) {
+        for (const f of functions) {
             for (const w of words) {
                 f(store)
                 expect(beforeProcess().contains(
