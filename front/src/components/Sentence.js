@@ -1,7 +1,7 @@
 import React from "react"
-import {propTypes} from "./App"
 import Word from "../containers/Word"
 import {ButtonGroup} from "react-bootstrap"
+import {propTypes} from "./App"
 
 /**
  * 入力文をボタンのグループとして表示するComponent
