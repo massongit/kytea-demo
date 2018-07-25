@@ -7,7 +7,7 @@ import {intl} from "../intl"
  * @param tag タグ
  * @returns {string} タグ
  */
-const convertTag = (tag) => {
+const convertTag = tag => {
     if (tag === "(Unknown)") {
         return intl.formatMessage({
             id: "unknown"
