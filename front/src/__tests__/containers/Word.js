@@ -14,22 +14,26 @@ import {
     word
 } from "../reducers"
 
-let store
+/**
+ * StoreMockを作成する
+ * @returns {store} StoreMock
+ */
+const makeStoreMock = () => {
+    return configureMockStore([thunk])({
+        showSentence: initialShowSentenceState,
+        showPOSAndPronunciation: initialShowPOSAndPronunciationState
+    })
+}
+
+let store, wordComponent
 
 loadTranslation("./src/translations/ja.json")
 
-describe("containers/Word", () => {
-    beforeEach(() => {
-        store = configureMockStore([thunk])({
-            showSentence: initialShowSentenceState,
-            showPOSAndPronunciation: initialShowPOSAndPronunciationState
-        })
-    })
-
+describe("containers/Word/snapshot", () => {
     it("Componentが正しく配置されている", () => {
-        const wordComponent = shallowWithIntl(
+        wordComponent = shallowWithIntl(
             <Word
-                store={store}
+                store={makeStoreMock()}
                 word={word}
                 pos={pos}
                 pronunciation={[pronunciation_]}
@@ -37,9 +41,12 @@ describe("containers/Word", () => {
         ).dive()
         expect(wordComponent).toMatchSnapshot()
     })
+})
 
-    it("wordが記述されている", () => {
-        const wordComponent = mountWithIntl(
+describe("containers/Word/other", () => {
+    beforeEach(() => {
+        store = makeStoreMock()
+        wordComponent = mountWithIntl(
             <Word
                 store={store}
                 word={word}
@@ -47,18 +54,13 @@ describe("containers/Word", () => {
                 pronunciation={[pronunciation_]}
             />
         )
+    })
+
+    it("wordが記述されている", () => {
         expect(wordComponent.contains(word)).toBeTruthy()
     })
 
     it("onClickイベントが呼び出されたとき、正常にdispatchが行われる", () => {
-        const wordComponent = mountWithIntl(
-            <Word
-                store={store}
-                word={word}
-                pos={pos}
-                pronunciation={[pronunciation_]}
-            />
-        )
         wordComponent.simulate("click", eventMock)
         expect(store.getActions()).toEqual([
             showPOSAndPronunciation(showPOSAndPronunciationState_)
