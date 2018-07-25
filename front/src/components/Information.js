@@ -22,31 +22,29 @@ class Information extends React.Component {
      */
     renderHeader() {
         return (
-            <thead>
-                <tr>
-                    {
-                        [
-                            "header.candidate",
-                            "header.word",
-                            "header.pos",
-                            "header.pronunciation",
-                            "header.margin"
-                        ].map((id, i) => ( // 見出しを上下左右中央揃えで表示
-                            <th
-                                key={i}
-                                className="text-center"
-                                style={{
-                                    "verticalAlign": "middle"
-                                }}
-                            >
-                                {this.props.intl.formatMessage({
-                                    id
-                                })}
-                            </th>
-                        ))
-                    }
-                </tr>
-            </thead>
+            <tr>
+                {
+                    [
+                        "header.candidate",
+                        "header.word",
+                        "header.pos",
+                        "header.pronunciation",
+                        "header.margin"
+                    ].map((id, i) => ( // 見出しを上下左右中央揃えで表示
+                        <th
+                            key={i}
+                            className="text-center"
+                            style={{
+                                "verticalAlign": "middle"
+                            }}
+                        >
+                            {this.props.intl.formatMessage({
+                                id
+                            })}
+                        </th>
+                    ))
+                }
+            </tr>
         )
     }
 
@@ -56,38 +54,40 @@ class Information extends React.Component {
      */
     renderContents() {
         return (
-            <tbody>
-                <tr>
-                    {
-                        [
-                            this.props.intl.formatNumber(this.props.number),
-                            this.props.word,
-                            this.props.pos,
-                            this.props.pronunciation.pronunciation
-                        ].map((data, i) => (
-                            <td
-                                className="text-center"
-                                key={i}
-                            >
-                                {data}
-                            </td>
-                        ))
-                    }
-                    <td className="text-right">
-                        <FormattedNumber
-                            value={this.props.pronunciation.margin}
-                        />
-                    </td>
-                </tr>
-            </tbody>
+            <tr>
+                {
+                    [
+                        this.props.intl.formatNumber(this.props.number),
+                        this.props.word,
+                        this.props.pos,
+                        this.props.pronunciation.pronunciation
+                    ].map((data, i) => (
+                        <td
+                            className="text-center"
+                            key={i}
+                        >
+                            {data}
+                        </td>
+                    ))
+                }
+                <td className="text-right">
+                    <FormattedNumber
+                        value={this.props.pronunciation.margin}
+                    />
+                </td>
+            </tr>
         )
     }
 
     render() {
         return (
             <Table striped bordered hover condensed>
-                {this.renderHeader()}
-                {this.renderContents()}
+                <thead>
+                    {this.renderHeader()}
+                </thead>
+                <tbody>
+                    {this.renderContents()}
+                </tbody>
             </Table>
         )
     }
