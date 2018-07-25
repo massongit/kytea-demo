@@ -7,70 +7,40 @@ import {shallow} from "enzyme"
 import {createStore} from "redux"
 import {makeStoreShowPOSAndPronunciation, makeStoreShowSentence} from "./Sentence"
 
-let appComponent
+/**
+ * テストの前処理
+ * @param createStore Storeを生成する関数
+ */
+const beforeProcess = (createStore) => (
+    shallow(
+        <App
+            store={createStore()}
+        />
+    ).dive()
+)
 
-describe("containers/PanelBody/initialState", () => {
-    beforeEach(() => {
-        appComponent = shallow(
-            <App
-                store={createStore(rootReducer)}
-            />
-        ).dive()
+describe("containers/PanelBody", () => {
+    it("Componentが正しく配置されている", () => {
+        for (const f of [() => (
+            createStore(rootReducer)
+        ), makeStoreShowSentence, makeStoreShowPOSAndPronunciation]) {
+            expect(beforeProcess(f)).toMatchSnapshot()
+        }
     })
 
-    it("初期状態において、Componentが正しく配置されている", () => {
-        expect(appComponent).toMatchSnapshot()
+    it("子要素にInputPanelが含まれる", () => {
+        for (const f of [() => (
+            createStore(rootReducer)
+        ), makeStoreShowSentence, makeStoreShowPOSAndPronunciation]) {
+            expect(beforeProcess(f).children().contains(<InputPanel/>)).toBeTruthy()
+        }
     })
 
-    it("初期状態において、子要素にInputPanelが含まれる", () => {
-        expect(appComponent.children().contains(<InputPanel/>)).toBeTruthy()
-    })
-
-    it("初期状態において、子要素にOutputPanelが含まれない", () => {
-        expect(appComponent.children().contains(<OutputPanel/>)).toBeFalsy()
-    })
-})
-
-describe("containers/PanelBody/showSentenceState", () => {
-    beforeEach(() => {
-        appComponent = shallow(
-            <App
-                store={makeStoreShowSentence()}
-            />
-        ).dive()
-    })
-
-    it("初期状態からshowSentenceへStateが遷移した際に、Componentが正しく配置されている", () => {
-        expect(appComponent).toMatchSnapshot()
-    })
-
-    it("初期状態からshowSentenceへStateが遷移した際に、子要素にInputPanelが含まれる", () => {
-        expect(appComponent.children().contains(<InputPanel/>)).toBeTruthy()
-    })
-
-    it("初期状態からshowSentenceへStateが遷移した際に、子要素にOutputPanelが含まれる", () => {
-        expect(appComponent.children().contains(<OutputPanel/>)).toBeTruthy()
-    })
-})
-
-describe("containers/PanelBody/showPOSAndPronunciationState", () => {
-    beforeEach(() => {
-        appComponent = shallow(
-            <App
-                store={makeStoreShowPOSAndPronunciation()}
-            />
-        ).dive()
-    })
-
-    it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている", () => {
-        expect(appComponent).toMatchSnapshot()
-    })
-
-    it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、子要素にInputPanelが含まれる", () => {
-        expect(appComponent.children().contains(<InputPanel/>)).toBeTruthy()
-    })
-
-    it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、子要素にOutputPanelが含まれる", () => {
-        expect(appComponent.children().contains(<OutputPanel/>)).toBeTruthy()
+    it("子要素にOutputPanelが正しく配置される", () => {
+        for (const v of [[() => (
+            createStore(rootReducer)
+        ), false], [makeStoreShowSentence, true], [makeStoreShowPOSAndPronunciation, true]]) {
+            expect(beforeProcess(v[0]).children().contains(<OutputPanel/>)).toEqual(v[1])
+        }
     })
 })
