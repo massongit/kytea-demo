@@ -124,6 +124,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
         * Pipfile.lock: Pythonのパッケージ情報 ([pipenv](https://docs.pipenv.org/)が使用)
         * server.py: サーバー
         * test_server.py: テスト用スクリプト
+    * tests/: テストで用いるJSONファイルが格納されている
 * README.md: README (MarkDown形式)
 * README_develop.md: 開発者向けREADME (MarkDown形式)
 * screenshot.png: スクリーンショット
