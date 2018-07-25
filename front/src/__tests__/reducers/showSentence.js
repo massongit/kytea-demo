@@ -4,6 +4,7 @@ import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
 import {
     dispatchDoubleShowSentence,
+    dispatchShowSentenceAndShowPOSAndPronunciation,
     initialShowSentenceState,
     sentence,
     sentence2,
@@ -169,44 +170,37 @@ describe("reducers/showSentence", () => {
     })
 
     it("初期状態以外の状態において、showPOSAndPronunciationのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
+        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationState)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、posのみを持ったshowPOSAndPronunciationのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationStatePOSOnly))
+        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationStatePOSOnly)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、wordのみを持ったshowPOSAndPronunciationのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationStateWordOnly))
+        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationStateWordOnly)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、pronunciationのみを持ったshowPOSAndPronunciationのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationStateWSOnly))
+        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationStateWSOnly)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、posとwordのみを持ったshowPOSAndPronunciationのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationStatePOSAndWordOnly))
+        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationStatePOSAndWordOnly)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、posとpronunciationのみを持ったshowPOSAndPronunciationのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationStatePOSAndWSOnly))
+        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationStatePOSAndWSOnly)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、wordとpronunciationのみを持ったshowPOSAndPronunciationのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationStateWordAndWSOnly))
+        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationStateWordAndWSOnly)
         expect(store.getState()).toEqual(showSentenceState)
     })
 })

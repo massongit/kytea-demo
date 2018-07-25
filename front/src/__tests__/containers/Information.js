@@ -1,11 +1,15 @@
 import React from "react"
 import Information from "../../containers/Information"
-import deepcopy from "deepcopy"
 import rootReducer from "../../reducers"
 import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
 import {createStore} from "redux"
-import {showPOSAndPronunciation, showSentence} from "../../actions"
-import {pos, pronunciation, showPOSAndPronunciationState_, showSentenceParameter, word} from "../reducers"
+import {
+    dispatchShowSentenceAndShowPOSAndPronunciation,
+    pos,
+    pronunciation,
+    showPOSAndPronunciationState_,
+    word
+} from "../reducers"
 
 /**
  * Storeを作成する
@@ -13,8 +17,7 @@ import {pos, pronunciation, showPOSAndPronunciationState_, showSentenceParameter
  */
 const makeStore = () => {
     const store = createStore(rootReducer)
-    store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-    store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState_))
+    dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationState_)
     return store
 }
 
