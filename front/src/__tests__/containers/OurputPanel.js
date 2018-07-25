@@ -4,15 +4,24 @@ import Information from "../../containers/Information"
 import {shallow} from "enzyme"
 import {makeStoreShowPOSAndPronunciation, makeStoreShowSentence} from "./Sentence"
 
+/**
+ * テストの前処理
+ * @param createStore Storeを生成する関数
+ * @returns {ShallowWrapper}
+ */
+const beforeProcess = (createStore) => (
+    shallow(
+        <OutputPanel
+            store={createStore()}
+        />
+    ).dive()
+)
+
 let outputPanelComponent
 
 describe("containers/OutputPanel/showSentenceState", () => {
     beforeEach(() => {
-        outputPanelComponent = shallow(
-            <OutputPanel
-                store={makeStoreShowSentence()}
-            />
-        ).dive()
+        outputPanelComponent = beforeProcess(makeStoreShowSentence)
     })
 
     it("初期状態からshowSentenceへStateが遷移した際に、Componentが正しく配置されている", () => {
@@ -26,11 +35,7 @@ describe("containers/OutputPanel/showSentenceState", () => {
 
 describe("containers/OutputPanel/showPOSAndPronunciationState", () => {
     beforeEach(() => {
-        outputPanelComponent = shallow(
-            <OutputPanel
-                store={makeStoreShowPOSAndPronunciation()}
-            />
-        ).dive()
+        outputPanelComponent = beforeProcess(makeStoreShowPOSAndPronunciation)
     })
 
     it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている", () => {
