@@ -458,6 +458,11 @@ export const showSentenceParameter3 = {
     words: words3
 }
 
+export const dispatchDoubleShowSentence = (store, d) => {
+    store.dispatch(showSentence(deepcopy(showSentenceParameter)))
+    store.dispatch(showSentence(deepcopy(d)))
+}
+
 let store
 
 describe("reducers/index", () => {
@@ -512,15 +517,13 @@ describe("reducers/index", () => {
     })
 
     it("初期状態からshowSentence, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showSentence(deepcopy(showSentenceState2)))
+        dispatchDoubleShowSentence(store, showSentenceState2)
         expect(store.getState()).toEqual(showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
 
     it("初期状態からshowSentence, showSentence, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showSentence(deepcopy(showSentenceState2)))
+        dispatchDoubleShowSentence(store, showSentenceState2)
         store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
         expect(store.getState()).toEqual({
             showSentence: showSentenceState2,
@@ -529,8 +532,7 @@ describe("reducers/index", () => {
     })
 
     it("初期状態からshowSentence, showSentence, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showSentence(deepcopy(showSentenceState2)))
+        dispatchDoubleShowSentence(store, showSentenceState2)
         store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
         store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState2))
         expect(store.getState()).toEqual({

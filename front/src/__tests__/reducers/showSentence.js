@@ -3,6 +3,7 @@ import showSentenceReducer from "../../reducers/showSentence"
 import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
 import {
+    dispatchDoubleShowSentence,
     initialShowSentenceState,
     sentence,
     sentence2,
@@ -42,13 +43,8 @@ const showSentenceState3 = {
 
 let store
 
-const dispatchDoubleShowSentence = d => {
-    store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-    store.dispatch(showSentence(deepcopy(d)))
-}
-
-const dispatchDoubleShowSentence2 = v => {
-    dispatchDoubleShowSentence({
+const dispatchDoubleShowSentence2 = (store, v) => {
+    dispatchDoubleShowSentence(store, {
         sentence: sentence2,
         words: words2.concat(v)
     })
@@ -94,8 +90,7 @@ describe("reducers/showSentence", () => {
     })
 
     it("初期状態以外のStateにおいて、showSentenceのActionからshowSentenceのStateを生成する", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showSentence(deepcopy(showSentenceState2)))
+        dispatchDoubleShowSentence(store, showSentenceState2)
         expect(store.getState()).toEqual(showSentenceState2)
     })
 
@@ -105,38 +100,36 @@ describe("reducers/showSentence", () => {
     })
 
     it("初期状態以外のStateにおいて、読みが予測不能な単や空白を含むsentenceを持ったshowSentenceのActionからshowSentenceのStateを生成する", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showSentence(deepcopy(showSentenceParameter3)))
+        dispatchDoubleShowSentence(store, showSentenceParameter3)
         expect(store.getState()).toEqual(showSentenceState3)
     })
 
     it("初期状態以外のStateにおいて、sentenceのみを持ったshowSentenceのActionからshowSentenceのStateを生成する", () => {
-        dispatchDoubleShowSentence({
+        dispatchDoubleShowSentence(store, {
             sentence: sentence2
         })
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、wordsのみを持ったshowSentenceのActionからshowSentenceのStateを生成する", () => {
-        dispatchDoubleShowSentence({
+        dispatchDoubleShowSentence(store, {
             words: words2
         })
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、undefinedな要素を含むwordsを持ったshowSentenceのActionが渡されたとき、Stateを変更しない", () => {
-        dispatchDoubleShowSentence2(undefined)
+        dispatchDoubleShowSentence2(store, undefined)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、undefinedな要素を含むwordを含むwordsを持ったshowSentenceのActionが渡されたとき、Stateを変更しない", () => {
-        dispatchDoubleShowSentence2(showPOSAndPronunciationState2POSAndWordOnly)
+        dispatchDoubleShowSentence2(store, showPOSAndPronunciationState2POSAndWordOnly)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、sentenceとwords内の単語が一致しないshowSentenceのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showSentence(deepcopy(showSentenceParameterInvalidSentence)))
+        dispatchDoubleShowSentence(store, showSentenceParameterInvalidSentence)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
