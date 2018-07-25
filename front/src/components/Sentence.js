@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+import {propTypes} from "./App"
 import Word from "../containers/Word"
 import {ButtonGroup} from "react-bootstrap"
 
@@ -7,17 +7,7 @@ import {ButtonGroup} from "react-bootstrap"
  * 入力文をボタンのグループとして表示するComponent
  */
 class Sentence extends React.Component {
-    static propTypes = {
-        words: PropTypes.arrayOf(PropTypes.shape({
-            pos: PropTypes.string.isRequired,
-            word: PropTypes.string.isRequired,
-            pronunciation: PropTypes.arrayOf(PropTypes.shape({
-                id: PropTypes.number,
-                margin: PropTypes.number.isRequired,
-                pronunciation: PropTypes.string.isRequired
-            })).isRequired
-        }).isRequired)
-    }
+    static propTypes = propTypes
 
     render() {
         if (this.props.words) {

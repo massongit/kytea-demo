@@ -7,20 +7,26 @@ import OutputPanel from "../containers/OutputPanel"
 import {Grid} from "react-bootstrap"
 
 /**
+ * PropTypes
+ * @type {{words: shim}}
+ */
+export const propTypes = {
+    words: PropTypes.arrayOf(PropTypes.shape({
+        pos: PropTypes.string.isRequired,
+        word: PropTypes.string.isRequired,
+        pronunciation: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.number,
+            margin: PropTypes.number.isRequired,
+            pronunciation: PropTypes.string.isRequired
+        })).isRequired
+    }).isRequired)
+}
+
+/**
  * ルート要素
  */
 class App extends React.Component {
-    static propTypes = {
-        words: PropTypes.arrayOf(PropTypes.shape({
-            pos: PropTypes.string.isRequired,
-            word: PropTypes.string.isRequired,
-            pronunciation: PropTypes.arrayOf(PropTypes.shape({
-                id: PropTypes.number,
-                margin: PropTypes.number.isRequired,
-                pronunciation: PropTypes.string.isRequired
-            })).isRequired
-        }).isRequired)
-    }
+    static propTypes = propTypes
 
     render() {
         return (
