@@ -822,7 +822,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`containers/Sentence/showPOSAndPronunciation 初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている 1`] = `
+exports[`containers/Sentence 初期状態からStateが遷移した際に、Componentが正しく配置されている 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -2015,7 +2015,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`containers/Sentence/showSentence 初期状態からshowSentenceへStateが遷移した際に、Componentが正しく配置されている 1`] = `
+exports[`containers/Sentence 初期状態からStateが遷移した際に、Componentが正しく配置されている 2`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],

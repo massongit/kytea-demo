@@ -28,56 +28,36 @@ export const makeStoreShowPOSAndPronunciation = () => {
     return store
 }
 
-let sentenceComponent
+/**
+ * テストの前処理
+ * @param createStore Storeを生成する関数
+ */
+const beforeProcess = (createStore) => (
+    shallow(
+        <Sentence
+            store={createStore()}
+        />
+    ).dive()
+)
 
-describe("containers/Sentence/showSentence", () => {
-    beforeEach(() => {
-        sentenceComponent = shallow(
-            <Sentence
-                store={makeStoreShowSentence()}
-            />
-        ).dive()
-    })
-
-    it("初期状態からshowSentenceへStateが遷移した際に、Componentが正しく配置されている", () => {
-        expect(sentenceComponent).toMatchSnapshot()
-    })
-
-    it("初期状態からshowSentenceへStateが遷移した際に、子要素にWordが含まれる", () => {
-        for (const w of words) {
-            expect(sentenceComponent.contains(
-                <Word
-                    word={w.word}
-                    pos={w.pos}
-                    pronunciation={w.pronunciation}
-                />
-            )).toBeTruthy()
+describe("containers/Sentence", () => {
+    it("初期状態からStateが遷移した際に、Componentが正しく配置されている", () => {
+        for (const f of [makeStoreShowSentence, makeStoreShowPOSAndPronunciation]) {
+            expect(beforeProcess(f)).toMatchSnapshot()
         }
     })
-})
 
-describe("containers/Sentence/showPOSAndPronunciation", () => {
-    beforeEach(() => {
-        sentenceComponent = shallow(
-            <Sentence
-                store={makeStoreShowPOSAndPronunciation()}
-            />
-        ).dive()
-    })
-
-    it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている", () => {
-        expect(sentenceComponent).toMatchSnapshot()
-    })
-
-    it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、子要素にWordが含まれる", () => {
-        for (const w of words) {
-            expect(sentenceComponent.contains(
-                <Word
-                    word={w.word}
-                    pos={w.pos}
-                    pronunciation={w.pronunciation}
-                />
-            )).toBeTruthy()
+    it("初期状態からStateが遷移した際に、子要素にWordが含まれる", () => {
+        for (const f of [makeStoreShowSentence, makeStoreShowPOSAndPronunciation]) {
+            for (const w of words) {
+                expect(beforeProcess(f).contains(
+                    <Word
+                        word={w.word}
+                        pos={w.pos}
+                        pronunciation={w.pronunciation}
+                    />
+                )).toBeTruthy()
+            }
         }
     })
 })
