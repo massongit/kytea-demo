@@ -18,12 +18,12 @@ import {
  * StoreMockを作成する
  * @returns {store} StoreMock
  */
-const makeStoreMock = () => {
-    return configureMockStore([thunk])({
+const makeStoreMock = () => (
+    configureMockStore([thunk])({
         showSentence: initialShowSentenceState,
         showPOSAndPronunciation: initialShowPOSAndPronunciationState
     })
-}
+)
 
 let store, wordComponent
 
