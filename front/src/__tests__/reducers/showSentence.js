@@ -42,6 +42,14 @@ const showSentenceState3 = {
 
 let store
 
+const dispatchDoubleShowSentence = v => {
+    store.dispatch(showSentence(deepcopy(showSentenceParameter)))
+    store.dispatch(showSentence(deepcopy({
+        sentence: sentence2,
+        words: words2.concat(v)
+    })))
+}
+
 describe("reducers/showSentence", () => {
     beforeEach(() => {
         store = createStore(showSentenceReducer)
@@ -115,20 +123,12 @@ describe("reducers/showSentence", () => {
     })
 
     it("初期状態以外のStateにおいて、undefinedな要素を含むwordsを持ったshowSentenceのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showSentence(deepcopy({
-            sentence: sentence2,
-            words: words2.concat(undefined)
-        })))
+        dispatchDoubleShowSentence(undefined)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
     it("初期状態以外のStateにおいて、undefinedな要素を含むwordを含むwordsを持ったshowSentenceのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
-        store.dispatch(showSentence(deepcopy({
-            sentence: sentence2,
-            words: words2.concat(showPOSAndPronunciationState2POSAndWordOnly)
-        })))
+        dispatchDoubleShowSentence(showPOSAndPronunciationState2POSAndWordOnly)
         expect(store.getState()).toEqual(showSentenceState)
     })
 
