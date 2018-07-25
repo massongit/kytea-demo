@@ -7,16 +7,22 @@ import OutputPanel from "../containers/OutputPanel"
 import {Grid} from "react-bootstrap"
 
 /**
+ * pronunciationのPropTypes
+ * @type {{pos: *, pronunciation: (shim|*)}}
+ */
+export const propTypesPronunciation = PropTypes.shape({
+    id: PropTypes.number,
+    margin: PropTypes.number.isRequired,
+    pronunciation: PropTypes.string.isRequired
+})
+
+/**
  * PropTypesの一部
  * @type {{pos: *, pronunciation: (shim|*)}}
  */
 export const propTypesPart = {
     pos: PropTypes.string.isRequired,
-    pronunciation: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number,
-        margin: PropTypes.number.isRequired,
-        pronunciation: PropTypes.string.isRequired
-    })).isRequired
+    pronunciation: PropTypes.arrayOf(propTypesPronunciation).isRequired
 }
 
 /**

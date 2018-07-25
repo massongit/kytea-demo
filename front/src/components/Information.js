@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import {Table} from "react-bootstrap"
 import {FormattedNumber, intlShape} from "react-intl"
+import {propTypesPronunciation} from "./App"
 
 /**
  * 解析結果表示部
@@ -11,11 +12,7 @@ class Information extends React.Component {
         number: PropTypes.number.isRequired,
         word: PropTypes.string,
         pos: PropTypes.string.isRequired,
-        pronunciation: PropTypes.shape({
-            id: PropTypes.number,
-            margin: PropTypes.number.isRequired,
-            pronunciation: PropTypes.string.isRequired
-        }),
+        pronunciation: propTypesPronunciation,
         intl: intlShape.isRequired
     }
 
