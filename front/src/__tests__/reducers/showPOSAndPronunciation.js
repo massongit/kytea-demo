@@ -33,6 +33,11 @@ const showPOSAndPronunciationState2WordAndWSOnly = {
     pronunciation: pronunciation2
 }
 
+const dispatchDoubleShowPOSAndPronunciation = (store, v) => {
+    store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
+    store.dispatch(showPOSAndPronunciation(v))
+}
+
 let store
 
 describe("reducers/showPOSAndPronunciation", () => {
@@ -170,27 +175,24 @@ describe("reducers/showPOSAndPronunciation", () => {
     })
 
     it("初期状態以外のStateにおいて、posのみを持ったshowPOSAndPronunciationのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showPOSAndPronunciation({
+        dispatchDoubleShowPOSAndPronunciation(store, {
             pos: pos2
-        }))
+        })
         expect(store.getState()).toEqual(showPOSAndPronunciationState)
     })
 
     it("初期状態以外のStateにおいて、pronunciationのみを持ったshowPOSAndPronunciationのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showPOSAndPronunciation({
+        dispatchDoubleShowPOSAndPronunciation(store, {
             pronunciation: pronunciation2
-        }))
+        })
         expect(store.getState()).toEqual(showPOSAndPronunciationState)
     })
 
     it("初期状態以外のStateにおいて、posとpronunciationのみを持ったshowPOSAndPronunciationのActionが渡されたとき、Stateを変更しない", () => {
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showPOSAndPronunciation({
+        dispatchDoubleShowPOSAndPronunciation(store, {
             pos: pos2,
             pronunciation: pronunciation2
-        }))
+        })
         expect(store.getState()).toEqual(showPOSAndPronunciationState)
     })
 })
