@@ -8,40 +8,28 @@ import {makeStoreShowPOSAndPronunciation, makeStoreShowSentence} from "./Sentenc
  * テストの前処理
  * @param createStore Storeを生成する関数
  */
-const beforeProcess = (createStore) => {
-    outputPanelComponent = shallow(
+const beforeProcess = (createStore) => (
+    shallow(
         <OutputPanel
             store={createStore()}
         />
     ).dive()
-}
+)
 
-let outputPanelComponent
-
-describe("containers/OutputPanel/showSentenceState", () => {
-    beforeEach(() => {
-        beforeProcess(makeStoreShowSentence)
-    })
-
+describe("containers/OutputPanel", () => {
     it("初期状態からshowSentenceへStateが遷移した際に、Componentが正しく配置されている", () => {
-        expect(outputPanelComponent).toMatchSnapshot()
+        expect(beforeProcess(makeStoreShowSentence)).toMatchSnapshot()
     })
 
     it("初期状態からshowSentenceへStateが遷移した際に、子要素にInformationが含まれない", () => {
-        expect(outputPanelComponent.children().contains(<Information/>)).toBeFalsy()
-    })
-})
-
-describe("containers/OutputPanel/showPOSAndPronunciationState", () => {
-    beforeEach(() => {
-        beforeProcess(makeStoreShowPOSAndPronunciation)
+        expect(beforeProcess(makeStoreShowSentence).children().contains(<Information/>)).toBeFalsy()
     })
 
     it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている", () => {
-        expect(outputPanelComponent).toMatchSnapshot()
+        expect(beforeProcess(makeStoreShowPOSAndPronunciation)).toMatchSnapshot()
     })
 
     it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、子要素にInformationが含まれる", () => {
-        expect(outputPanelComponent.children().contains(<Information/>)).toBeTruthy()
+        expect(beforeProcess(makeStoreShowPOSAndPronunciation).children().contains(<Information/>)).toBeTruthy()
     })
 })

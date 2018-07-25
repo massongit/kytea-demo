@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`containers/OutputPanel/showPOSAndPronunciationState 初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている 1`] = `
+exports[`containers/OutputPanel 初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、Componentが正しく配置されている 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -280,7 +280,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`containers/OutputPanel/showSentenceState 初期状態からshowSentenceへStateが遷移した際に、Componentが正しく配置されている 1`] = `
+exports[`containers/OutputPanel 初期状態からshowSentenceへStateが遷移した際に、Componentが正しく配置されている 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
