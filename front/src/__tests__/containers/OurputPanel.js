@@ -21,7 +21,6 @@ describe("containers/OutputPanel", () => {
         for (const f of [makeStoreShowSentence, makeStoreShowPOSAndPronunciation]) {
             expect(beforeProcess(f)).toMatchSnapshot()
         }
-
     })
 
     it("初期状態からStateが遷移した際に、子要素にInformationが含まれない", () => {
