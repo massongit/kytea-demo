@@ -2,17 +2,12 @@ import React from "react"
 import Word from "../../containers/Word"
 import thunk from "redux-thunk"
 import configureMockStore from "redux-mock-store"
+import initialShowSentenceState from "../../test_data/initialShowSentenceState"
+import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
 import {eventMock} from "./Input"
 import {showPOSAndPronunciation} from "../../actions"
-import {
-    initialShowPOSAndPronunciationState,
-    initialShowSentenceState,
-    pos,
-    pronunciation_,
-    showPOSAndPronunciationState_,
-    word
-} from "../reducers"
+import {pos, pronunciation__, showPOSAndPronunciationState_, word} from "../../test_data"
 
 /**
  * StoreMockを作成する
@@ -36,7 +31,7 @@ describe("containers/Word/snapshot", () => {
                 store={makeStoreMock()}
                 word={word}
                 pos={pos}
-                pronunciation={[pronunciation_]}
+                pronunciation={[pronunciation__]}
             />
         ).dive()
         expect(wordComponent).toMatchSnapshot()
@@ -51,7 +46,7 @@ describe("containers/Word/other", () => {
                 store={store}
                 word={word}
                 pos={pos}
-                pronunciation={[pronunciation_]}
+                pronunciation={[pronunciation__]}
             />
         )
     })

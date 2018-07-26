@@ -110,6 +110,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * index.js: ルートReducer
             * showSentence.js: [KyTea](http://www.phontron.com/kytea/index-ja.html)による解析結果の表示ActionのReducer
             * showPOSAndPronunciation.js: 品詞や読みの表示ActionのReducer
+        * test_data/: テストで使用するデータが格納されている
         * translations/: メッセージリソースが格納されている
             * en.json: 英語のメッセージリソース
             * ja.json: 日本語のメッセージリソース

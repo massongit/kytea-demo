@@ -4,20 +4,20 @@ import deepcopy from "deepcopy"
 import thunk from "redux-thunk"
 import fetch from "node-fetch"
 import configureMockStore from "redux-mock-store"
+import words2 from "../../test_data/words2"
+import initialShowSentenceState from "../../test_data/initialShowSentenceState"
+import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import {Form, FormControl} from "react-bootstrap"
 import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
 import {showSentence} from "../../actions"
 import {
-    initialShowPOSAndPronunciationState,
-    initialShowSentenceState,
     rootStateAfterShowSentence,
     sentence,
     sentence2,
     showSentenceParameter,
     showSentenceState2,
-    words,
-    words2
-} from "../reducers"
+    words
+} from "../../test_data"
 
 export const eventMock = {
     preventDefault: jest.fn()

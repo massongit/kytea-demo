@@ -1,7 +1,7 @@
 import deepcopy from "deepcopy"
 import * as types from "../../actions/types"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
-import {showPOSAndPronunciationState, showSentenceParameter, showSentenceState} from "../reducers"
+import {showPOSAndPronunciationState, showSentenceParameter, showSentenceState} from "../../test_data"
 
 /**
  * KyTeaによる解析結果の表示Action

@@ -1,11 +1,12 @@
 import deepcopy from "deepcopy"
+import words2 from "../../test_data/words2"
+import words3 from "../../test_data/words3"
+import initialShowSentenceState from "../../test_data/initialShowSentenceState"
 import showSentenceReducer from "../../reducers/showSentence"
 import {createStore} from "redux"
+import {dispatchDoubleShowSentence, dispatchShowSentenceAndShowPOSAndPronunciation} from "./index"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
 import {
-    dispatchDoubleShowSentence,
-    dispatchShowSentenceAndShowPOSAndPronunciation,
-    initialShowSentenceState,
     sentence,
     sentence2,
     showPOSAndPronunciationState,
@@ -23,13 +24,11 @@ import {
     showSentenceParameterSentenceOnly,
     showSentenceParameterWordsOnly,
     showSentenceState,
-    showSentenceState2,
-    words2,
-    words3
-} from "./index"
+    showSentenceState2
+} from "../../test_data"
 
 const showSentenceParameterInvalidSentence = {
-    sentence: sentence,
+    sentence,
     words: words2
 }
 

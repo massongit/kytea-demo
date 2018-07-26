@@ -3,13 +3,8 @@ import Information from "../../containers/Information"
 import rootReducer from "../../reducers"
 import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
 import {createStore} from "redux"
-import {
-    dispatchShowSentenceAndShowPOSAndPronunciation,
-    pos,
-    pronunciation,
-    showPOSAndPronunciationState_,
-    word
-} from "../reducers"
+import {pos, pronunciation, showPOSAndPronunciationState_, word} from "../../test_data"
+import {dispatchShowSentenceAndShowPOSAndPronunciation} from "../reducers"
 
 /**
  * Storeを作成する

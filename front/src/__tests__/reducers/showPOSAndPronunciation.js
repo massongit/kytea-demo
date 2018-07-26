@@ -1,11 +1,11 @@
 import deepcopy from "deepcopy"
+import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import showPOSAndPronunciationReducer from "../../reducers/showPOSAndPronunciation"
+import pronunciation2 from "../../test_data/pronunciation2"
 import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
 import {
-    initialShowPOSAndPronunciationState,
     pos2,
-    pronunciation2,
     showPOSAndPronunciationState,
     showPOSAndPronunciationState2,
     showPOSAndPronunciationState2POSAndWordOnly,
@@ -22,7 +22,7 @@ import {
     showSentenceParameterSentenceOnly,
     showSentenceParameterWordsOnly,
     word2
-} from "./index"
+} from "../../test_data"
 
 const showPOSAndPronunciationState2WordOnly = {
     word: word2

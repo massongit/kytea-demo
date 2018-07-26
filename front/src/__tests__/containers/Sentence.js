@@ -6,7 +6,7 @@ import rootReducer from "../../reducers"
 import {shallow} from "enzyme"
 import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
-import {showPOSAndPronunciationState, showSentenceParameter, words} from "../reducers"
+import {showPOSAndPronunciationState, showSentenceParameter, words} from "../../test_data"
 
 export const functions = [
     store => {
