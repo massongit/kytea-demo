@@ -111,12 +111,14 @@ class Word extends React.Component {
                 }}
             >
                 {
-                    this.getButtonText(this.props.intl.formatMessage({
-                        id: "candidate"
-                    },
-                    {
-                        no: this.props.intl.formatNumber(n + 1)
-                    }), n)
+                    this.getButtonText(this.props.intl.formatMessage(
+                        {
+                            id: "candidate"
+                        },
+                        {
+                            no: this.props.intl.formatNumber(n + 1)
+                        }
+                    ), n)
                 }
             </MenuItem>
         )

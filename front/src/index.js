@@ -10,12 +10,14 @@ import "bootstrap/dist/css/bootstrap.css"
 
 // 例外をalertとして表示
 process.on("uncaughtException", er => {
-    alert(intl.formatMessage({
-        id: "errorMessage.default"
-    },
-    {
-        message: er.message
-    }))
+    alert(intl.formatMessage(
+        {
+            id: "errorMessage.default"
+        },
+        {
+            message: er.message
+        }
+    ))
 })
 
 // ルート要素を表示
