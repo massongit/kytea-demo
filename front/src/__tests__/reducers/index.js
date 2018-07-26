@@ -1,5 +1,6 @@
 import deepcopy from "deepcopy"
 import rootReducer from "../../reducers"
+import showSentenceState2 from "../../test_data/showSentenceState2"
 import initialShowSentenceState from "../../test_data/initialShowSentenceState"
 import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import {createStore} from "redux"
@@ -8,9 +9,7 @@ import {
     rootStateAfterShowSentence,
     showPOSAndPronunciationState,
     showPOSAndPronunciationState2,
-    showSentenceParameter,
-    showSentenceState,
-    showSentenceState2
+    showSentenceState
 } from "../../test_data"
 
 const showSentenceState2AndInitialShowPOSAndPronunciationState = {
@@ -19,12 +18,12 @@ const showSentenceState2AndInitialShowPOSAndPronunciationState = {
 }
 
 export const dispatchDoubleShowSentence = (store, d) => {
-    store.dispatch(showSentence(deepcopy(showSentenceParameter)))
+    store.dispatch(showSentence(deepcopy(showSentenceState)))
     store.dispatch(showSentence(deepcopy(d)))
 }
 
 export const dispatchShowSentenceAndShowPOSAndPronunciation = (store, d) => {
-    store.dispatch(showSentence(deepcopy(showSentenceParameter)))
+    store.dispatch(showSentence(deepcopy(showSentenceState)))
     store.dispatch(showPOSAndPronunciation(d))
 }
 
@@ -43,7 +42,7 @@ describe("reducers/index", () => {
     })
 
     it("初期状態からshowSentenceへStateが遷移した際に、正しいStateを返す", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
+        store.dispatch(showSentence(deepcopy(showSentenceState)))
         expect(store.getState()).toEqual(rootStateAfterShowSentence)
     })
 

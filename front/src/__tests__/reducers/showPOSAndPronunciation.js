@@ -1,11 +1,12 @@
 import deepcopy from "deepcopy"
+import showSentenceParameter3 from "../../test_data/showSentenceParameter3"
 import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import showPOSAndPronunciationReducer from "../../reducers/showPOSAndPronunciation"
-import pronunciation2 from "../../test_data/pronunciation2"
 import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
 import {
     pos2,
+    pronunciation2,
     showPOSAndPronunciationState,
     showPOSAndPronunciationState2,
     showPOSAndPronunciationState2POSAndWordOnly,
@@ -15,12 +16,11 @@ import {
     showPOSAndPronunciationStateWordAndWSOnly,
     showPOSAndPronunciationStateWordOnly,
     showPOSAndPronunciationStateWSOnly,
-    showSentenceParameter,
-    showSentenceParameter3,
     showSentenceParameterIncludeNoWordWords,
     showSentenceParameterIncludeUndefinedWords,
     showSentenceParameterSentenceOnly,
     showSentenceParameterWordsOnly,
+    showSentenceState,
     word2
 } from "../../test_data"
 
@@ -55,7 +55,7 @@ describe("reducers/showPOSAndPronunciation", () => {
     })
 
     it("初期状態において、showSentenceのActionが渡されたとき、初期状態を返す", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
+        store.dispatch(showSentence(deepcopy(showSentenceState)))
         expect(store.getState()).toEqual(initialShowPOSAndPronunciationState)
     })
 
@@ -85,7 +85,7 @@ describe("reducers/showPOSAndPronunciation", () => {
     })
 
     it("初期状態以外のStateにおいて、showSentenceのActionが渡されたとき、初期状態を返す", () => {
-        dispatchShowPOSAndPronunciationAndShowSentence(store, showSentenceParameter)
+        dispatchShowPOSAndPronunciationAndShowSentence(store, showSentenceState)
         expect(store.getState()).toEqual(initialShowPOSAndPronunciationState)
     })
 

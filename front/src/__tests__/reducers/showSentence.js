@@ -1,6 +1,6 @@
 import deepcopy from "deepcopy"
-import words2 from "../../test_data/words2"
-import words3 from "../../test_data/words3"
+import showSentenceState2 from "../../test_data/showSentenceState2"
+import showSentenceParameter3 from "../../test_data/showSentenceParameter3"
 import initialShowSentenceState from "../../test_data/initialShowSentenceState"
 import showSentenceReducer from "../../reducers/showSentence"
 import {createStore} from "redux"
@@ -17,14 +17,13 @@ import {
     showPOSAndPronunciationStateWordAndWSOnly,
     showPOSAndPronunciationStateWordOnly,
     showPOSAndPronunciationStateWSOnly,
-    showSentenceParameter,
-    showSentenceParameter3,
     showSentenceParameterIncludeNoWordWords,
     showSentenceParameterIncludeUndefinedWords,
     showSentenceParameterSentenceOnly,
     showSentenceParameterWordsOnly,
     showSentenceState,
-    showSentenceState2
+    words2,
+    words3
 } from "../../test_data"
 
 const showSentenceParameterInvalidSentence = {
@@ -60,7 +59,7 @@ describe("reducers/showSentence", () => {
     })
 
     it("初期状態において、showSentenceのActionからshowSentenceのStateを生成する", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
+        store.dispatch(showSentence(deepcopy(showSentenceState)))
         expect(store.getState()).toEqual(showSentenceState)
     })
 

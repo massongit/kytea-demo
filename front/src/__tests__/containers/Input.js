@@ -4,20 +4,14 @@ import deepcopy from "deepcopy"
 import thunk from "redux-thunk"
 import fetch from "node-fetch"
 import configureMockStore from "redux-mock-store"
-import words2 from "../../test_data/words2"
+import words from "../../test_data/words"
+import showSentenceState2 from "../../test_data/showSentenceState2"
 import initialShowSentenceState from "../../test_data/initialShowSentenceState"
 import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import {Form, FormControl} from "react-bootstrap"
 import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
 import {showSentence} from "../../actions"
-import {
-    rootStateAfterShowSentence,
-    sentence,
-    sentence2,
-    showSentenceParameter,
-    showSentenceState2,
-    words
-} from "../../test_data"
+import {rootStateAfterShowSentence, sentence, sentence2, showSentenceState, words2} from "../../test_data"
 
 export const eventMock = {
     preventDefault: jest.fn()
@@ -99,7 +93,7 @@ describe("containers/Input", () => {
         fetch.mockResponse(JSON.stringify(words))
         await inputComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(1)
-        expect(store.getActions()).toEqual([showSentence(deepcopy(showSentenceParameter))])
+        expect(store.getActions()).toEqual([showSentence(deepcopy(showSentenceState))])
     })
 
     it("前回と同じ入力内容でonSubmitイベントを呼び出したとき、fetchやdispatchが行われない", async () => {

@@ -1,0 +1,55 @@
+{
+  "sentence": "I have a pen.",
+  "words": [
+    {
+      "pos": "補助記号",
+      "pronunciation": [
+        {
+          "margin": 0.0,
+          "pronunciation": "(Unknown)"
+        }
+      ],
+      "word": "I"
+    },
+    {
+      "pos": "名詞",
+      "pronunciation": [
+        {
+          "margin": 100.0,
+          "pronunciation": "はぶ"
+        }
+      ],
+      "word": "have"
+    },
+    {
+      "pos": "記号",
+      "pronunciation": [
+        {
+          "margin": 100.0,
+          "pronunciation": "Ａ"
+        }
+      ],
+      "word": "a"
+    },
+    {
+      "pos": "補助記号",
+      "pronunciation": [
+        {
+          "margin": 0.0,
+          "pronunciation": "(Unknown)"
+        }
+      ],
+      "word": "pen"
+    },
+    {
+      "pos": "補助記号",
+      "pronunciation": [
+        {
+          "margin": 100.0,
+          "pronunciation": "。"
+        }
+      ],
+      "word": "."
+    }
+  ]
+}

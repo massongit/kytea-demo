@@ -3,14 +3,15 @@ import Sentence from "../../containers/Sentence"
 import Word from "../../containers/Word"
 import deepcopy from "deepcopy"
 import rootReducer from "../../reducers"
+import words from "../../test_data/words"
 import {shallow} from "enzyme"
 import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
-import {showPOSAndPronunciationState, showSentenceParameter, words} from "../../test_data"
+import {showPOSAndPronunciationState, showSentenceState} from "../../test_data"
 
 export const functions = [
     store => {
-        store.dispatch(showSentence(deepcopy(showSentenceParameter)))
+        store.dispatch(showSentence(deepcopy(showSentenceState)))
     },
     store => {
         store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))

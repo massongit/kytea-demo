@@ -1,0 +1,166 @@
+[
+  {
+    "pos": "名詞",
+    "word": "野球",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "やきゅう"
+      }
+    ]
+  },
+  {
+    "pos": "助詞",
+    "pronunciation": [
+      {
+        "margin": 2.12891303174829,
+        "pronunciation": "の"
+      },
+      {
+        "margin": 0.0,
+        "pronunciation": "きの"
+      },
+      {
+        "margin": 0.0,
+        "pronunciation": "ゅの"
+      }
+    ],
+    "word": "の"
+  },
+  {
+    "pos": "名詞",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "ＤＨ"
+      }
+    ],
+    "word": "ＤＨ"
+  },
+  {
+    "pos": "助詞",
+    "pronunciation": [
+      {
+        "margin": 2.1760714835829633,
+        "pronunciation": "の"
+      },
+      {
+        "margin": 0.0,
+        "pronunciation": "きの"
+      },
+      {
+        "margin": 0.0,
+        "pronunciation": "ゅの"
+      }
+    ],
+    "word": "の"
+  },
+  {
+    "pos": "形状詞",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "せいしき"
+      }
+    ],
+    "word": "正式"
+  },
+  {
+    "pos": "名詞",
+    "word": "呼び名",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "よびな"
+      }
+    ]
+  },
+  {
+    "pos": "助詞",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "と"
+      }
+    ],
+    "word": "と"
+  },
+  {
+    "pos": "名詞",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "よみ"
+      }
+    ],
+    "word": "読み"
+  },
+  {
+    "pos": "助詞",
+    "pronunciation": [
+      {
+        "margin": 1.9998295447276375,
+        "pronunciation": "を"
+      },
+      {
+        "margin": 0.0,
+        "pronunciation": "みを"
+      },
+      {
+        "margin": -5.912806885244315e-05,
+        "pronunciation": "くを"
+      }
+    ],
+    "word": "を"
+  },
+  {
+    "pos": "動詞",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "おしえ"
+      }
+    ],
+    "word": "教え"
+  },
+  {
+    "pos": "助詞",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "て"
+      }
+    ],
+    "word": "て"
+  },
+  {
+    "pos": "動詞",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "くださ"
+      }
+    ],
+    "word": "くださ"
+  },
+  {
+    "pos": "語尾",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "い"
+      }
+    ],
+    "word": "い"
+  },
+  {
+    "pos": "補助記号",
+    "pronunciation": [
+      {
+        "margin": 100.0,
+        "pronunciation": "。"
+      }
+    ],
+    "word": "。"
+  }
+]

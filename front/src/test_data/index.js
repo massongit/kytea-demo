@@ -1,218 +1,58 @@
-import words2 from "./words2"
-import words3 from "./words3"
-import pronunciation_ from "./pronunciation_"
-import pronunciation2 from "./pronunciation2"
+import words from "./words"
+import showSentenceState2 from "./showSentenceState2"
+import showSentenceParameter3 from "./showSentenceParameter3"
 import initialShowPOSAndPronunciationState from "./initialShowPOSAndPronunciationState"
 
-export const pos = "名詞"
+/**
+ * 品詞や読みの表示ActionのState
+ * @type {{pos: string, word: string, pronunciation: *[]}}
+ */
+export const showPOSAndPronunciationState = words[0]
 
-export const word = "野球"
+export const pos = showPOSAndPronunciationState.pos
 
-export const pronunciation = [
-    pronunciation_
-]
+export const word = showPOSAndPronunciationState.word
+
+export const pronunciation = showPOSAndPronunciationState.pronunciation
 
 export const pronunciation__ = {
     "id": 1,
-    ...pronunciation_
+    ...showPOSAndPronunciationState.pronunciation[0]
 }
 
-export const sentence2 = "本日は晴天なり。"
-
-/**
- * KyTeaによる解析結果の表示ActionのState
- * @type {{sentence: string, words: *[]}}
- */
-export const showSentenceState2 = {
-    sentence: sentence2,
-    words: words2
-}
+export const sentence2 = showSentenceState2.sentence
 
 export const sentence = "野球のＤＨの正式呼び名と読みを教えてください。"
 
-/**
- * 品詞や読みの表示ActionのState
- * @type {{pos: string, word: string, pronunciation: *[]}}
- */
-export const showPOSAndPronunciationState = {
+export const showPOSAndPronunciationStatePOSAndWordOnly = {
     pos,
-    word,
-    pronunciation
+    word
 }
 
 /**
  * 品詞や読みの表示ActionのState
- * @type {{pos: string, word: string, pronunciation: {id: number, pronunciation: *[]}}}
+ * @type {{number: number, pos: string, word: string, pronunciation: {id: number}}}
+ * @private
  */
 export const showPOSAndPronunciationState_ = {
     number: 1,
-    pos,
-    word,
-    pronunciation: pronunciation__
+    pronunciation: pronunciation__,
+    ...showPOSAndPronunciationStatePOSAndWordOnly
 }
-
-export const pos2 = "名詞"
-
-export const word2 = "呼び名"
 
 /**
  * 品詞や読みの表示ActionのState
  * @type {{pos: string, word: string, pronunciation: *[]}}
  */
-export const showPOSAndPronunciationState2 = {
-    pos: pos2,
-    word: word2,
-    pronunciation: pronunciation2
-}
+export const showPOSAndPronunciationState2 = words[5]
 
-export const words = [
-    showPOSAndPronunciationState,
-    {
-        "pos": "助詞",
-        "pronunciation": [
-            {
-                "margin": 2.12891303174829,
-                "pronunciation": "の"
-            },
-            {
-                "margin": 0.0,
-                "pronunciation": "きの"
-            },
-            {
-                "margin": 0.0,
-                "pronunciation": "ゅの"
-            }
-        ],
-        "word": "の"
-    },
-    {
-        "pos": "名詞",
-        "pronunciation": [
-            {
-                "margin": 100.0,
-                "pronunciation": "ＤＨ"
-            }
-        ],
-        "word": "ＤＨ"
-    },
-    {
-        "pos": "助詞",
-        "pronunciation": [
-            {
-                "margin": 2.1760714835829633,
-                "pronunciation": "の"
-            },
-            {
-                "margin": 0.0,
-                "pronunciation": "きの"
-            },
-            {
-                "margin": 0.0,
-                "pronunciation": "ゅの"
-            }
-        ],
-        "word": "の"
-    },
-    {
-        "pos": "形状詞",
-        "pronunciation": [
-            {
-                "margin": 100.0,
-                "pronunciation": "せいしき"
-            }
-        ],
-        "word": "正式"
-    },
-    showPOSAndPronunciationState2,
-    {
-        "pos": "助詞",
-        "pronunciation": [
-            {
-                "margin": 100.0,
-                "pronunciation": "と"
-            }
-        ],
-        "word": "と"
-    },
-    {
-        "pos": "名詞",
-        "pronunciation": [
-            {
-                "margin": 100.0,
-                "pronunciation": "よみ"
-            }
-        ],
-        "word": "読み"
-    },
-    {
-        "pos": "助詞",
-        "pronunciation": [
-            {
-                "margin": 1.9998295447276375,
-                "pronunciation": "を"
-            },
-            {
-                "margin": 0.0,
-                "pronunciation": "みを"
-            },
-            {
-                "margin": -5.912806885244315e-05,
-                "pronunciation": "くを"
-            }
-        ],
-        "word": "を"
-    },
-    {
-        "pos": "動詞",
-        "pronunciation": [
-            {
-                "margin": 100.0,
-                "pronunciation": "おしえ"
-            }
-        ],
-        "word": "教え"
-    },
-    {
-        "pos": "助詞",
-        "pronunciation": [
-            {
-                "margin": 100.0,
-                "pronunciation": "て"
-            }
-        ],
-        "word": "て"
-    },
-    {
-        "pos": "動詞",
-        "pronunciation": [
-            {
-                "margin": 100.0,
-                "pronunciation": "くださ"
-            }
-        ],
-        "word": "くださ"
-    },
-    {
-        "pos": "語尾",
-        "pronunciation": [
-            {
-                "margin": 100.0,
-                "pronunciation": "い"
-            }
-        ],
-        "word": "い"
-    },
-    {
-        "pos": "補助記号",
-        "pronunciation": [
-            {
-                "margin": 100.0,
-                "pronunciation": "。"
-            }
-        ],
-        "word": "。"
-    }
-]
+export const pos2 = showPOSAndPronunciationState2.pos
+
+export const word2 = showPOSAndPronunciationState2.word
+
+export const pronunciation2 = showPOSAndPronunciationState2.pronunciation
+
+export const words2 = showSentenceState2.words
 
 export const showPOSAndPronunciationStatePOSOnly = {
     pos
@@ -226,11 +66,6 @@ export const showPOSAndPronunciationStateWSOnly = {
     pronunciation
 }
 
-export const showPOSAndPronunciationStatePOSAndWordOnly = {
-    pos,
-    word
-}
-
 export const showPOSAndPronunciationStatePOSAndWSOnly = {
     pos,
     pronunciation
@@ -239,15 +74,6 @@ export const showPOSAndPronunciationStatePOSAndWSOnly = {
 export const showPOSAndPronunciationStateWordAndWSOnly = {
     word,
     pronunciation
-}
-
-/**
- * KyTeaによる解析結果の表示ActionのState
- * @type {{sentence: string, words: *[]}}
- */
-export const showSentenceParameter = {
-    sentence,
-    words
 }
 
 /**
@@ -287,11 +113,4 @@ export const rootStateAfterShowSentence = {
     showPOSAndPronunciation: initialShowPOSAndPronunciationState
 }
 
-/**
- * KyTeaによる解析結果の表示ActionのState
- * @type {{sentence: string, words: *[]}}
- */
-export const showSentenceParameter3 = {
-    sentence: "I have a pen.",
-    words: words3
-}
+export const words3 = showSentenceParameter3.words
