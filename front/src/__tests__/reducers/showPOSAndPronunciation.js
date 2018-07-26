@@ -4,7 +4,7 @@ import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSA
 import showPOSAndPronunciationReducer from "../../reducers/showPOSAndPronunciation"
 import {createStore} from "redux"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
-import {dispatchShowPOSAndPronunciationEqual, dispatchShowSentenceEqual, storeEqual,} from "./index"
+import {dispatchShowPOSAndPronunciationEqual, dispatchShowSentenceEqual, storeEqual} from "./index"
 import {
     pos2,
     pronunciation2,

@@ -69,7 +69,7 @@ describe("reducers/index", () => {
     })
 
     it("初期状態からshowSentenceへStateが遷移した際に、正しいStateを返す", () => {
-        dispatchShowSentenceAndShowPOSAndPronunciation(store, showSentenceState, rootStateAfterShowSentence)
+        dispatchShowSentenceEqual(store, showSentenceState, rootStateAfterShowSentence)
     })
 
     it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
