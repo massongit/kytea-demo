@@ -17,7 +17,7 @@ const showSentenceState2AndInitialShowPOSAndPronunciationState = {
     showPOSAndPronunciation: initialShowPOSAndPronunciationState
 }
 
-export const dispatchDoubleShowSentence = (store, d) => {
+const dispatchDoubleShowSentence = (store, d) => {
     store.dispatch(showSentence(deepcopy(showSentenceState)))
     store.dispatch(showSentence(deepcopy(d)))
 }
@@ -25,6 +25,33 @@ export const dispatchDoubleShowSentence = (store, d) => {
 export const dispatchShowSentenceAndShowPOSAndPronunciation = (store, d) => {
     store.dispatch(showSentence(deepcopy(showSentenceState)))
     store.dispatch(showPOSAndPronunciation(d))
+}
+
+export const storeEqual = (store, s) => {
+    expect(store.getState()).toEqual(s)
+}
+
+const dispatchEqual = (store, p, s) => {
+    store.dispatch(p)
+    storeEqual(store, s)
+}
+
+export const dispatchShowSentenceEqual = (store, p, s) => {
+    dispatchEqual(store, showSentence(deepcopy(p)), s)
+}
+
+export const dispatchShowPOSAndPronunciationEqual = (store, p, s) => {
+    dispatchEqual(store, showPOSAndPronunciation(p), s)
+}
+
+export const dispatchDoubleShowSentenceEqual = (store, p, s) => {
+    dispatchDoubleShowSentence(store, p)
+    storeEqual(store, s)
+}
+
+export const dispatchShowSentenceAndShowPOSAndPronunciationEqual = (store, s, ss) => {
+    dispatchShowSentenceAndShowPOSAndPronunciation(store, s)
+    storeEqual(store, ss)
 }
 
 let store
@@ -35,20 +62,18 @@ describe("reducers/index", () => {
     })
 
     it("初期状態を正しく保持している", () => {
-        expect(store.getState()).toEqual({
+        storeEqual(store, {
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
     })
 
     it("初期状態からshowSentenceへStateが遷移した際に、正しいStateを返す", () => {
-        store.dispatch(showSentence(deepcopy(showSentenceState)))
-        expect(store.getState()).toEqual(rootStateAfterShowSentence)
+        dispatchShowSentenceAndShowPOSAndPronunciation(store, showSentenceState, rootStateAfterShowSentence)
     })
 
     it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
-        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationState)
-        expect(store.getState()).toEqual({
+        dispatchShowSentenceAndShowPOSAndPronunciationEqual(store, showPOSAndPronunciationState, {
             showSentence: showSentenceState,
             showPOSAndPronunciation: showPOSAndPronunciationState
         })
@@ -56,14 +81,12 @@ describe("reducers/index", () => {
 
     it("初期状態からshowSentence, showPOSAndPronunciation, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
         dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationState)
-        store.dispatch(showSentence(deepcopy(showSentenceState2)))
-        expect(store.getState()).toEqual(showSentenceState2AndInitialShowPOSAndPronunciationState)
+        dispatchShowSentenceEqual(store, showSentenceState2, showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
     it("初期状態からshowSentence, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationState)
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState2))
-        expect(store.getState()).toEqual({
+        dispatchShowPOSAndPronunciationEqual(store, showPOSAndPronunciationState2, {
             showSentence: showSentenceState,
             showPOSAndPronunciation: showPOSAndPronunciationState2
         })
@@ -73,19 +96,17 @@ describe("reducers/index", () => {
         dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationState)
         store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState2))
         store.dispatch(showSentence(deepcopy(showSentenceState2)))
-        expect(store.getState()).toEqual(showSentenceState2AndInitialShowPOSAndPronunciationState)
+        storeEqual(store, showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
     it("初期状態からshowSentence, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
-        dispatchDoubleShowSentence(store, showSentenceState2)
-        expect(store.getState()).toEqual(showSentenceState2AndInitialShowPOSAndPronunciationState)
+        dispatchDoubleShowSentenceEqual(store, showSentenceState2, showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
 
     it("初期状態からshowSentence, showSentence, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchDoubleShowSentence(store, showSentenceState2)
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        expect(store.getState()).toEqual({
+        dispatchShowPOSAndPronunciationEqual(store, showPOSAndPronunciationState, {
             showSentence: showSentenceState2,
             showPOSAndPronunciation: showPOSAndPronunciationState
         })
@@ -95,7 +116,7 @@ describe("reducers/index", () => {
         dispatchDoubleShowSentence(store, showSentenceState2)
         store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
         store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState2))
-        expect(store.getState()).toEqual({
+        storeEqual(store, {
             showSentence: showSentenceState2,
             showPOSAndPronunciation: showPOSAndPronunciationState2
         })
