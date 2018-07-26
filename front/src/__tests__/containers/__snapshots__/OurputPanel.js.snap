@@ -60,11 +60,11 @@ ShallowWrapper {
                         values={Object {}}
                 />
         </PanelHeading>
-        <PanelBody
+        <InjectIntl(PanelBody)
                 messageId="description.result"
         >
                 <Connect(Sentence) />
-        </PanelBody>
+        </InjectIntl(PanelBody)>
 </Uncontrolled(Panel)>,
       "componentClass": "div",
     },
@@ -84,11 +84,11 @@ ShallowWrapper {
                         values={Object {}}
             />
 </PanelHeading>,
-          <PanelBody
+          <InjectIntl(PanelBody)
             messageId="description.result"
 >
             <Connect(Sentence) />
-</PanelBody>,
+</InjectIntl(PanelBody)>,
           undefined,
         ],
       },
@@ -164,11 +164,11 @@ ShallowWrapper {
                               values={Object {}}
                     />
           </PanelHeading>
-          <PanelBody
+          <InjectIntl(PanelBody)
                     messageId="description.result"
           >
                     <Connect(Sentence) />
-          </PanelBody>
+          </InjectIntl(PanelBody)>
 </Uncontrolled(Panel)>,
         "componentClass": "div",
       },
@@ -188,11 +188,11 @@ ShallowWrapper {
                             values={Object {}}
               />
 </PanelHeading>,
-            <PanelBody
+            <InjectIntl(PanelBody)
               messageId="description.result"
 >
               <Connect(Sentence) />
-</PanelBody>,
+</InjectIntl(PanelBody)>,
             undefined,
           ],
         },
@@ -322,11 +322,11 @@ ShallowWrapper {
                         values={Object {}}
                 />
         </PanelHeading>
-        <PanelBody
+        <InjectIntl(PanelBody)
                 messageId="description.result"
         >
                 <Connect(Sentence) />
-        </PanelBody>
+        </InjectIntl(PanelBody)>
         <InjectIntl(Connect(Information)) />
 </Uncontrolled(Panel)>,
       "componentClass": "div",
@@ -347,11 +347,11 @@ ShallowWrapper {
                         values={Object {}}
             />
 </PanelHeading>,
-          <PanelBody
+          <InjectIntl(PanelBody)
             messageId="description.result"
 >
             <Connect(Sentence) />
-</PanelBody>,
+</InjectIntl(PanelBody)>,
           <InjectIntl(Connect(Information)) />,
         ],
       },
@@ -435,11 +435,11 @@ ShallowWrapper {
                               values={Object {}}
                     />
           </PanelHeading>
-          <PanelBody
+          <InjectIntl(PanelBody)
                     messageId="description.result"
           >
                     <Connect(Sentence) />
-          </PanelBody>
+          </InjectIntl(PanelBody)>
           <InjectIntl(Connect(Information)) />
 </Uncontrolled(Panel)>,
         "componentClass": "div",
@@ -460,11 +460,11 @@ ShallowWrapper {
                             values={Object {}}
               />
 </PanelHeading>,
-            <PanelBody
+            <InjectIntl(PanelBody)
               messageId="description.result"
 >
               <Connect(Sentence) />
-</PanelBody>,
+</InjectIntl(PanelBody)>,
             <InjectIntl(Connect(Information)) />,
           ],
         },

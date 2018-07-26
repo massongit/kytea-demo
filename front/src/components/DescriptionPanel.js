@@ -1,5 +1,5 @@
 import React from "react"
-import PanelBody from "./PanelBody"
+import PanelBody from "../containers/PanelBody"
 import {Panel, Row} from "react-bootstrap"
 import {FormattedMessage} from "react-intl"
 

@@ -103,6 +103,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * Information.js: 解析結果表示部のContainer
             * Input.js: 入力部のContainer
             * OutputPanel: 解析結果表示部のパネルのContainer
+            * PanelBody.js: PanelのBodyのContainer
             * Sentence.js: 入力文をボタンのグループとして表示するComponentのContainer
             * Word.js: Sentenceの各ボタンのContainer
         * reducers/: [Redux](https://redux.js.org/)のReducerが格納されている

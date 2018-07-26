@@ -5,15 +5,51 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <PanelBody
-    bsClass="panel"
-    collapsible={false}
+    intl={
+        Object {
+            "defaultFormats": Object {},
+            "defaultLocale": "en",
+            "formatDate": [Function],
+            "formatHTMLMessage": [Function],
+            "formatMessage": [Function],
+            "formatNumber": [Function],
+            "formatPlural": [Function],
+            "formatRelative": [Function],
+            "formatTime": [Function],
+            "formats": Object {},
+            "formatters": Object {
+              "getDateTimeFormat": [Function],
+              "getMessageFormat": [Function],
+              "getNumberFormat": [Function],
+              "getPluralFormat": [Function],
+              "getRelativeFormat": [Function],
+            },
+            "locale": "en",
+            "messages": Object {
+              "abstract.kyTea": "京都テキスト解析ツールキット",
+              "candidate": "候補{no}",
+              "description.input": "日本語の文章を入力し、予測ボタンをクリックしてください。",
+              "description.kyTea": "日本語の文章中に存在する各単語の品詞や読みを予測するシステムです。",
+              "description.result": "単語を選択すると、その単語の品詞や読みが表示されます。",
+              "errorMessage.default": "エラーが発生しました: {message}",
+              "errorMessage.predict": "予測中にエラーが発生しました: {message}",
+              "header.candidate": "候補",
+              "header.margin": "SVM平面からのマージン (読み)",
+              "header.pos": "品詞",
+              "header.pronunciation": "読み",
+              "header.word": "単語",
+              "predict": "予測",
+              "title.description": "概要",
+              "title.input": "入力",
+              "title.result": "結果",
+              "unknown": "(予測不能)",
+            },
+            "now": [Function],
+            "textComponent": "span",
+          }
+    }
+    messageId="description.input"
 >
-    <p>
-        <FormattedMessage
-            id="description.input"
-            values={Object {}}
-        />
-    </p>
     <InjectIntl(Connect(Input)) />
 </PanelBody>,
   Symbol(enzyme.__renderer__): Object {
@@ -26,18 +62,16 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
+      "bsClass": "panel",
       "children": Array [
         <p>
-          <FormattedMessage
-                    id="description.input"
-                    values={Object {}}
-          />
+          日本語の文章を入力し、予測ボタンをクリックしてください。
 </p>,
         <InjectIntl(Connect(Input)) />,
       ],
-      "className": "panel-body",
+      "collapsible": false,
     },
     "ref": null,
     "rendered": Array [
@@ -46,24 +80,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <FormattedMessage
-            id="description.input"
-            values={Object {}}
-/>,
+          "children": "日本語の文章を入力し、予測ボタンをクリックしてください。",
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "id": "description.input",
-            "values": Object {},
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
+        "rendered": "日本語の文章を入力し、予測ボタンをクリックしてください。",
         "type": "p",
       },
       Object {
@@ -76,24 +96,22 @@ ShallowWrapper {
         "type": [Function],
       },
     ],
-    "type": "div",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
+        "bsClass": "panel",
         "children": Array [
           <p>
-            <FormattedMessage
-                        id="description.input"
-                        values={Object {}}
-            />
+            日本語の文章を入力し、予測ボタンをクリックしてください。
 </p>,
           <InjectIntl(Connect(Input)) />,
         ],
-        "className": "panel-body",
+        "collapsible": false,
       },
       "ref": null,
       "rendered": Array [
@@ -102,24 +120,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <FormattedMessage
-              id="description.input"
-              values={Object {}}
-/>,
+            "children": "日本語の文章を入力し、予測ボタンをクリックしてください。",
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "id": "description.input",
-              "values": Object {},
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
+          "rendered": "日本語の文章を入力し、予測ボタンをクリックしてください。",
           "type": "p",
         },
         Object {
@@ -132,7 +136,7 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

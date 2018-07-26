@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import PanelBody from "./PanelBody"
+import PanelBody from "../containers/PanelBody"
 import Information from "../containers/Information"
 import Sentence from "../containers/Sentence"
 import {Panel, Row} from "react-bootstrap"

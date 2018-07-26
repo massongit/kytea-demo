@@ -1,5 +1,5 @@
 import React from "react"
-import PanelBody from "../../components/PanelBody"
+import PanelBody from "../../containers/PanelBody"
 import Input from "../../containers/Input"
 import rootReducer from "../../reducers"
 import {Panel} from "react-bootstrap"
