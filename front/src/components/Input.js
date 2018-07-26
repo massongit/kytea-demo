@@ -20,6 +20,10 @@ class Input extends React.Component {
         this.onSubmit = this.onSubmit.bind(this)
     }
 
+    /**
+     * onSubmitイベント
+     * @param ev イベント
+     */
     async onSubmit(ev) {
         // サーバーへのSubmitが行われないようにする
         ev.preventDefault()
@@ -31,29 +35,40 @@ class Input extends React.Component {
             try {
                 this.props.dispatch(showSentence({
                     sentence: this.input.value,
-                    words: await (await fetch(
-                        "/kytea",
-                        {
-                            method: "POST",
-                            body: this.input.value
-                        }
-                    ).then(res => {
-                        if (res.ok) {
-                            return res
-                        } else {
-                            throw new Error(res.statusText)
-                        }
-                    })).json()
+                    words: await this.callKyTea(this.input.value)
                 }))
             } catch (er) {
-                alert(this.props.intl.formatMessage({
-                    id: "errorMessage.predict"
-                },
-                {
-                    message: er.message
-                }))
+                alert(this.props.intl.formatMessage(
+                    {
+                        id: "errorMessage.predict"
+                    },
+                    {
+                        message: er.message
+                    }
+                ))
             }
         }
+    }
+
+    /**
+     * KyTeaのAPIを呼び出す
+     * @param value {string} 入力文
+     * @returns {Promise<*>} 解析結果
+     */
+    async callKyTea(value) {
+        return await (await fetch(
+            "/kytea",
+            {
+                method: "POST",
+                body: value
+            }
+        ).then(res => {
+            if (res.ok) {
+                return res
+            } else {
+                throw new Error(res.statusText)
+            }
+        })).json()
     }
 
     render() {
