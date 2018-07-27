@@ -57,8 +57,6 @@ describe("containers/Word/other", () => {
 
     it("onClickイベントが呼び出されたとき、正常にdispatchが行われる", () => {
         wordComponent.simulate("click", eventMock)
-        expect(store.getActions()).toEqual([
-            showPOSAndPronunciation(showPOSAndPronunciationState_)
-        ])
+        expect(store.getActions()).toEqual([showPOSAndPronunciation(showPOSAndPronunciationState_)])
     })
 })
