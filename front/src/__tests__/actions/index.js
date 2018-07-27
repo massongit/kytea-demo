@@ -27,10 +27,10 @@ describe("actions/index/showSentence", () => {
     })
 
     it("valueから異常値を除外してActionを生成する", () => {
-        expect(showSentence({
+        actionEqual(showSentence({
             ...showSentenceState,
             wrong_test: "wrong!"
-        })).toEqual(showSentenceAction)
+        }), showSentenceAction)
     })
 })
 
@@ -40,9 +40,9 @@ describe("actions/index/showPOSAndPronunciation", () => {
     })
 
     it("valueから異常値を除外してActionを生成する", () => {
-        expect(showPOSAndPronunciation({
+        actionEqual(showPOSAndPronunciation({
             ...showPOSAndPronunciationState,
             wrong_test: "wrong!"
-        })).toEqual(showPOSAndPronunciationAction)
+        }), showPOSAndPronunciationAction)
     })
 })
