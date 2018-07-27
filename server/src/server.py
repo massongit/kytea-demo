@@ -21,7 +21,7 @@ import config
 __author__ = 'Masaya Suzuki'
 
 # バージョン
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 # 設定
 conf = config.Config(pathlib.Path.cwd().parent / 'configs')
