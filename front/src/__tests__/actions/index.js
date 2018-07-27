@@ -1,6 +1,6 @@
 import * as types from "../../actions/types"
 import {makeShowSentenceAction} from "../reducers"
-import {showPOSAndPronunciation, showSentence} from "../../actions"
+import {showPOSAndPronunciation} from "../../actions"
 import {showPOSAndPronunciationState, showSentenceState} from "../../test_data"
 
 /**
@@ -29,7 +29,7 @@ describe("actions/index", () => {
 
     it("valueから異常値を除外してActionを生成する", () => {
         for (const v of [
-            [showSentence, showSentenceState, showSentenceAction],
+            [makeShowSentenceAction, showSentenceState, showSentenceAction],
             [showPOSAndPronunciation, showPOSAndPronunciationState, showPOSAndPronunciationAction]
         ]) {
             expect(v[0]({
