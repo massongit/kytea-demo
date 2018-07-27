@@ -1,10 +1,15 @@
-import deepcopy from "deepcopy"
 import showSentenceParameter3 from "../../test_data/showSentenceParameter3"
 import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import showPOSAndPronunciationReducer from "../../reducers/showPOSAndPronunciation"
 import {createStore} from "redux"
-import {showPOSAndPronunciation, showSentence} from "../../actions"
-import {dispatchShowPOSAndPronunciationEqual, dispatchShowSentenceEqual, storeEqual} from "./index"
+import {showPOSAndPronunciation} from "../../actions"
+import {
+    dispatchEqual,
+    dispatchShowPOSAndPronunciationEqual,
+    dispatchShowSentenceEqual,
+    makeShowSentenceAction,
+    storeEqual
+} from "./index"
 import {
     pos2,
     pronunciation2,
@@ -25,25 +30,18 @@ import {
     word2
 } from "../../test_data"
 
-const showPOSAndPronunciationState2WordOnly = {
-    word: word2
-}
-
-const showPOSAndPronunciationState2WordAndWSOnly = {
-    word: word2,
-    pronunciation: pronunciation2
-}
-
 const dispatchDoubleShowPOSAndPronunciationEqual = (store, p, s) => {
-    store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-    store.dispatch(showPOSAndPronunciation(p))
-    storeEqual(store, s)
+    dispatchEqual(store, [
+        showPOSAndPronunciation(showPOSAndPronunciationState),
+        showPOSAndPronunciation(p)
+    ], s)
 }
 
 const dispatchShowPOSAndPronunciationAndShowSentenceEqual = (store, p, s) => {
-    store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-    store.dispatch(showSentence(deepcopy(p)))
-    storeEqual(store, s)
+    dispatchEqual(store, [
+        showPOSAndPronunciation(showPOSAndPronunciationState),
+        makeShowSentenceAction(p)
+    ], s)
 }
 
 let store
@@ -138,10 +136,19 @@ describe("reducers/showPOSAndPronunciation", () => {
     })
 
     it("初期状態以外のStateにおいて、wordのみを持ったshowPOSAndPronunciationのActionからshowPOSAndPronunciationのStateを生成する", () => {
+        const showPOSAndPronunciationState2WordOnly = {
+            word: word2
+        }
+
         dispatchDoubleShowPOSAndPronunciationEqual(store, showPOSAndPronunciationState2WordOnly, showPOSAndPronunciationState2WordOnly)
     })
 
     it("初期状態以外のStateにおいて、wordとpronunciationのみを持ったshowPOSAndPronunciationのActionからshowPOSAndPronunciationのStateを生成する", () => {
+        const showPOSAndPronunciationState2WordAndWSOnly = {
+            word: word2,
+            pronunciation: pronunciation2
+        }
+
         dispatchDoubleShowPOSAndPronunciationEqual(store, showPOSAndPronunciationState2WordAndWSOnly, showPOSAndPronunciationState2WordAndWSOnly)
     })
 

@@ -1,5 +1,5 @@
-import deepcopy from "deepcopy"
 import * as types from "../../actions/types"
+import {makeShowSentenceAction} from "../reducers"
 import {showPOSAndPronunciation, showSentence} from "../../actions"
 import {showPOSAndPronunciationState, showSentenceState} from "../../test_data"
 
@@ -19,7 +19,7 @@ const showPOSAndPronunciationAction = {
 
 describe("actions/index/showSentence", () => {
     it("valueからActionを生成する", () => {
-        expect(showSentence(deepcopy(showSentenceState))).toEqual(showSentenceAction)
+        expect(makeShowSentenceAction(showSentenceState)).toEqual(showSentenceAction)
     })
 
     it("valueから異常値を除外してActionを生成する", () => {

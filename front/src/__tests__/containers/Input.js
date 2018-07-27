@@ -1,6 +1,5 @@
 import React from "react"
 import Input from "../../containers/Input"
-import deepcopy from "deepcopy"
 import thunk from "redux-thunk"
 import fetch from "node-fetch"
 import configureMockStore from "redux-mock-store"
@@ -10,7 +9,7 @@ import initialShowSentenceState from "../../test_data/initialShowSentenceState"
 import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import {Form, FormControl} from "react-bootstrap"
 import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
-import {showSentence} from "../../actions"
+import {makeShowSentenceAction} from "../reducers"
 import {rootStateAfterShowSentence, sentence, sentence2, showSentenceState, words2} from "../../test_data"
 
 export const eventMock = {
@@ -93,7 +92,7 @@ describe("containers/Input", () => {
         fetch.mockResponse(JSON.stringify(words))
         await inputComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(1)
-        expect(store.getActions()).toEqual([showSentence(deepcopy(showSentenceState))])
+        expect(store.getActions()).toEqual([makeShowSentenceAction(showSentenceState)])
     })
 
     it("前回と同じ入力内容でonSubmitイベントを呼び出したとき、fetchやdispatchが行われない", async () => {
@@ -120,6 +119,6 @@ describe("containers/Input", () => {
         fetch.mockResponse(JSON.stringify(words2))
         await inputComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(1)
-        expect(store.getActions()).toEqual([showSentence(deepcopy(showSentenceState2))])
+        expect(store.getActions()).toEqual([makeShowSentenceAction(showSentenceState2)])
     })
 })

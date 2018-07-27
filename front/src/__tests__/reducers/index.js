@@ -17,36 +17,45 @@ const showSentenceState2AndInitialShowPOSAndPronunciationState = {
     showPOSAndPronunciation: initialShowPOSAndPronunciationState
 }
 
-const dispatchDoubleShowSentence = (store, d) => {
-    store.dispatch(showSentence(deepcopy(showSentenceState)))
-    store.dispatch(showSentence(deepcopy(d)))
+export const dispatchActions = (store, actions) => {
+    for (const action of actions) {
+        store.dispatch(action)
+    }
 }
 
+export const makeShowSentenceAction = (p) => (
+    showSentence(deepcopy(p))
+)
+
 export const dispatchShowSentenceAndShowPOSAndPronunciation = (store, d) => {
-    store.dispatch(showSentence(deepcopy(showSentenceState)))
-    store.dispatch(showPOSAndPronunciation(d))
+    dispatchActions(store, [
+        makeShowSentenceAction(showSentenceState),
+        showPOSAndPronunciation(d)
+    ])
 }
 
 export const storeEqual = (store, s) => {
     expect(store.getState()).toEqual(s)
 }
 
-const dispatchEqual = (store, p, s) => {
-    store.dispatch(p)
+export const dispatchEqual = (store, p, s) => {
+    dispatchActions(store, p)
     storeEqual(store, s)
 }
 
 export const dispatchShowSentenceEqual = (store, p, s) => {
-    dispatchEqual(store, showSentence(deepcopy(p)), s)
+    dispatchEqual(store, [makeShowSentenceAction(p)], s)
 }
 
 export const dispatchShowPOSAndPronunciationEqual = (store, p, s) => {
-    dispatchEqual(store, showPOSAndPronunciation(p), s)
+    dispatchEqual(store, [showPOSAndPronunciation(p)], s)
 }
 
 export const dispatchDoubleShowSentenceEqual = (store, p, s) => {
-    dispatchDoubleShowSentence(store, p)
-    storeEqual(store, s)
+    dispatchEqual(store, [
+        makeShowSentenceAction(showSentenceState),
+        makeShowSentenceAction(p)
+    ], s)
 }
 
 export const dispatchShowSentenceAndShowPOSAndPronunciationEqual = (store, s, ss) => {
@@ -80,23 +89,34 @@ describe("reducers/index", () => {
     })
 
     it("初期状態からshowSentence, showPOSAndPronunciation, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
-        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationState)
-        dispatchShowSentenceEqual(store, showSentenceState2, showSentenceState2AndInitialShowPOSAndPronunciationState)
+        dispatchEqual(store, [
+            makeShowSentenceAction(showSentenceState),
+            showPOSAndPronunciation(showPOSAndPronunciationState),
+            makeShowSentenceAction(showSentenceState2)
+        ], showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
     it("初期状態からshowSentence, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
-        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationState)
-        dispatchShowPOSAndPronunciationEqual(store, showPOSAndPronunciationState2, {
-            showSentence: showSentenceState,
-            showPOSAndPronunciation: showPOSAndPronunciationState2
-        })
+        dispatchEqual(store,
+            [
+                makeShowSentenceAction(showSentenceState),
+                showPOSAndPronunciation(showPOSAndPronunciationState),
+                showPOSAndPronunciation(showPOSAndPronunciationState2)
+            ],
+            {
+                showSentence: showSentenceState,
+                showPOSAndPronunciation: showPOSAndPronunciationState2
+            }
+        )
     })
 
     it("初期状態からshowSentence, showPOSAndPronunciation, showPOSAndPronunciation, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
-        dispatchShowSentenceAndShowPOSAndPronunciation(store, showPOSAndPronunciationState)
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState2))
-        store.dispatch(showSentence(deepcopy(showSentenceState2)))
-        storeEqual(store, showSentenceState2AndInitialShowPOSAndPronunciationState)
+        dispatchEqual(store, [
+            makeShowSentenceAction(showSentenceState),
+            showPOSAndPronunciation(showPOSAndPronunciationState),
+            showPOSAndPronunciation(showPOSAndPronunciationState2),
+            makeShowSentenceAction(showSentenceState2)
+        ], showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
     it("初期状態からshowSentence, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
@@ -105,20 +125,31 @@ describe("reducers/index", () => {
 
 
     it("初期状態からshowSentence, showSentence, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
-        dispatchDoubleShowSentence(store, showSentenceState2)
-        dispatchShowPOSAndPronunciationEqual(store, showPOSAndPronunciationState, {
-            showSentence: showSentenceState2,
-            showPOSAndPronunciation: showPOSAndPronunciationState
-        })
+        dispatchEqual(store,
+            [
+                makeShowSentenceAction(showSentenceState),
+                makeShowSentenceAction(showSentenceState2),
+                showPOSAndPronunciation(showPOSAndPronunciationState)
+            ],
+            {
+                showSentence: showSentenceState2,
+                showPOSAndPronunciation: showPOSAndPronunciationState
+            }
+        )
     })
 
     it("初期状態からshowSentence, showSentence, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
-        dispatchDoubleShowSentence(store, showSentenceState2)
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState))
-        store.dispatch(showPOSAndPronunciation(showPOSAndPronunciationState2))
-        storeEqual(store, {
-            showSentence: showSentenceState2,
-            showPOSAndPronunciation: showPOSAndPronunciationState2
-        })
+        dispatchEqual(store,
+            [
+                makeShowSentenceAction(showSentenceState),
+                makeShowSentenceAction(showSentenceState2),
+                showPOSAndPronunciation(showPOSAndPronunciationState),
+                showPOSAndPronunciation(showPOSAndPronunciationState2)
+            ],
+            {
+                showSentence: showSentenceState2,
+                showPOSAndPronunciation: showPOSAndPronunciationState2
+            }
+        )
     })
 })
