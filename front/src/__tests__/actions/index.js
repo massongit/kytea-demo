@@ -17,32 +17,25 @@ const showPOSAndPronunciationAction = {
     payload: showPOSAndPronunciationState
 }
 
-const actionEqual = (a, b) => {
-    expect(a).toEqual(b)
-}
-
-describe("actions/index/showSentence", () => {
+describe("actions/index", () => {
     it("valueからActionを生成する", () => {
-        actionEqual(makeShowSentenceAction(showSentenceState), showSentenceAction)
+        for (const v of [
+            [makeShowSentenceAction(showSentenceState), showSentenceAction],
+            [showPOSAndPronunciation(showPOSAndPronunciationState), showPOSAndPronunciationAction]
+        ]) {
+            expect(v[0]).toEqual(v[1])
+        }
     })
 
     it("valueから異常値を除外してActionを生成する", () => {
-        actionEqual(showSentence({
-            ...showSentenceState,
-            wrong_test: "wrong!"
-        }), showSentenceAction)
-    })
-})
-
-describe("actions/index/showPOSAndPronunciation", () => {
-    it("valueからActionを生成する", () => {
-        actionEqual(showPOSAndPronunciation(showPOSAndPronunciationState), showPOSAndPronunciationAction)
-    })
-
-    it("valueから異常値を除外してActionを生成する", () => {
-        actionEqual(showPOSAndPronunciation({
-            ...showPOSAndPronunciationState,
-            wrong_test: "wrong!"
-        }), showPOSAndPronunciationAction)
+        for (const v of [
+            [showSentence, showSentenceState, showSentenceAction],
+            [showPOSAndPronunciation, showPOSAndPronunciationState, showPOSAndPronunciationAction]
+        ]) {
+            expect(v[0]({
+                ...v[1],
+                wrong_test: "wrong!"
+            })).toEqual(v[2])
+        }
     })
 })
