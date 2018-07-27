@@ -120,10 +120,13 @@ describe("reducers/index", () => {
 
     it("初期状態からshowSentence, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
-            [makeShowSentenceAction(showSentenceState)].concat(makeShowPOSAndPronunciationAction([
-                showPOSAndPronunciationState,
-                showPOSAndPronunciationState2
-            ])),
+            [
+                makeShowSentenceAction(showSentenceState),
+                ...makeShowPOSAndPronunciationAction([
+                    showPOSAndPronunciationState,
+                    showPOSAndPronunciationState2
+                ])
+            ],
             {
                 showSentence: showSentenceState,
                 showPOSAndPronunciation: showPOSAndPronunciationState2
@@ -133,10 +136,14 @@ describe("reducers/index", () => {
 
     it("初期状態からshowSentence, showPOSAndPronunciation, showPOSAndPronunciation, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
-            [makeShowSentenceAction(showSentenceState)].concat(makeShowPOSAndPronunciationAction([
-                showPOSAndPronunciationState,
-                showPOSAndPronunciationState2]
-            )).concat(makeShowSentenceAction(showSentenceState2)),
+            [
+                makeShowSentenceAction(showSentenceState),
+                ...makeShowPOSAndPronunciationAction([
+                    showPOSAndPronunciationState,
+                    showPOSAndPronunciationState2]
+                ),
+                makeShowSentenceAction(showSentenceState2)
+            ],
             showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
@@ -147,10 +154,13 @@ describe("reducers/index", () => {
 
     it("初期状態からshowSentence, showSentence, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
-            makeShowSentenceAction([
-                showSentenceState,
-                showSentenceState2
-            ]).concat(makeShowPOSAndPronunciationAction(showPOSAndPronunciationState)),
+            [
+                ...makeShowSentenceAction([
+                    showSentenceState,
+                    showSentenceState2
+                ]),
+                makeShowPOSAndPronunciationAction(showPOSAndPronunciationState)
+            ],
             {
                 showSentence: showSentenceState2,
                 showPOSAndPronunciation: showPOSAndPronunciationState
@@ -160,15 +170,16 @@ describe("reducers/index", () => {
 
     it("初期状態からshowSentence, showSentence, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
-            makeShowSentenceAction([
-                showSentenceState,
-                showSentenceState2
-            ]).concat(
-                makeShowPOSAndPronunciationAction([
+            [
+                ...makeShowSentenceAction([
+                    showSentenceState,
+                    showSentenceState2
+                ]),
+                ...makeShowPOSAndPronunciationAction([
                     showPOSAndPronunciationState,
                     showPOSAndPronunciationState2
                 ])
-            ),
+            ],
             {
                 showSentence: showSentenceState2,
                 showPOSAndPronunciation: showPOSAndPronunciationState2
