@@ -17,9 +17,13 @@ const showPOSAndPronunciationAction = {
     payload: showPOSAndPronunciationState
 }
 
+const actionEqual = (a, b) => {
+    expect(a).toEqual(b)
+}
+
 describe("actions/index/showSentence", () => {
     it("valueからActionを生成する", () => {
-        expect(makeShowSentenceAction(showSentenceState)).toEqual(showSentenceAction)
+        actionEqual(makeShowSentenceAction(showSentenceState), showSentenceAction)
     })
 
     it("valueから異常値を除外してActionを生成する", () => {
@@ -32,7 +36,7 @@ describe("actions/index/showSentence", () => {
 
 describe("actions/index/showPOSAndPronunciation", () => {
     it("valueからActionを生成する", () => {
-        expect(showPOSAndPronunciation(showPOSAndPronunciationState)).toEqual(showPOSAndPronunciationAction)
+        actionEqual(showPOSAndPronunciation(showPOSAndPronunciationState), showPOSAndPronunciationAction)
     })
 
     it("valueから異常値を除外してActionを生成する", () => {
