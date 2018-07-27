@@ -11,10 +11,10 @@ import {showPOSAndPronunciationState, showSentenceState} from "../../test_data"
 
 export const functions = [
     store => {
-        dispatchActions(store, [makeShowSentenceAction(showSentenceState)])
+        dispatchActions(store, makeShowSentenceAction(showSentenceState))
     },
     store => {
-        dispatchActions(store, [showPOSAndPronunciation(showPOSAndPronunciationState)])
+        dispatchActions(store, showPOSAndPronunciation(showPOSAndPronunciationState))
     }
 ]
 

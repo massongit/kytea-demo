@@ -18,6 +18,10 @@ const showSentenceState2AndInitialShowPOSAndPronunciationState = {
 }
 
 export const dispatchActions = (store, actions) => {
+    if (!(actions instanceof Array)) {
+        actions = [actions]
+    }
+
     for (const action of actions) {
         store.dispatch(action)
     }
@@ -62,11 +66,11 @@ export const dispatchEqual = (store, p, s) => {
 }
 
 export const dispatchShowSentenceEqual = (store, p, s) => {
-    dispatchEqual(store, [makeShowSentenceAction(p)], s)
+    dispatchEqual(store, makeShowSentenceAction(p), s)
 }
 
 export const dispatchShowPOSAndPronunciationEqual = (store, p, s) => {
-    dispatchEqual(store, [showPOSAndPronunciation(p)], s)
+    dispatchEqual(store, showPOSAndPronunciation(p), s)
 }
 
 export const dispatchDoubleShowSentenceEqual = (store, p, s) => {
