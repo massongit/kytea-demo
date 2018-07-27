@@ -7,6 +7,7 @@ import {
     dispatchEqual,
     dispatchShowPOSAndPronunciationEqual,
     dispatchShowSentenceEqual,
+    makeShowPOSAndPronunciationAction,
     makeShowSentenceAction,
     storeEqual
 } from "./index"
@@ -31,10 +32,10 @@ import {
 } from "../../test_data"
 
 const dispatchDoubleShowPOSAndPronunciationEqual = (store, p, s) => {
-    dispatchEqual(store, [
-        showPOSAndPronunciation(showPOSAndPronunciationState),
-        showPOSAndPronunciation(p)
-    ], s)
+    dispatchEqual(store, makeShowPOSAndPronunciationAction([
+        showPOSAndPronunciationState,
+        p
+    ]), s)
 }
 
 const dispatchShowPOSAndPronunciationAndShowSentenceEqual = (store, p, s) => {

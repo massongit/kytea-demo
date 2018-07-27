@@ -23,8 +23,26 @@ export const dispatchActions = (store, actions) => {
     }
 }
 
-export const makeShowSentenceAction = (p) => (
-    showSentence(deepcopy(p))
+const makeAction = (ps, f) => {
+    if (ps instanceof Array) {
+        return ps.map(p => (
+            f(p)
+        ))
+    } else {
+        return f(ps)
+    }
+}
+
+export const makeShowSentenceAction = ps => (
+    makeAction(ps, p => (
+        showSentence(deepcopy(p))
+    ))
+)
+
+export const makeShowPOSAndPronunciationAction = ps => (
+    makeAction(ps, p => (
+        showPOSAndPronunciation(p)
+    ))
 )
 
 export const dispatchShowSentenceAndShowPOSAndPronunciation = (store, d) => {
@@ -52,10 +70,10 @@ export const dispatchShowPOSAndPronunciationEqual = (store, p, s) => {
 }
 
 export const dispatchDoubleShowSentenceEqual = (store, p, s) => {
-    dispatchEqual(store, [
-        makeShowSentenceAction(showSentenceState),
-        makeShowSentenceAction(p)
-    ], s)
+    dispatchEqual(store, makeShowSentenceAction([
+        showSentenceState,
+        p
+    ]), s)
 }
 
 export const dispatchShowSentenceAndShowPOSAndPronunciationEqual = (store, s, ss) => {
@@ -98,11 +116,10 @@ describe("reducers/index", () => {
 
     it("初期状態からshowSentence, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
-            [
-                makeShowSentenceAction(showSentenceState),
-                showPOSAndPronunciation(showPOSAndPronunciationState),
-                showPOSAndPronunciation(showPOSAndPronunciationState2)
-            ],
+            [makeShowSentenceAction(showSentenceState)].concat(makeShowPOSAndPronunciationAction([
+                showPOSAndPronunciationState,
+                showPOSAndPronunciationState2
+            ])),
             {
                 showSentence: showSentenceState,
                 showPOSAndPronunciation: showPOSAndPronunciationState2
@@ -111,12 +128,12 @@ describe("reducers/index", () => {
     })
 
     it("初期状態からshowSentence, showPOSAndPronunciation, showPOSAndPronunciation, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
-        dispatchEqual(store, [
-            makeShowSentenceAction(showSentenceState),
-            showPOSAndPronunciation(showPOSAndPronunciationState),
-            showPOSAndPronunciation(showPOSAndPronunciationState2),
-            makeShowSentenceAction(showSentenceState2)
-        ], showSentenceState2AndInitialShowPOSAndPronunciationState)
+        dispatchEqual(store,
+            [makeShowSentenceAction(showSentenceState)].concat(makeShowPOSAndPronunciationAction([
+                showPOSAndPronunciationState,
+                showPOSAndPronunciationState2]
+            )).concat(makeShowSentenceAction(showSentenceState2)),
+            showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
     it("初期状態からshowSentence, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
@@ -126,11 +143,10 @@ describe("reducers/index", () => {
 
     it("初期状態からshowSentence, showSentence, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
-            [
-                makeShowSentenceAction(showSentenceState),
-                makeShowSentenceAction(showSentenceState2),
-                showPOSAndPronunciation(showPOSAndPronunciationState)
-            ],
+            makeShowSentenceAction([
+                showSentenceState,
+                showSentenceState2
+            ]).concat(makeShowPOSAndPronunciationAction(showPOSAndPronunciationState)),
             {
                 showSentence: showSentenceState2,
                 showPOSAndPronunciation: showPOSAndPronunciationState
@@ -140,12 +156,15 @@ describe("reducers/index", () => {
 
     it("初期状態からshowSentence, showSentence, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
-            [
-                makeShowSentenceAction(showSentenceState),
-                makeShowSentenceAction(showSentenceState2),
-                showPOSAndPronunciation(showPOSAndPronunciationState),
-                showPOSAndPronunciation(showPOSAndPronunciationState2)
-            ],
+            makeShowSentenceAction([
+                showSentenceState,
+                showSentenceState2
+            ]).concat(
+                makeShowPOSAndPronunciationAction([
+                    showPOSAndPronunciationState,
+                    showPOSAndPronunciationState2
+                ])
+            ),
             {
                 showSentence: showSentenceState2,
                 showPOSAndPronunciation: showPOSAndPronunciationState2
