@@ -69,15 +69,14 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * actions/: [Redux](https://redux.js.org/)のActionCreatorのテストが格納されている
                 * index.js: ActionCreatorのテスト
             * components/: [React](https://reactjs.org/)のComponentのテストが格納されている
-                * \_\_snapshots\_\_/: スナップショットテストで用いるデータが格納されている
                 * Header.js: ヘッダーのテスト
-                * PanelBody.js: PanelのBodyのテスト
             * containers/: [react-redux](https://redux.js.org/basics/usage-with-react)のContainerのテストが格納されている
                 * \_\_snapshots\_\_/: スナップショットテストで用いるデータが格納されている
                 * App.js: ルート要素のContainerのテスト
                 * Information.js: 解析結果表示部のContainerのテスト
                 * Input.js: 入力部のContainerのテスト
                 * OutputPanel.js: 解析結果表示部のパネルのContainerのテスト
+                * PanelBody.js: PanelのBodyのテスト
                 * Sentence.js: 入力文をボタンのグループとして表示するComponentのContainerのテスト
                 * Word.js: Sentenceの各ボタンのContainerのテスト
             * reducers/: [Redux](https://redux.js.org/)のReducerのテストが格納されている
@@ -89,8 +88,8 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * type.js: Actionのタイプ
         * components/: [React](https://reactjs.org/)のComponentが格納されている
             * App.js: ルート要素
-            * Header.js: ヘッダー
             * DescriptionPanel.js: 概要パネル
+            * Header.js: ヘッダー
             * Information.js: 解析結果表示部
             * Input.js: 入力部
             * InputPanel.js: 入力部のパネル
@@ -117,6 +116,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
         * index.js: ルートとなるスクリプト
         * intl.js: メッセージリソース関連のスクリプト
         * setupTests.js: テストの際のセットアップ用スクリプト
+    * .gitignore: Gitの管理から除外するファイル一覧
     * package.json: [Node.js](https://nodejs.org/ja/)の設定
     * yarn.lock: [Node.js](https://nodejs.org/ja/)のパッケージ情報 ([Yarn](https://yarnpkg.com/ja/)が使用)
 * server/: サーバーサイドのプログラムが格納されている
@@ -130,6 +130,9 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
         * server.py: サーバー
         * test_server.py: テスト用スクリプト
     * tests/: テストで用いるJSONファイルが格納されている
+    * .gitignore: Gitの管理から除外するファイル一覧
+* .gitignore: Gitの管理から除外するファイル一覧
+* LICENSE: ライセンス
 * README.md: README (MarkDown形式)
 * README_develop.md: 開発者向けREADME (MarkDown形式)
 * screenshot.png: スクリーンショット
