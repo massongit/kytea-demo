@@ -124,13 +124,7 @@ class KyTeaView(flask_classy.FlaskView):
             flask.abort(flask_api.status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-KyTeaView.register(app)
-
-
-def main():
-    """
-    メイン関数
-    """
+if __name__ == '__main__':
     # RootLoggerのログレベルをDEBUGに設定
     logging.root.setLevel(logging.DEBUG)
 
@@ -142,8 +136,7 @@ def main():
         handler.setFormatter(logging.Formatter('[%(name)s %(asctime)s %(levelname)s] %(message)s'))
         logging.root.addHandler(handler)
 
-    app.run(conf.get('general', 'server', 'host'), conf.get('general', 'server', 'port'), True)
-
+KyTeaView.register(app)
 
 if __name__ == '__main__':
-    main()
+    app.run(conf.get('general', 'server', 'host'), conf.get('general', 'server', 'port'), True, use_reloader=False)
