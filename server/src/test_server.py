@@ -17,7 +17,7 @@ import server
 __author__ = 'Masaya Suzuki'
 
 # バージョン
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 
 @pytest.fixture
