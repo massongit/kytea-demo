@@ -13,26 +13,32 @@ class PanelBody extends React.Component {
         intl: intlShape.isRequired
     }
 
+    /**
+     * 説明部を描画する
+     * @returns {*} 説明部
+     */
+    renderDescription() {
+        if (this.props.messageId) {
+            const description = this.props.intl.formatMessage({
+                id: this.props.messageId
+            })
+
+            if (this.props.children) {
+                return (
+                    <p>
+                        {description}
+                    </p>
+                )
+            } else {
+                return description
+            }
+        }
+    }
+
     render() {
         return (
             <Panel.Body>
-                {
-                    (() => {
-                        const description = this.props.intl.formatMessage({
-                            id: this.props.messageId
-                        })
-
-                        if (this.props.children) {
-                            return (
-                                <p>
-                                    {description}
-                                </p>
-                            )
-                        } else {
-                            return description
-                        }
-                    })()
-                }
+                {this.renderDescription()}
                 {this.props.children}
             </Panel.Body>
         )
