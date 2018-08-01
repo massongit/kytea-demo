@@ -10,7 +10,7 @@ import configparser
 __author__ = 'Masaya Suzuki'
 
 # バージョン
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 
 
 class Config:
