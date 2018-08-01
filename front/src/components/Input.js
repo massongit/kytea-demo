@@ -57,7 +57,7 @@ class Input extends React.Component {
      */
     async callKyTea(value) {
         return await (await fetch(
-            "/kytea",
+            "kytea",
             {
                 method: "POST",
                 body: value
