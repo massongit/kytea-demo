@@ -8,6 +8,7 @@ kytea = "*"
 flask = "*"
 flask-classy = "*"
 flask-api = "*"
+uwsgi = "*"
 
 [dev-packages]
 pytest = "*"

@@ -14,6 +14,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
 * [Python](https://www.python.org/) 3.x
 * [Mykytea-python](https://chezou.hatenablog.com/entry/20110715/1310699249)
 * [Flask](http://flask.pocoo.org/)
+* [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/)
 
 ### フロントエンド
 * [Node.js](https://nodejs.org/ja/) 8.x
@@ -31,12 +32,53 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
 * [KyTea](http://www.phontron.com/kytea/index-ja.html)
 * [Python](https://www.python.org/) 3.x
 * [pipenv](https://docs.pipenv.org/) (インストールコマンド: `pip install pipenv`)
+* [nginx](http://nginx.org/) (uWSGI + nginxを使う場合のみ)
 
 ### `front/build`ディレクトリがない場合のみ
 * [Node.js](https://nodejs.org/ja/) 8.x
 * [Yarn](https://yarnpkg.com/ja/)
 
 ## 環境構築方法
+### uWSGI + nginxを使う場合のみ
+1. 以下のように`/etc/systemd/system/kytea-demo.service`を作成します。  
+※`TODO`部の指示通りに書き換えを行ってください。
+
+    ```/etc/systemd/system/kytea-demo.service
+    [Unit]
+    Description=uWSGI instance to serve kytea-demo
+    After=network.target
+    
+    [Service]
+    # TODO: 以下を記述し、コメントアウトを解除
+    # User={実行時のユーザー}
+    # Group={実行時のグループ}
+    # WorkingDirectory={このディレクトリのパス}/server/src
+    ExecStart=/usr/local/bin/pipenv run uwsgi --ini ../configs/uwsgi.ini
+    
+    [Install]
+    WantedBy=multi-user.target
+    
+    ```
+
+1. 以下のように`/etc/nginx/sites-enabled/kytea-demo`を作成します。  
+※`TODO`部の指示通りに書き換えを行ってください。
+
+    ```/etc/nginx/sites-enabled/kytea-demo
+    server {
+        listen 80;
+        
+        # TODO: 以下を記述し、コメントアウトを解除
+        # location ~ /{サブドメイン名}(/.*)?$ {
+            include uwsgi_params;
+            uwsgi_pass unix:///tmp/kytea-demo.sock;
+            # TODO: 以下を記述し、コメントアウトを解除
+            # uwsgi_param SCRIPT_NAME /{サブドメイン名};
+            uwsgi_param PATH_INFO $1;
+        }
+    }
+    
+    ```
+
 ### `front/build`ディレクトリがない場合のみ
 1. 端末を起動します。
 1. `cd {このディレクトリ}/front`コマンドを実行します。
@@ -50,11 +92,16 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
 1. `pipenv install`コマンドを実行します。
 
 ## 実行方法
+### Pythonを直接起動する場合
 1. 端末を起動します。
 1. `cd {このディレクトリ}/server/src`コマンドを実行します。
 1. `pipenv shell`コマンドを実行します。
 1. `python server.py`コマンドを実行します。
 1. ブラウザから[http://localhost:5000/](http://localhost:5000/)にアクセスします。
+
+### uWSGI + nginxを使う場合
+1. `sudo systemctl start nginx kytea-demo`コマンドを実行します。
+1. ブラウザからアクセスします。
 
 ## スクリーンショット
 ![](screenshot.png)
@@ -122,6 +169,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
 * server/: サーバーサイドのプログラムが格納されている
     * configs/: 設定が格納されている
         * general.ini: 一般設定
+        * uwsgi.ini: uWSGIを使用する場合の設定
     * logs: ログが格納されている
     * src/: ソースが格納されている
         * config.py: 設定ファイルを扱うためのオブジェクト
