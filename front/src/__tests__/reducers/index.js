@@ -52,16 +52,6 @@ export const makeShowPOSAndPronunciationAction = ps => (
     ))
 )
 
-export const makeLoadingAction = ps => {
-    if (ps instanceof Array) {
-        return ps.map(p => (
-            loading(p)
-        ))
-    } else {
-        return loading(ps)
-    }
-}
-
 export const dispatchShowSentenceAndShowPOSAndPronunciation = (store, d) => {
     dispatchActions(store, [
         loading(loadingState),
