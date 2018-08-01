@@ -3,7 +3,8 @@ import {connect} from "react-redux"
 import {injectIntl} from "react-intl"
 
 const mapStateToProps = state => ({
-    sentence: state.showSentence.sentence
+    sentence: state.showSentence.sentence,
+    loading: state.loading.loading
 })
 
 /**

@@ -9,3 +9,9 @@ export const SHOW_SENTENCE = "SHOW_SENTENCE"
  * @type {string}
  */
 export const SHOW_PRONUNCIATION = "SHOW_PRONUNCIATION"
+
+/**
+ * ローディングActionを表すタイプ
+ * @type {string}
+ */
+export const LOADING = "LOADING"

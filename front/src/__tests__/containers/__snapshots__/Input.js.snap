@@ -113,6 +113,7 @@ ShallowWrapper {
         "now": [Function],
         "textComponent": "span",
       },
+      "loading": false,
       "sentence": "",
       "store": Object {
         "clearActions": [Function],
@@ -194,6 +195,7 @@ ShallowWrapper {
           "now": [Function],
           "textComponent": "span",
         },
+        "loading": false,
         "sentence": "",
         "store": Object {
           "clearActions": [Function],

@@ -5,8 +5,10 @@ import fetch from "node-fetch"
 import configureMockStore from "redux-mock-store"
 import words from "../../test_data/words"
 import showSentenceState2 from "../../test_data/showSentenceState2"
+import initialLoadingState from "../../test_data/initialLoadingState"
 import initialShowSentenceState from "../../test_data/initialShowSentenceState"
 import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
+import * as types from "../../actions/types"
 import {Form, FormControl} from "react-bootstrap"
 import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
 import {makeShowSentenceAction} from "../reducers"
@@ -14,6 +16,18 @@ import {rootStateAfterShowSentence, sentence, sentence2, showSentenceState, word
 
 export const eventMock = {
     preventDefault: jest.fn()
+}
+
+const checkContainShowSentence = (store, inputComponent, w) => {
+    let isExpect = false
+    const action_ = makeShowSentenceAction(w)
+    for (const action of store.getActions()) {
+        if (action.type === types.SHOW_SENTENCE) {
+            expect(action).toEqual(action_)
+            isExpect = true
+        }
+    }
+    expect(isExpect).toBeTruthy()
 }
 
 loadTranslation("./src/translations/ja.json")
@@ -25,6 +39,7 @@ describe("containers/Input", () => {
 
     it("Componentが正しく配置されている", () => {
         const store = configureMockStore([thunk])({
+            loading: initialLoadingState,
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
@@ -38,6 +53,7 @@ describe("containers/Input", () => {
 
     it("Formになっている", () => {
         const store = configureMockStore([thunk])({
+            loading: initialLoadingState,
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
@@ -51,6 +67,7 @@ describe("containers/Input", () => {
 
     it("onSubmitイベントが呼び出されたとき、サーバーへのSubmitが行われない", async () => {
         const store = configureMockStore([thunk])({
+            loading: initialLoadingState,
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
@@ -65,6 +82,7 @@ describe("containers/Input", () => {
 
     it("入力文が空の状態で、onSubmitイベントが呼び出されたとき、fetchとdispatchが行われない", async () => {
         const store = configureMockStore([thunk])({
+            loading: initialLoadingState,
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
@@ -80,6 +98,7 @@ describe("containers/Input", () => {
 
     it("入力文が入力された状態で、onSubmitイベントが呼び出されたとき、fetchとdispatchが正常に行われる", async () => {
         const store = configureMockStore([thunk])({
+            loading: initialLoadingState,
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
@@ -92,7 +111,7 @@ describe("containers/Input", () => {
         fetch.mockResponse(JSON.stringify(words))
         await inputComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(1)
-        expect(store.getActions()).toEqual([makeShowSentenceAction(showSentenceState)])
+        checkContainShowSentence(store, inputComponent, showSentenceState)
     })
 
     it("前回と同じ入力内容でonSubmitイベントを呼び出したとき、fetchやdispatchが行われない", async () => {
@@ -119,6 +138,6 @@ describe("containers/Input", () => {
         fetch.mockResponse(JSON.stringify(words2))
         await inputComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(1)
-        expect(store.getActions()).toEqual([makeShowSentenceAction(showSentenceState2)])
+        checkContainShowSentence(store, inputComponent, showSentenceState2)
     })
 })

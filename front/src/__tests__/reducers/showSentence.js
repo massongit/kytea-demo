@@ -39,7 +39,7 @@ const showSentenceParameterInvalidSentence = {
  * KyTeaによる解析結果の表示ActionのState
  * @type {{sentence: string, words: *[]}}
  */
-const showSentenceState3 = {
+export const showSentenceState3 = {
     sentence: "Ihaveapen.",
     words: words3
 }

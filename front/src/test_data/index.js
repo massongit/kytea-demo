@@ -2,6 +2,7 @@ import words from "./words"
 import showSentenceState2 from "./showSentenceState2"
 import showSentenceParameter3 from "./showSentenceParameter3"
 import initialShowPOSAndPronunciationState from "./initialShowPOSAndPronunciationState"
+import initialLoadingState from "./initialLoadingState"
 
 /**
  * 品詞や読みの表示ActionのState
@@ -109,6 +110,7 @@ export const showPOSAndPronunciationState2POSAndWordOnly = {
 }
 
 export const rootStateAfterShowSentence = {
+    loading: initialLoadingState,
     showSentence: showSentenceState,
     showPOSAndPronunciation: initialShowPOSAndPronunciationState
 }

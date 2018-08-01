@@ -2,8 +2,10 @@ import React from "react"
 import fetch from "node-fetch"
 import PropTypes from "prop-types"
 import {Button, Form, FormControl, InputGroup} from "react-bootstrap"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {FormattedMessage, intlShape} from "react-intl"
-import {showSentence} from "../actions"
+import {loading, showSentence} from "../actions"
+import {faSpinner} from "@fortawesome/free-solid-svg-icons"
 
 /**
  * 入力部
@@ -12,6 +14,7 @@ class Input extends React.Component {
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
         sentence: PropTypes.string.isRequired,
+        loading: PropTypes.bool.isRequired,
         intl: intlShape.isRequired
     }
 
@@ -30,8 +33,14 @@ class Input extends React.Component {
 
         this.input.value = this.input.value.trim()
 
-        // 以前の入力文とは異なる文章が入力されたとき、KyTeaによる解析を行い、KyTeaによる解析結果の表示Actionをdispatch
+        // 以前の入力文とは異なる文章が入力されたとき
         if (0 < this.input.value.length && this.input.value.replace(/\s/g, "") !== this.props.sentence) {
+            // ローディングアイコンを表示する
+            this.props.dispatch(loading({
+                loading: true
+            }))
+
+            // KyTeaによる解析を行い、KyTeaによる解析結果の表示Actionをdispatch
             try {
                 this.props.dispatch(showSentence({
                     sentence: this.input.value,
@@ -47,6 +56,26 @@ class Input extends React.Component {
                     }
                 ))
             }
+
+            // ローディングアイコンを消す
+            this.props.dispatch(loading({
+                loading: false
+            }))
+        }
+    }
+
+    /**
+     * ローディングアイコンを描画する
+     * @returns {*} ローディングアイコン
+     */
+    renderSpinner() {
+        if (this.props.loading) {
+            return (
+                <FontAwesomeIcon
+                    icon={faSpinner}
+                    spin
+                />
+            )
         }
     }
 
@@ -83,7 +112,11 @@ class Input extends React.Component {
                         }}
                     />
                     <InputGroup.Button>
-                        <Button type="submit">
+                        <Button
+                            type="submit"
+                            disabled={this.props.loading}
+                        >
+                            {this.renderSpinner()}
                             <FormattedMessage id="predict"/>
                         </Button>
                     </InputGroup.Button>

@@ -51,6 +51,11 @@
         * `state.showPOSAndPronunciation.word`: 単語 (文字列)
         * `state.showPOSAndPronunciation.pos`: 品詞 (文字列)
         * `state.showPOSAndPronunciation.pronunciation`:  読み (配列)
+* loading: ローディングAction
+    * Action
+        * `action.payload.loading`: KyTeaによる解析結果を取得中かどうか (boolean)
+    * State
+        * `state.loading.loading`: KyTeaによる解析結果を取得中かどうか (boolean)
 
 ## KyTeaによる解析用API
 ### リクエスト

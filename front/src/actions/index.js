@@ -72,3 +72,11 @@ export const showPOSAndPronunciation = createAction(types.SHOW_PRONUNCIATION, pa
     pos: parameter.pos,
     pronunciation: parameter.pronunciation
 }))
+
+/**
+ * ローディングActionのActionCreator
+ * @type {function}
+ */
+export const loading = createAction(types.LOADING, parameter => ({
+    loading: parameter.loading
+}))

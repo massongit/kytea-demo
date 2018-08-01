@@ -1,10 +1,12 @@
 import deepcopy from "deepcopy"
 import rootReducer from "../../reducers"
+import loadingState from "../../test_data/loadingState"
 import showSentenceState2 from "../../test_data/showSentenceState2"
+import initialLoadingState from "../../test_data/initialLoadingState"
 import initialShowSentenceState from "../../test_data/initialShowSentenceState"
 import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import {createStore} from "redux"
-import {showPOSAndPronunciation, showSentence} from "../../actions"
+import {loading, showPOSAndPronunciation, showSentence} from "../../actions"
 import {
     rootStateAfterShowSentence,
     showPOSAndPronunciationState,
@@ -13,6 +15,7 @@ import {
 } from "../../test_data"
 
 const showSentenceState2AndInitialShowPOSAndPronunciationState = {
+    loading: initialLoadingState,
     showSentence: showSentenceState2,
     showPOSAndPronunciation: initialShowPOSAndPronunciationState
 }
@@ -49,9 +52,21 @@ export const makeShowPOSAndPronunciationAction = ps => (
     ))
 )
 
+export const makeLoadingAction = ps => {
+    if (ps instanceof Array) {
+        return ps.map(p => (
+            loading(p)
+        ))
+    } else {
+        return loading(ps)
+    }
+}
+
 export const dispatchShowSentenceAndShowPOSAndPronunciation = (store, d) => {
     dispatchActions(store, [
+        loading(loadingState),
         makeShowSentenceAction(showSentenceState),
+        loading(initialLoadingState),
         showPOSAndPronunciation(d)
     ])
 }
@@ -66,18 +81,32 @@ export const dispatchEqual = (store, p, s) => {
 }
 
 export const dispatchShowSentenceEqual = (store, p, s) => {
-    dispatchEqual(store, makeShowSentenceAction(p), s)
+    dispatchEqual(store,
+        [
+            loading(loadingState),
+            makeShowSentenceAction(p),
+            loading(initialLoadingState)
+        ], s)
 }
 
 export const dispatchShowPOSAndPronunciationEqual = (store, p, s) => {
     dispatchEqual(store, showPOSAndPronunciation(p), s)
 }
 
+export const dispatchLoadingEqual = (store, p, s) => {
+    dispatchEqual(store, loading(p), s)
+}
+
 export const dispatchDoubleShowSentenceEqual = (store, p, s) => {
-    dispatchEqual(store, makeShowSentenceAction([
-        showSentenceState,
-        p
-    ]), s)
+    dispatchEqual(store,
+        [
+            loading(loadingState),
+            makeShowSentenceAction(showSentenceState),
+            loading(initialLoadingState),
+            loading(loadingState),
+            makeShowSentenceAction(p),
+            loading(initialLoadingState)
+        ], s)
 }
 
 export const dispatchShowSentenceAndShowPOSAndPronunciationEqual = (store, s, ss) => {
@@ -94,93 +123,135 @@ describe("reducers/index", () => {
 
     it("初期状態を正しく保持している", () => {
         storeEqual(store, {
+            loading: initialLoadingState,
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
     })
 
-    it("初期状態からshowSentenceへStateが遷移した際に、正しいStateを返す", () => {
+    it("初期状態からloadingへStateが遷移した際に、正しいStateを返す", () => {
+        dispatchLoadingEqual(store, loadingState, {
+            loading: loadingState,
+            showSentence: initialShowSentenceState,
+            showPOSAndPronunciation: initialShowPOSAndPronunciationState
+        })
+    })
+
+    it("初期状態からloading, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
+        dispatchEqual(store,
+            [
+                loading(loadingState),
+                makeShowSentenceAction(showSentenceState)
+            ],
+            {
+                loading: loadingState,
+                showSentence: showSentenceState,
+                showPOSAndPronunciation: initialShowPOSAndPronunciationState
+            }
+        )
+    })
+
+    it("初期状態からloading, showSentence, loadingとStateが遷移した際に、正しいStateを返す", () => {
         dispatchShowSentenceEqual(store, showSentenceState, rootStateAfterShowSentence)
     })
 
-    it("初期状態からshowSentence, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
+    it("初期状態からloading, showSentence, loading, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchShowSentenceAndShowPOSAndPronunciationEqual(store, showPOSAndPronunciationState, {
+            loading: initialLoadingState,
             showSentence: showSentenceState,
             showPOSAndPronunciation: showPOSAndPronunciationState
         })
     })
 
-    it("初期状態からshowSentence, showPOSAndPronunciation, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
+    it("初期状態からloading, showSentence, loading, showPOSAndPronunciation, loading, showSentence, loadingとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store, [
+            loading(loadingState),
             makeShowSentenceAction(showSentenceState),
+            loading(initialLoadingState),
             showPOSAndPronunciation(showPOSAndPronunciationState),
-            makeShowSentenceAction(showSentenceState2)
+            loading(loadingState),
+            makeShowSentenceAction(showSentenceState2),
+            loading(initialLoadingState),
         ], showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
-    it("初期状態からshowSentence, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
+    it("初期状態からloading, showSentence, loading, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
             [
+                loading(loadingState),
                 makeShowSentenceAction(showSentenceState),
+                loading(initialLoadingState),
                 ...makeShowPOSAndPronunciationAction([
                     showPOSAndPronunciationState,
                     showPOSAndPronunciationState2
                 ])
             ],
             {
+                loading: initialLoadingState,
                 showSentence: showSentenceState,
                 showPOSAndPronunciation: showPOSAndPronunciationState2
             }
         )
     })
 
-    it("初期状態からshowSentence, showPOSAndPronunciation, showPOSAndPronunciation, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
+    it("初期状態からloading, showSentence, loading, showPOSAndPronunciation, showPOSAndPronunciation, loading, showSentence, loadingとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
             [
+                loading(loadingState),
                 makeShowSentenceAction(showSentenceState),
+                loading(initialLoadingState),
                 ...makeShowPOSAndPronunciationAction([
                     showPOSAndPronunciationState,
                     showPOSAndPronunciationState2]
                 ),
-                makeShowSentenceAction(showSentenceState2)
+                loading(loadingState),
+                makeShowSentenceAction(showSentenceState2),
+                loading(initialLoadingState)
             ],
             showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
-    it("初期状態からshowSentence, showSentenceとStateが遷移した際に、正しいStateを返す", () => {
+    it("初期状態からloading, showSentence, loading, loading, showSentence, loadingとStateが遷移した際に、正しいStateを返す", () => {
         dispatchDoubleShowSentenceEqual(store, showSentenceState2, showSentenceState2AndInitialShowPOSAndPronunciationState)
     })
 
 
-    it("初期状態からshowSentence, showSentence, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
+    it("初期状態からloading, showSentence, loading, loading, showSentence, loading, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
             [
-                ...makeShowSentenceAction([
-                    showSentenceState,
-                    showSentenceState2
-                ]),
+                loading(loadingState),
+                makeShowSentenceAction(showSentenceState),
+                loading(initialLoadingState),
+                loading(loadingState),
+                makeShowSentenceAction(showSentenceState2),
+                loading(initialLoadingState),
                 makeShowPOSAndPronunciationAction(showPOSAndPronunciationState)
             ],
             {
+                loading: initialLoadingState,
                 showSentence: showSentenceState2,
                 showPOSAndPronunciation: showPOSAndPronunciationState
             }
         )
     })
 
-    it("初期状態からshowSentence, showSentence, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
+    it("初期状態からloading, showSentence, loading, loading, showSentence, loading, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
             [
-                ...makeShowSentenceAction([
-                    showSentenceState,
-                    showSentenceState2
-                ]),
+
+                loading(loadingState),
+                makeShowSentenceAction(showSentenceState),
+                loading(initialLoadingState),
+                loading(loadingState),
+                makeShowSentenceAction(showSentenceState2),
+                loading(initialLoadingState),
                 ...makeShowPOSAndPronunciationAction([
                     showPOSAndPronunciationState,
                     showPOSAndPronunciationState2
                 ])
             ],
             {
+                loading: initialLoadingState,
                 showSentence: showSentenceState2,
                 showPOSAndPronunciation: showPOSAndPronunciationState2
             }
