@@ -132,6 +132,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
                 * Word.js: Sentenceの各ボタンのContainerのテスト
             * reducers/: [Redux](https://redux.js.org/)のReducerのテストが格納されている
                 * index.js: ルートReducerのテスト
+                * loading.js: ローディングActionのテスト
                 * showSentence.js: [KyTea](http://www.phontron.com/kytea/index-ja.html)による解析結果の表示ActionのReducerのテスト
                 * showPOSAndPronunciation.js: 品詞や読みの表示ActionのReducerのテスト
         * actions/: [Redux](https://redux.js.org/)のActionCreatorが格納されている
@@ -158,6 +159,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * Word.js: Sentenceの各ボタンのContainer
         * reducers/: [Redux](https://redux.js.org/)のReducerが格納されている
             * index.js: ルートReducer
+            * loading.js: ローディングActionのReducer
             * showSentence.js: [KyTea](http://www.phontron.com/kytea/index-ja.html)による解析結果の表示ActionのReducer
             * showPOSAndPronunciation.js: 品詞や読みの表示ActionのReducer
         * test_data/: テストで使用するデータが格納されている
