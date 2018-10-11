@@ -1,5 +1,5 @@
 import React from "react"
-import Input from "../../containers/Input"
+import InputSentence from "../../containers/InputSentence"
 import thunk from "redux-thunk"
 import fetch from "node-fetch"
 import configureMockStore from "redux-mock-store"
@@ -9,7 +9,7 @@ import initialLoadingState from "../../test_data/initialLoadingState"
 import initialShowSentenceState from "../../test_data/initialShowSentenceState"
 import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import * as types from "../../actions/types"
-import {Form, FormControl} from "react-bootstrap"
+import {Form, Input} from "reactstrap"
 import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
 import {makeShowSentenceAction} from "../reducers"
 import {rootStateAfterShowSentence, sentence, sentence2, showSentenceState, words2} from "../../test_data"
@@ -32,7 +32,7 @@ const checkContainShowSentence = (store, inputComponent, w) => {
 
 loadTranslation("./src/translations/ja.json")
 
-describe("containers/Input", () => {
+describe("containers/InputSentence", () => {
     beforeEach(() => {
         fetch.resetMocks()
     })
@@ -44,7 +44,7 @@ describe("containers/Input", () => {
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
         const inputComponent = shallowWithIntl(
-            <Input
+            <InputSentence
                 store={store}
             />
         ).dive()
@@ -58,7 +58,7 @@ describe("containers/Input", () => {
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
         const inputComponent = mountWithIntl(
-            <Input
+            <InputSentence
                 store={store}
             />
         )
@@ -72,7 +72,7 @@ describe("containers/Input", () => {
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
         const inputComponent = mountWithIntl(
-            <Input
+            <InputSentence
                 store={store}
             />
         )
@@ -87,7 +87,7 @@ describe("containers/Input", () => {
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
         const inputComponent = mountWithIntl(
-            <Input
+            <InputSentence
                 store={store}
             />
         )
@@ -103,11 +103,11 @@ describe("containers/Input", () => {
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
         const inputComponent = mountWithIntl(
-            <Input
+            <InputSentence
                 store={store}
             />
         )
-        inputComponent.find(FormControl).children().instance().value = sentence
+        inputComponent.find(Input).children().instance().value = sentence
         fetch.mockResponse(JSON.stringify(words))
         await inputComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(1)
@@ -117,11 +117,11 @@ describe("containers/Input", () => {
     it("前回と同じ入力内容でonSubmitイベントを呼び出したとき、fetchやdispatchが行われない", async () => {
         const store = configureMockStore([thunk])(rootStateAfterShowSentence)
         const inputComponent = mountWithIntl(
-            <Input
+            <InputSentence
                 store={store}
             />
         )
-        inputComponent.find(FormControl).children().instance().value = sentence
+        inputComponent.find(Input).children().instance().value = sentence
         await inputComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(0)
         expect(store.getActions()).toHaveLength(0)
@@ -130,11 +130,11 @@ describe("containers/Input", () => {
     it("前回とは違う入力内容でonSubmitイベントを呼び出したとき、fetchやdispatchが正常に行われる", async () => {
         const store = configureMockStore([thunk])(rootStateAfterShowSentence)
         const inputComponent = mountWithIntl(
-            <Input
+            <InputSentence
                 store={store}
             />
         )
-        inputComponent.find(FormControl).children().instance().value = sentence2
+        inputComponent.find(Input).children().instance().value = sentence2
         fetch.mockResponse(JSON.stringify(words2))
         await inputComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(1)

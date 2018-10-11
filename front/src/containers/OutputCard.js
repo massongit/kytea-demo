@@ -1,4 +1,4 @@
-import OutputPanel from "../components/OutputPanel"
+import OutputCard from "../components/OutputCard"
 import {connect} from "react-redux"
 
 const mapStateToProps = state => ({
@@ -8,4 +8,4 @@ const mapStateToProps = state => ({
 /**
  * 解析結果表示部のパネルのContainer
  */
-export default connect(mapStateToProps)(OutputPanel)
+export default connect(mapStateToProps)(OutputCard)

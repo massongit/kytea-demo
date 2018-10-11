@@ -1,14 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Header from "./Header"
-import InputPanel from "./InputPanel"
-import DescriptionPanel from "./DescriptionPanel"
-import OutputPanel from "../containers/OutputPanel"
-import {Grid} from "react-bootstrap"
+import InputCard from "./InputCard"
+import DescriptionCard from "./DescriptionCard"
+import OutputCard from "../containers/OutputCard"
+import {Container} from "reactstrap"
 
 /**
  * pronunciationのPropTypes
- * @type {{pos: *, pronunciation: (shim|*)}}
+ * @type {{pos: *, pronunciation: (*)}}
  */
 export const propTypesPronunciation = PropTypes.shape({
     id: PropTypes.number,
@@ -18,7 +18,7 @@ export const propTypesPronunciation = PropTypes.shape({
 
 /**
  * PropTypesの一部
- * @type {{pos: *, pronunciation: (shim|*)}}
+ * @type {{pos: *, pronunciation: (*)}}
  */
 export const propTypesPart = {
     pos: PropTypes.string.isRequired,
@@ -27,7 +27,7 @@ export const propTypesPart = {
 
 /**
  * PropTypes
- * @type {{words: shim}}
+ * @type {{words: *}}
  */
 export const propTypes = {
     words: PropTypes.arrayOf(PropTypes.shape({
@@ -44,19 +44,19 @@ class App extends React.Component {
 
     render() {
         return (
-            <Grid>
+            <Container>
                 <Header/>
-                <DescriptionPanel/>
-                <InputPanel/>
+                <DescriptionCard/>
+                <InputCard/>
                 {
                     (() => {
                         // KyTeaによる解析が行われていない場合には表示しない
                         if (this.props.words && 0 < this.props.words.length) {
-                            return (<OutputPanel/>)
+                            return (<OutputCard/>)
                         }
                     })()
                 }
-            </Grid>
+            </Container>
         )
     }
 }

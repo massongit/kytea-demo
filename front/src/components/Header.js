@@ -1,5 +1,5 @@
 import React from "react"
-import {Jumbotron, Row} from "react-bootstrap"
+import {Jumbotron} from "reactstrap"
 import {FormattedMessage} from "react-intl"
 
 /**
@@ -7,14 +7,12 @@ import {FormattedMessage} from "react-intl"
  * @returns {element} ヘッダー
  */
 const Header = () => (
-    <Row>
-        <Jumbotron>
-            <h1>KyTea</h1>
-            <p>
-                <FormattedMessage id="abstract.kyTea"/>
-            </p>
-        </Jumbotron>
-    </Row>
+    <Jumbotron>
+        <h1 className="display-4">KyTea</h1>
+        <p className="lead">
+            <FormattedMessage id="abstract.kyTea"/>
+        </p>
+    </Jumbotron>
 )
 
 export default Header

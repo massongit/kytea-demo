@@ -25,7 +25,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
 * [Bootstrap](https://getbootstrap.com/)
 
 ## 対応ブラウザ
-[browserl.ist: A page to display compatible browsers from a browserslist string.](http://browserl.ist/?q=>+0.5%25%2C+>+0.5%25+in+JP%2C+last+2+versions%2C+Firefox+ESR%2C+not+dead)参照
+[browserl.ist: A page to display compatible browsers from a browserslist string.](https://browserl.ist/?q=>+0.2%25%2C+>+0.2%25+in+JP%2C+last+2+versions%2C+Firefox+ESR%2C+not+dead%2C+not+ie+<%3D+11%2C+not+OperaMini+all)参照
 
 ## 必要なソフトウェア
 ### 共通
@@ -125,9 +125,9 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
                 * \_\_snapshots\_\_/: スナップショットテストで用いるデータが格納されている
                 * App.js: ルート要素のContainerのテスト
                 * Information.js: 解析結果表示部のContainerのテスト
-                * Input.js: 入力部のContainerのテスト
-                * OutputPanel.js: 解析結果表示部のパネルのContainerのテスト
-                * PanelBody.js: PanelのBodyのテスト
+                * InputSentenceSentence.js: 入力部のContainerのテスト
+                * OutputCard.js: 解析結果表示部のパネルのContainerのテスト
+                * PanelCardBody.js: CardのBodyのテスト
                 * Sentence.js: 入力文をボタンのグループとして表示するComponentのContainerのテスト
                 * Word.js: Sentenceの各ボタンのContainerのテスト
             * reducers/: [Redux](https://redux.js.org/)のReducerのテストが格納されている
@@ -140,21 +140,21 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * type.js: Actionのタイプ
         * components/: [React](https://reactjs.org/)のComponentが格納されている
             * App.js: ルート要素
-            * DescriptionPanel.js: 概要パネル
+            * DescriptionCard.js: 概要パネル
             * Header.js: ヘッダー
             * Information.js: 解析結果表示部
-            * Input.js: 入力部
-            * InputPanel.js: 入力部のパネル
-            * OutputPanel.js: 解析結果表示部のパネル
-            * PanelBody.js: PanelのBody
+            * InputSentenceSentence.js: 入力部
+            * InputCard.js: 入力部のパネル
+            * OutputCard.js: 解析結果表示部のパネル
+            * PanelCardBody.js: CardのBody
             * Sentence.js: 入力文をボタンのグループとして表示するComponent
             * Word.js: Sentenceの各ボタン
         * containers/: [react-redux](https://redux.js.org/basics/usage-with-react)のContainerが格納されている
             * App.js: ルート要素のContainer
             * Information.js: 解析結果表示部のContainer
-            * Input.js: 入力部のContainer
-            * OutputPanel: 解析結果表示部のパネルのContainer
-            * PanelBody.js: PanelのBodyのContainer
+            * InputSentenceSentence.js: 入力部のContainer
+            * OutputCard: 解析結果表示部のパネルのContainer
+            * PanelCardBody.js: CardのBodyのContainer
             * Sentence.js: 入力文をボタンのグループとして表示するComponentのContainer
             * Word.js: Sentenceの各ボタンのContainer
         * reducers/: [Redux](https://redux.js.org/)のReducerが格納されている

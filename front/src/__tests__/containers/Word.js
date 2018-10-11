@@ -5,7 +5,7 @@ import configureMockStore from "redux-mock-store"
 import initialShowSentenceState from "../../test_data/initialShowSentenceState"
 import initialShowPOSAndPronunciationState from "../../test_data/initialShowPOSAndPronunciationState"
 import {loadTranslation, mountWithIntl, shallowWithIntl} from "enzyme-react-intl"
-import {eventMock} from "./Input"
+import {eventMock} from "./InputSentence"
 import {showPOSAndPronunciation} from "../../actions"
 import {pos, pronunciation__, showPOSAndPronunciationState_, word} from "../../test_data"
 

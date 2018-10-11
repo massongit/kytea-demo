@@ -1,7 +1,7 @@
 import React from "react"
 import fetch from "node-fetch"
 import PropTypes from "prop-types"
-import {Button, Form, FormControl, InputGroup} from "react-bootstrap"
+import {Button, Form, Input, InputGroup, InputGroupAddon} from "reactstrap"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {FormattedMessage, intlShape} from "react-intl"
 import {loading, showSentence} from "../actions"
@@ -10,7 +10,7 @@ import {faSpinner} from "@fortawesome/free-solid-svg-icons"
 /**
  * 入力部
  */
-class Input extends React.Component {
+class InputSentence extends React.Component {
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
         sentence: PropTypes.string.isRequired,
@@ -106,24 +106,25 @@ class Input extends React.Component {
                 onSubmit={this.onSubmit}
             >
                 <InputGroup>
-                    <FormControl
-                        inputRef={n => {
+                    <Input
+                        innerRef={n => {
                             this.input = n
                         }}
                     />
-                    <InputGroup.Button>
+                    <InputGroupAddon addonType="append">
                         <Button
                             type="submit"
+                            color="primary"
                             disabled={this.props.loading}
                         >
                             {this.renderSpinner()}
                             <FormattedMessage id="predict"/>
                         </Button>
-                    </InputGroup.Button>
+                    </InputGroupAddon>
                 </InputGroup>
             </Form>
         )
     }
 }
 
-export default Input
+export default InputSentence

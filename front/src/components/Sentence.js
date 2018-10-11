@@ -1,6 +1,6 @@
 import React from "react"
 import Word from "../containers/Word"
-import {ButtonGroup} from "react-bootstrap"
+import {ButtonGroup} from "reactstrap"
 import {propTypes} from "./App"
 
 /**

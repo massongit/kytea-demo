@@ -1,7 +1,7 @@
 import React from "react"
 import App from "../../containers/App"
-import OutputPanel from "../../containers/OutputPanel"
-import InputPanel from "../../components/InputPanel"
+import OutputCard from "../../containers/OutputCard"
+import InputCard from "../../components/InputCard"
 import rootReducer from "../../reducers"
 import {shallow} from "enzyme"
 import {createStore} from "redux"
@@ -22,7 +22,7 @@ const beforeProcess = () => (
     ).dive()
 )
 
-describe("containers/PanelBody", () => {
+describe("containers/PanelCardBody", () => {
     beforeEach(() => {
         store = createStore(rootReducer)
     })
@@ -31,23 +31,23 @@ describe("containers/PanelBody", () => {
         doSnapshot(functions2, store, beforeProcess)
     })
 
-    it("子要素にInputPanelが含まれる", () => {
+    it("子要素にInputCardが含まれる", () => {
         for (const f of functions2) {
             if (f) {
                 f(store)
             }
 
-            expect(beforeProcess().children().contains(<InputPanel/>)).toBeTruthy()
+            expect(beforeProcess().children().contains(<InputCard/>)).toBeTruthy()
         }
     })
 
-    it("子要素にOutputPanelが正しく配置される", () => {
+    it("子要素にOutputCardが正しく配置される", () => {
         for (const v of [[functions2[0], false], [functions2[1], true], [functions2[2], true]]) {
             if (v[0]) {
                 v[0](store)
             }
 
-            expect(beforeProcess().children().contains(<OutputPanel/>)).toEqual(v[1])
+            expect(beforeProcess().children().contains(<OutputCard/>)).toEqual(v[1])
         }
     })
 })

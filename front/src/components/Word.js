@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {Button, DropdownButton, MenuItem} from "react-bootstrap"
+import {Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle} from "reactstrap"
 import {intlShape} from "react-intl"
 import {propTypesPart} from "./App"
 import {showPOSAndPronunciation} from "../actions"
@@ -14,6 +14,13 @@ class Word extends React.Component {
         word: PropTypes.string,
         intl: intlShape.isRequired,
         ...propTypesPart
+    }
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            dropdownOpen: false
+        }
     }
 
     /**
@@ -57,6 +64,8 @@ class Word extends React.Component {
     renderButton() {
         return (
             <Button
+                outline
+                color="dark"
                 onClick={() => {
                     this.onClick(0)
                 }}
@@ -72,39 +81,52 @@ class Word extends React.Component {
      */
     renderDropdownButton() {
         return (
-            <DropdownButton
-                title={this.props.word}
+            <ButtonDropdown
+                isOpen={this.state.dropdownOpen}
+                toggle={() => {
+                    this.setState(state => ({
+                        dropdownOpen: !state.dropdownOpen
+                    }))
+                }}
             >
-                {
-                    (() => {
-                        // MenuItemのリスト
-                        const menuItems = []
+                <DropdownToggle
+                    caret
+                    color="outline-dark"
+                >
+                    {this.props.word}
+                </DropdownToggle>
+                <DropdownMenu>
+                    {
+                        (() => {
+                            // DropdownItemのリスト
+                            const menuItems = []
 
-                        for (let i = 0; i < this.props.pronunciation.length; i++) {
-                            // 今見ている読みが0番目の読みでないとき、区切り線をリストに追加
-                            if (0 < i) {
-                                menuItems.push(<MenuItem divider/>)
+                            for (let i = 0; i < this.props.pronunciation.length; i++) {
+                                // 今見ている読みが0番目の読みでないとき、区切り線をリストに追加
+                                if (0 < i) {
+                                    menuItems.push(<DropdownItem divider/>)
+                                }
+
+                                // DropdownItemをリストに追加
+                                menuItems.push(this.renderDropdownItem(i))
                             }
 
-                            // MenuItemをリストに追加
-                            menuItems.push(this.renderMenuItem(i))
-                        }
-
-                        return menuItems
-                    })()
-                }
-            </DropdownButton>
+                            return menuItems
+                        })()
+                    }
+                </DropdownMenu>
+            </ButtonDropdown>
         )
     }
 
     /**
-     * MenuItemを描画する
+     * DropdownItemを描画する
      * @param n 候補No
-     * @returns {node} MenuItem
+     * @returns {node} DropdownItem
      */
-    renderMenuItem(n) {
+    renderDropdownItem(n) {
         return (
-            <MenuItem
+            <DropdownItem
                 key={n}
                 onClick={() => {
                     this.onClick(n)
@@ -120,7 +142,7 @@ class Word extends React.Component {
                         }
                     ), n)
                 }
-            </MenuItem>
+            </DropdownItem>
         )
     }
 
