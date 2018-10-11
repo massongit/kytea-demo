@@ -18,6 +18,7 @@ class Word extends React.Component {
 
     constructor(props) {
         super(props)
+        this.toggleDropdown = this.toggleDropdown.bind(this)
         this.state = {
             dropdownOpen: false
         }
@@ -58,6 +59,15 @@ class Word extends React.Component {
     }
 
     /**
+     * Dropdownの状態を切り替える
+     */
+    toggleDropdown() {
+        this.setState(state => ({
+            dropdownOpen: !state.dropdownOpen
+        }))
+    }
+
+    /**
      * Buttonを描画する
      * @returns {node} Button
      */
@@ -83,11 +93,7 @@ class Word extends React.Component {
         return (
             <ButtonDropdown
                 isOpen={this.state.dropdownOpen}
-                toggle={() => {
-                    this.setState(state => ({
-                        dropdownOpen: !state.dropdownOpen
-                    }))
-                }}
+                toggle={this.toggleDropdown}
             >
                 <DropdownToggle
                     caret
