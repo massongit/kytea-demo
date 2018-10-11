@@ -68,6 +68,26 @@ class Word extends React.Component {
     }
 
     /**
+     * DropdownItemのリストを生成する
+     * @returns {Array} DropdownItemのリスト
+     */
+    generateDropDownItems() {
+        const dropdownItems = []
+
+        for (let i = 0; i < this.props.pronunciation.length; i++) {
+            // 今見ている読みが0番目の読みでないとき、区切り線をリストに追加
+            if (0 < i) {
+                dropdownItems.push(<DropdownItem divider/>)
+            }
+
+            // DropdownItemをリストに追加
+            dropdownItems.push(this.renderDropdownItem(i))
+        }
+
+        return dropdownItems
+    }
+
+    /**
      * Buttonを描画する
      * @returns {node} Button
      */
@@ -102,24 +122,7 @@ class Word extends React.Component {
                     {this.props.word}
                 </DropdownToggle>
                 <DropdownMenu>
-                    {
-                        (() => {
-                            // DropdownItemのリスト
-                            const menuItems = []
-
-                            for (let i = 0; i < this.props.pronunciation.length; i++) {
-                                // 今見ている読みが0番目の読みでないとき、区切り線をリストに追加
-                                if (0 < i) {
-                                    menuItems.push(<DropdownItem divider/>)
-                                }
-
-                                // DropdownItemをリストに追加
-                                menuItems.push(this.renderDropdownItem(i))
-                            }
-
-                            return menuItems
-                        })()
-                    }
+                    {this.generateDropDownItems()}
                 </DropdownMenu>
             </ButtonDropdown>
         )
