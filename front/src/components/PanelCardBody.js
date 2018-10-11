@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {CardBody} from "reactstrap"
+import {CardBody, CardText} from "reactstrap"
 import {intlShape} from "react-intl"
 
 /**
@@ -25,9 +25,9 @@ class PanelCardBody extends React.Component {
 
             if (this.props.children) {
                 return (
-                    <p>
+                    <CardText>
                         {description}
-                    </p>
+                    </CardText>
                 )
             } else {
                 return description
