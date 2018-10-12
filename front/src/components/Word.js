@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Bold from "./Bold"
 import {Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle} from "reactstrap"
 import {intlShape} from "react-intl"
 import {propTypesPart} from "./App"
@@ -47,11 +48,9 @@ class Word extends React.Component {
     getButtonText(text, n) {
         if (this.props.pronunciation[n] && this.props.pronunciation[n].id) { // 読みが予測されているとき、文字列を強調
             return (
-                <strong>
-                    <u>
-                        {text}
-                    </u>
-                </strong>
+                <Bold>
+                    {text}
+                </Bold>
             )
         } else {
             return text
