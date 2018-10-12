@@ -105,7 +105,7 @@ class InputSentence extends React.Component {
             <Form
                 onSubmit={this.onSubmit}
             >
-                <InputGroup>
+                <InputGroup className="mb-3">
                     <Input
                         innerRef={n => {
                             this.input = n
