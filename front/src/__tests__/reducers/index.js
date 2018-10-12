@@ -228,7 +228,6 @@ describe("reducers/index", () => {
     it("初期状態からloading, showSentence, loading, loading, showSentence, loading, showPOSAndPronunciation, showPOSAndPronunciationとStateが遷移した際に、正しいStateを返す", () => {
         dispatchEqual(store,
             [
-
                 loading(loadingState),
                 makeShowSentenceAction(showSentenceState),
                 loading(initialLoadingState),

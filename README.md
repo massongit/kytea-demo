@@ -125,9 +125,9 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
                 * \_\_snapshots\_\_/: スナップショットテストで用いるデータが格納されている
                 * App.js: ルート要素のContainerのテスト
                 * Information.js: 解析結果表示部のContainerのテスト
-                * InputSentenceSentence.js: 入力部のContainerのテスト
+                * InputSentence.js: 入力部のContainerのテスト
                 * OutputCard.js: 解析結果表示部のパネルのContainerのテスト
-                * PanelCardBody.js: CardのBodyのテスト
+                * PanelCardBody.js: CardのBodyのContainerのテスト
                 * Sentence.js: 入力文をボタンのグループとして表示するComponentのContainerのテスト
                 * Word.js: Sentenceの各ボタンのContainerのテスト
             * reducers/: [Redux](https://redux.js.org/)のReducerのテストが格納されている
@@ -143,7 +143,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
             * DescriptionCard.js: 概要パネル
             * Header.js: ヘッダー
             * Information.js: 解析結果表示部
-            * InputSentenceSentence.js: 入力部
+            * InputSentence.js: 入力部
             * InputCard.js: 入力部のパネル
             * OutputCard.js: 解析結果表示部のパネル
             * PanelCardBody.js: CardのBody
@@ -152,7 +152,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
         * containers/: [react-redux](https://redux.js.org/basics/usage-with-react)のContainerが格納されている
             * App.js: ルート要素のContainer
             * Information.js: 解析結果表示部のContainer
-            * InputSentenceSentence.js: 入力部のContainer
+            * InputSentence.js: 入力部のContainer
             * OutputCard: 解析結果表示部のパネルのContainer
             * PanelCardBody.js: CardのBodyのContainer
             * Sentence.js: 入力文をボタンのグループとして表示するComponentのContainer
