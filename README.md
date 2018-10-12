@@ -7,7 +7,7 @@
 Masaya Suzuki <suzukimasaya428@gmail.com>
 
 ## バージョン
-0.1.3
+0.1.4
 
 ## 開発言語・主要ライブラリ
 ### サーバーサイド
