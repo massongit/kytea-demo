@@ -10,22 +10,22 @@ loadTranslation("./src/translations/ja.json")
 
 describe("containers/PanelCardBody", () => {
     it("Componentが正しく配置されている", () => {
-        const panelBodyComponent = shallowWithIntl(
+        const panelCardBodyComponent = shallowWithIntl(
             <PanelCardBody messageId="description.input">
                 <InputSentence/>
             </PanelCardBody>
         ).dive()
-        expect(panelBodyComponent).toMatchSnapshot()
+        expect(panelCardBodyComponent).toMatchSnapshot()
     })
 
     it("CardBodyの直下に子要素が入っている", () => {
-        const panelBodyComponent = mountWithIntl(
+        const panelCardBodyComponent = mountWithIntl(
             <PanelCardBody messageId="description.input">
                 <InputSentence
                     store={createStore(rootReducer)}
                 />
             </PanelCardBody>
         )
-        expect(panelBodyComponent.find(CardBody).children().contains(InputSentence)).toBeTruthy()
+        expect(panelCardBodyComponent.find(CardBody).children().contains(InputSentence)).toBeTruthy()
     })
 })

@@ -18,7 +18,7 @@ export const eventMock = {
     preventDefault: jest.fn()
 }
 
-const checkContainShowSentence = (store, inputComponent, w) => {
+const checkContainShowSentence = (store, inputSentenceComponent, w) => {
     let isExpect = false
     const action_ = makeShowSentenceAction(w)
     for (const action of store.getActions()) {
@@ -43,12 +43,12 @@ describe("containers/InputSentence", () => {
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
-        const inputComponent = shallowWithIntl(
+        const inputSentenceComponent = shallowWithIntl(
             <InputSentence
                 store={store}
             />
         ).dive()
-        expect(inputComponent).toMatchSnapshot()
+        expect(inputSentenceComponent).toMatchSnapshot()
     })
 
     it("Formになっている", () => {
@@ -57,12 +57,12 @@ describe("containers/InputSentence", () => {
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
-        const inputComponent = mountWithIntl(
+        const inputSentenceComponent = mountWithIntl(
             <InputSentence
                 store={store}
             />
         )
-        expect(inputComponent.contains(Form)).toBeTruthy()
+        expect(inputSentenceComponent.contains(Form)).toBeTruthy()
     })
 
     it("onSubmitイベントが呼び出されたとき、サーバーへのSubmitが行われない", async () => {
@@ -71,12 +71,12 @@ describe("containers/InputSentence", () => {
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
-        const inputComponent = mountWithIntl(
+        const inputSentenceComponent = mountWithIntl(
             <InputSentence
                 store={store}
             />
         )
-        await inputComponent.find(Form).props().onSubmit(eventMock)
+        await inputSentenceComponent.find(Form).props().onSubmit(eventMock)
         expect(eventMock.preventDefault.mock.calls).toHaveLength(1)
     })
 
@@ -86,12 +86,12 @@ describe("containers/InputSentence", () => {
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
-        const inputComponent = mountWithIntl(
+        const inputSentenceComponent = mountWithIntl(
             <InputSentence
                 store={store}
             />
         )
-        await inputComponent.find(Form).props().onSubmit(eventMock)
+        await inputSentenceComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(0)
         expect(store.getActions()).toHaveLength(0)
     })
@@ -102,42 +102,42 @@ describe("containers/InputSentence", () => {
             showSentence: initialShowSentenceState,
             showPOSAndPronunciation: initialShowPOSAndPronunciationState
         })
-        const inputComponent = mountWithIntl(
+        const inputSentenceComponent = mountWithIntl(
             <InputSentence
                 store={store}
             />
         )
-        inputComponent.find(Input).children().instance().value = sentence
+        inputSentenceComponent.find(Input).children().instance().value = sentence
         fetch.mockResponse(JSON.stringify(words))
-        await inputComponent.find(Form).props().onSubmit(eventMock)
+        await inputSentenceComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(1)
-        checkContainShowSentence(store, inputComponent, showSentenceState)
+        checkContainShowSentence(store, inputSentenceComponent, showSentenceState)
     })
 
     it("前回と同じ入力内容でonSubmitイベントを呼び出したとき、fetchやdispatchが行われない", async () => {
         const store = configureMockStore([thunk])(rootStateAfterShowSentence)
-        const inputComponent = mountWithIntl(
+        const inputSentenceComponent = mountWithIntl(
             <InputSentence
                 store={store}
             />
         )
-        inputComponent.find(Input).children().instance().value = sentence
-        await inputComponent.find(Form).props().onSubmit(eventMock)
+        inputSentenceComponent.find(Input).children().instance().value = sentence
+        await inputSentenceComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(0)
         expect(store.getActions()).toHaveLength(0)
     })
 
     it("前回とは違う入力内容でonSubmitイベントを呼び出したとき、fetchやdispatchが正常に行われる", async () => {
         const store = configureMockStore([thunk])(rootStateAfterShowSentence)
-        const inputComponent = mountWithIntl(
+        const inputSentenceComponent = mountWithIntl(
             <InputSentence
                 store={store}
             />
         )
-        inputComponent.find(Input).children().instance().value = sentence2
+        inputSentenceComponent.find(Input).children().instance().value = sentence2
         fetch.mockResponse(JSON.stringify(words2))
-        await inputComponent.find(Form).props().onSubmit(eventMock)
+        await inputSentenceComponent.find(Form).props().onSubmit(eventMock)
         expect(fetch.mock.calls).toHaveLength(1)
-        checkContainShowSentence(store, inputComponent, showSentenceState2)
+        checkContainShowSentence(store, inputSentenceComponent, showSentenceState2)
     })
 })
