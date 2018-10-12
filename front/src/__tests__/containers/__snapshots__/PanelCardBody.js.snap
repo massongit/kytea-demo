@@ -67,9 +67,11 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <p>
+        <CardText
+          tag="p"
+        >
           日本語の文章を入力し、予測ボタンをクリックしてください。
-        </p>,
+        </CardText>,
         <InjectIntl(Connect(InputSentence)) />,
       ],
       "tag": "div",
@@ -79,13 +81,14 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
           "children": "日本語の文章を入力し、予測ボタンをクリックしてください。",
+          "tag": "p",
         },
         "ref": null,
         "rendered": "日本語の文章を入力し、予測ボタンをクリックしてください。",
-        "type": "p",
+        "type": [Function],
       },
       Object {
         "instance": null,
@@ -106,9 +109,11 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <p>
+          <CardText
+            tag="p"
+          >
             日本語の文章を入力し、予測ボタンをクリックしてください。
-          </p>,
+          </CardText>,
           <InjectIntl(Connect(InputSentence)) />,
         ],
         "tag": "div",
@@ -118,13 +123,14 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
             "children": "日本語の文章を入力し、予測ボタンをクリックしてください。",
+            "tag": "p",
           },
           "ref": null,
           "rendered": "日本語の文章を入力し、予測ボタンをクリックしてください。",
-          "type": "p",
+          "type": [Function],
         },
         Object {
           "instance": null,
