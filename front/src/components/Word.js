@@ -114,10 +114,7 @@ class Word extends React.Component {
                 isOpen={this.state.dropdownOpen}
                 toggle={this.toggleDropdown}
             >
-                <DropdownToggle
-                    caret
-                    color="outline-dark"
-                >
+                <DropdownToggle caret outline color="dark">
                     {this.props.word}
                 </DropdownToggle>
                 <DropdownMenu>
