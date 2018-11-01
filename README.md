@@ -32,14 +32,15 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
 * [KyTea](http://www.phontron.com/kytea/index-ja.html)
 * [Python](https://www.python.org/) 3.x
 * [pipenv](https://docs.pipenv.org/) (インストールコマンド: `pip install pipenv`)
-* [nginx](http://nginx.org/) (uWSGI + nginxを使う場合のみ)
+* [nginx](http://nginx.org/) (nginxを使う場合のみ)
+* [Apache2](https://httpd.apache.org/) (Apache2を使う場合のみ)
 
 ### `front/build`ディレクトリがない場合のみ
 * [Node.js](https://nodejs.org/ja/) 8.x
 * [Yarn](https://yarnpkg.com/ja/)
 
 ## 環境構築方法
-### uWSGI + nginxを使う場合のみ
+### nginxやApache2を使う場合のみ
 1. 以下のように`/etc/systemd/system/kytea-demo.service`を作成します。  
 ※`TODO`部の指示通りに書き換えを行ってください。
 
@@ -60,6 +61,7 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
     
     ```
 
+### nginxを使う場合のみ
 1. 以下のように`/etc/nginx/sites-available/{ドメイン名}`を作成します。  
 ※`TODO`部の指示通りに書き換えを行ってください。
 
@@ -70,18 +72,41 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
         listen 80;
         
         # TODO: 以下を記述し、コメントアウトを解除
-        # location ~ /{サブドメイン名}(/.*)?$ {
+        # location ~ ^/{サブドメイン名}(/.*)?$ {
             include uwsgi_params;
-            uwsgi_pass unix:///tmp/kytea-demo.sock;
-            # TODO: 以下を記述し、コメントアウトを解除
-            # uwsgi_param SCRIPT_NAME /{サブドメイン名};
+            uwsgi_pass unix:/tmp/kytea-demo.sock;
             uwsgi_param PATH_INFO $1;
         }
     }
     
     ```
 
-1. `sudo ln -s /etc/nginx/sites-available/{ドメイン名} /etc/nginx/sites-enabled/{ドメイン名}`コマンドを実行し、シンボリックリンクを作成します。
+1. `sudo ln -s /etc/nginx/sites-available/{ドメイン名} /etc/nginx/sites-enabled/{ドメイン名}`コマンドを実行し、設定を有効化します。
+
+### Apache2を使う場合のみ
+1. `sudo apt install libapache2-mod-proxy-uwsgi`コマンドを実行し、`mod_proxy_uwsgi`をインストールします。
+1. `sudo a2enmod rewrite`コマンドを実行し、`mod_rewrite`を有効化します。
+1. 以下のように`/etc/apache2/sites-available/{ドメイン名}.conf`を作成します。  
+※`TODO`部の指示通りに書き換えを行ってください。
+
+    ```/etc/apache2/sites-available/{ドメイン名}.conf
+    # TODO: 以下を記述し、コメントアウトを解除
+    # <VirtualHost {ドメイン名}:80>
+    	# TODO: 以下を記述し、コメントアウトを解除
+    	# <Location /{サブドメイン名}>
+    		ProxyPass unix:/tmp/kytea-demo.sock|uwsgi://kytea-demo
+    		RewriteEngine on
+    		# TODO: 以下を記述し、コメントアウトを解除
+    		# RewriteRule ^/{サブドメイン名}(/.*)?$ $1
+    	</Location>
+    	
+    	ErrorLog ${APACHE_LOG_DIR}/error.log
+    	CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
+    
+    ```
+
+1. `sudo a2ensite {ドメイン名}`コマンドを実行し、設定を有効化します。
 
 ### `front/build`ディレクトリがない場合のみ
 1. 端末を起動します。
@@ -103,8 +128,12 @@ Masaya Suzuki <suzukimasaya428@gmail.com>
 1. `python server.py`コマンドを実行します。
 1. ブラウザから[http://localhost:5000/](http://localhost:5000/)にアクセスします。
 
-### uWSGI + nginxを使う場合
+### nginxを使う場合
 1. `sudo systemctl start nginx kytea-demo`コマンドを実行します。
+1. ブラウザからアクセスします。
+
+### Apache2を使う場合
+1. `sudo systemctl start apache2 kytea-demo`コマンドを実行します。
 1. ブラウザからアクセスします。
 
 ## スクリーンショット
