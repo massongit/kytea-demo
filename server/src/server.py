@@ -15,7 +15,7 @@ import flask
 import flask_api.status
 import flask_classy
 
-import config
+import configs
 
 # 作者
 __author__ = 'Masaya Suzuki'
@@ -24,7 +24,7 @@ __author__ = 'Masaya Suzuki'
 __version__ = '0.1.5'
 
 # 設定
-conf = config.Config(pathlib.Path.cwd().parent / 'configs')
+conf = configs.Config(pathlib.Path.cwd().parent / 'configs')
 
 app = flask.Flask(__name__, conf.get('general', 'front', 'url'), conf.get('general', 'front', 'dir path'))
 
