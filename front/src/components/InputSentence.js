@@ -24,6 +24,27 @@ class InputSentence extends React.Component {
     }
 
     /**
+     * KyTeaのAPIを呼び出す
+     * @param value {string} 入力文
+     * @returns {Promise<*>} 解析結果
+     */
+    static async callKyTea(value) {
+        const res = await fetch(
+            "kytea",
+            {
+                method: "POST",
+                body: value
+            }
+        )
+
+        if (res.ok) {
+            return await res.json()
+        } else {
+            throw new Error(res.statusText)
+        }
+    }
+
+    /**
      * onSubmitイベント
      * @param ev イベント
      */
@@ -44,7 +65,7 @@ class InputSentence extends React.Component {
             try {
                 this.props.dispatch(showSentence({
                     sentence: this.input.value,
-                    words: await this.callKyTea(this.input.value)
+                    words: await InputSentence.callKyTea(this.input.value)
                 }))
             } catch (er) {
                 alert(this.props.intl.formatMessage(
@@ -77,27 +98,6 @@ class InputSentence extends React.Component {
                 />
             )
         }
-    }
-
-    /**
-     * KyTeaのAPIを呼び出す
-     * @param value {string} 入力文
-     * @returns {Promise<*>} 解析結果
-     */
-    async callKyTea(value) {
-        return await (await fetch(
-            "kytea",
-            {
-                method: "POST",
-                body: value
-            }
-        ).then(res => {
-            if (res.ok) {
-                return res
-            } else {
-                throw new Error(res.statusText)
-            }
-        })).json()
     }
 
     render() {
