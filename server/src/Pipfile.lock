@@ -33,11 +33,11 @@
         },
         "flask-api": {
             "hashes": [
-                "sha256:6f9dc56d55fd82ffb1c5c9fd794cd6c50873ac10cf662e26817c179a655d1e22",
-                "sha256:fc10a80a13ea6fcf04acc2b1835aea05ec44aa6ae94f2ee85e52cd068567ce35"
+                "sha256:7340db47560883b342f9965d43435eeaf595c2d30e9fc0fe48d37aab4c03942e",
+                "sha256:c0142c53fc4053d866ff3f449dd7f43b4737b6d9a70e5a77fa2b9aaf68bb4364"
             ],
             "index": "pypi",
-            "version": "==1.0"
+            "version": "==1.1"
         },
         "flask-classy": {
             "hashes": [
