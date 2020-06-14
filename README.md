@@ -1,6 +1,6 @@
 # KyTeaデモプログラム (非公式)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
-[![Maintainability](https://api.codeclimate.com/v1/badges/14722557363aecb8cf57/maintainability)](https://codeclimate.com/github/massongit/kytea-demo/maintainability) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=massongit/kytea-demo)](https://dependabot.com)  
+[![Maintainability](https://api.codeclimate.com/v1/badges/14722557363aecb8cf57/maintainability)](https://codeclimate.com/github/massongit/kytea-demo/maintainability)  
 [KyTea](http://www.phontron.com/kytea/index-ja.html)によって予測された品詞や読みを分かりやすく表示するデモプログラム (非公式)
 
 ## 作者
